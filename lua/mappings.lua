@@ -113,6 +113,13 @@ M.telescope = {
     mode = "n",
     desc = "Git status",
   },
+  {
+    "<leader>gb",
+    "<cmd> Telescope git_branches<CR>",
+    mode = "n",
+    desc = "Git branches",
+  },
+
   -- marks
   {
     "<leader>ma",
@@ -168,6 +175,14 @@ M.lspconfig = {
     desc = "Diagnostic setloclist",
   },
   {
+    "<leader>f",
+    function()
+      vim.diagnostic.open_float({ border = "rounded" })
+    end,
+    mode = "n",
+    desc = "Floating diagnostic",
+  },
+  {
     "<leader>ca",
     function()
       vim.lsp.buf.code_action()
@@ -182,6 +197,14 @@ M.lspconfig = {
     end,
     mode = "n",
     desc = "LSP hover",
+  },
+  {
+    "<leader>ra",
+    function()
+      vim.lsp.buf.rename()
+    end,
+    mode = "n",
+    desc = "LSP rename",
   },
 }
 

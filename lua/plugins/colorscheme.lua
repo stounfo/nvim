@@ -6,17 +6,23 @@ return {
     vim.o.background = "dark"
     vim.g.gruvbox_material_background = "hard"
     vim.g.gruvbox_material_transparent_background = 1
+    vim.g.gruvbox_material_current_word = "underline"
+
     vim.cmd.colorscheme("gruvbox-material")
-    vim.cmd("highlight CurrentWord cterm= underline gui=underline")
+
+    vim.cmd("highlight errorText gui=undercurl")
+    vim.cmd("highlight WarningText gui=undercurl")
+    vim.cmd("highlight InfoText gui=undercurl")
+    vim.cmd("highlight HintText gui=undercurl")
   end,
 }
 
 -- return {
---   "ellisonleao/gruvbox.nvim",
---   priority = 1000,
+--   "folke/tokyonight.nvim",
 --   lazy = false,
+--   priority = 1000,
+--   opts = {},
 --   config = function()
---     vim.o.background = "dark" -- or "light" for light mode
---     vim.cmd([[colorscheme gruvbox]])
---   end,
+--     vim.cmd.colorscheme("tokyonight")
+--   end
 -- }

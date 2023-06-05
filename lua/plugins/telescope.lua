@@ -12,6 +12,15 @@ local opts = {
       height = 0.80,
       preview_cutoff = 120,
     },
+
+    mappings = {
+      i = {
+        ["<C-s>"] = "select_vertical",
+      },
+      n = {
+        ["<C-s>"] = "select_vertical",
+      },
+    },
   },
 }
 

@@ -7,7 +7,6 @@ vim.opt.swapfile = false
 -- vim.opt.colorcolumn = "79"
 vim.opt.signcolumn = "yes"
 
-vim.opt.laststatus = 3
 vim.o.showmode = false
 
 vim.opt.clipboard = "unnamedplus"

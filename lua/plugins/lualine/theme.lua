@@ -2,6 +2,7 @@
 local colors = {
   fg = "#76787d",
   bg = "#282828",
+  bg2 = "#1d2021",
   color2 = "#504945",
   color5 = "#7daea3",
   color6 = "#a9b665",
@@ -12,9 +13,10 @@ local colors = {
 
 return {
   normal = {
-    a = { fg = colors.bg, bg = colors.fg },
-    b = { fg = colors.fg, bg = colors.bg },
+    a = { fg = colors.fg, bg = colors.bg },
+    b = { fg = colors.fg, bg = colors.bg2 },
     c = { fg = colors.fg, bg = colors.bg },
+
   },
   command = { a = { fg = colors.bg, bg = colors.color5 } },
   inactive = { a = { fg = colors.bg, bg = colors.color2 } },

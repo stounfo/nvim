@@ -3,11 +3,38 @@ local function opts()
   for key, value in pairs(require("consts").diagnostic_signs) do
     symbols[key] = value .. " "
   end
+  local winbar = {
+    lualine_b = {
+      {
+        "filetype",
+        icon_only = true,
+        colored = false,
+        separator = "",
+        padding = {
+          left = 1,
+          right = 0,
+        },
+      },
+      {
+        "filename",
+        path = 1,
+      },
+      { "%=" },
+      {
+        "diagnostics",
+        sources = { "nvim_lsp" },
+        symbols = symbols,
+        colored = false
+      },
+    },
+  }
+
   return {
     options = {
       theme = require("plugins.lualine.theme"),
       section_separators = "",
       component_separators = "",
+      globalstatus = true,
     },
     sections = {
       lualine_b = {},
@@ -15,33 +42,20 @@ local function opts()
         {
           "branch",
         },
-        {
-          "filetype",
-          icon_only = true,
-          colored = false,
-          separator = "",
-          padding = {
-            left = 1,
-            right = 0,
-          },
-        },
-        {
-          "filename",
-          path = 1,
-        },
-        {
-          "diagnostics",
-          sources = { "nvim_lsp" },
-          symbols = symbols,
-          -- colored = false,
-        },
       },
-      lualine_x = { "encoding", "location", "progress" },
+      lualine_x = {
+        "encoding",
+        "location",
+        "progress",
+        function()
+          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t") or ""
+        end,
+      },
       lualine_y = {},
       lualine_z = {},
     },
-    winbar = {
-    },
+    winbar = winbar,
+    inactive_winbar = winbar,
   }
 end
 
