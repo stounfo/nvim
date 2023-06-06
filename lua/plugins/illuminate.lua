@@ -1,6 +1,6 @@
 return {
   "RRethy/vim-illuminate",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "CursorMoved", "CursorMovedI" },
   config = function()
     require("illuminate").configure({
       providers = {

@@ -39,23 +39,22 @@ local function opts()
     sections = {
       lualine_b = {},
       lualine_c = {
-        {
-          "branch",
-        },
+        function()
+          return " " .. (vim.fn.fnamemodify(vim.fn.getcwd(), ":t") or "")
+        end,
+        {"branch", icon = ""},
       },
       lualine_x = {
         "encoding",
         "location",
         "progress",
-        function()
-          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t") or ""
-        end,
       },
       lualine_y = {},
       lualine_z = {},
     },
     winbar = winbar,
     inactive_winbar = winbar,
+    extensions = require("plugins.lualine.extensions")
   }
 end
 

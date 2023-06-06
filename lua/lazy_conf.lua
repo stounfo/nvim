@@ -15,6 +15,16 @@ local lazy_opts = {
   defaults = {
     lazy = true,
   },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+      },
+    },
+  },
 }
 
 require("lazy").setup("plugins", lazy_opts)

@@ -15,13 +15,23 @@ local opts = {
 
     mappings = {
       i = {
-        ["<C-s>"] = "select_vertical",
+        ["<C-s>"] = "select_horizontal",
       },
       n = {
-        ["<C-s>"] = "select_vertical",
+        ["<C-s>"] = "select_horizontal",
       },
     },
   },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<C-x>"] = "delete_buffer",
+        }
+      }
+    }
+
+  }
 }
 
 return {

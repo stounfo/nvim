@@ -14,6 +14,7 @@ return {
     vim.cmd("highlight WarningText gui=undercurl")
     vim.cmd("highlight InfoText gui=undercurl")
     vim.cmd("highlight HintText gui=undercurl")
+    vim.cmd("hi NeoTreeWinSeparator guifg=#1d2021")
   end,
 }
 

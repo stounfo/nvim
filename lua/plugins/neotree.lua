@@ -1,4 +1,11 @@
 local opts = {
+  window = {
+    position = "left",
+    mappings = {
+      ["s"] = "open_split",
+      ["v"] = "open_vsplit",
+    },
+  },
   filesystem = {
     filtered_items = {
       hide_dotfiles = false,

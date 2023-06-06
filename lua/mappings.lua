@@ -71,7 +71,9 @@ M.telescope = {
   },
   {
     "<leader>fw",
-    "<cmd> Telescope live_grep <CR>",
+    function()
+      require("telescope.builtin").live_grep()
+    end,
     mode = "n",
     desc = "Live grep",
   },

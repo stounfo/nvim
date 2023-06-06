@@ -4,10 +4,10 @@ vim.opt.number = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true
 vim.opt.swapfile = false
--- vim.opt.colorcolumn = "79"
 vim.opt.signcolumn = "yes"
+vim.opt.wrap = false
 
-vim.o.showmode = false
+vim.opt.showmode = false
 
 vim.opt.clipboard = "unnamedplus"
 
@@ -20,7 +20,7 @@ end
 -- fix colors
 vim.o.termguicolors = true
 
--- fix tabs
+-- fix tabs (tabs vs spaces. The spaces win!)
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
