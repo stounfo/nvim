@@ -1,9 +1,41 @@
 local opts = {
+  close_if_last_window = true,
+  enable_diagnostics = false,
+  hide_root_node = true,
   window = {
     position = "left",
+    width = 30,
     mappings = {
       ["s"] = "open_split",
       ["v"] = "open_vsplit",
+    },
+  },
+  default_component_configs = {
+    indent = {
+      last_indent_marker = "│",
+    },
+    icon = {
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "ﰊ",
+    },
+    modified = {
+      symbol = "",
+    },
+    git_status = {
+      symbols = {
+        -- Change type
+        added = "",    -- this is redundant info if you use git_status_colors on the name
+        modified = "", -- this is redundant info if you use git_status_colors on the name
+        deleted = "",  -- this can only be used in the git_status source
+        renamed = "",  -- this can only be used in the git_status source
+        -- Status type
+        untracked = "",
+        ignored = "",
+        unstaged = "",
+        staged = "",
+        conflict = "",
+      },
     },
   },
   filesystem = {
@@ -13,8 +45,11 @@ local opts = {
       never_show = {
         ".DS_Store",
         "__pycache__",
+        ".git",
       },
     },
+    follow_current_file = false,
+    use_libuv_file_watcher = true,
   },
 }
 

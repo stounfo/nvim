@@ -1,6 +1,6 @@
 -- TODO del hardcode
 local colors = {
-  fg = "#76787d",
+  fg = "#928374",
   bg = "#282828",
   bg2 = "#1d2021",
   color2 = "#504945",

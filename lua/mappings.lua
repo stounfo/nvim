@@ -177,7 +177,7 @@ M.lspconfig = {
     desc = "Diagnostic setloclist",
   },
   {
-    "<leader>f",
+    "<leader>d",
     function()
       vim.diagnostic.open_float({ border = "rounded" })
     end,

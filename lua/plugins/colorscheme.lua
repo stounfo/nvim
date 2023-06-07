@@ -10,11 +10,27 @@ return {
 
     vim.cmd.colorscheme("gruvbox-material")
 
+    -- TODO remove hardcode
+
     vim.cmd("highlight errorText gui=undercurl")
     vim.cmd("highlight WarningText gui=undercurl")
     vim.cmd("highlight InfoText gui=undercurl")
     vim.cmd("highlight HintText gui=undercurl")
+
+    -- neo tree
     vim.cmd("hi NeoTreeWinSeparator guifg=#1d2021")
+    vim.cmd("hi link NeoTreeDirectoryIcon Green")
+    vim.cmd("hi Directory guifg=#928374")
+    vim.cmd("hi NeoTreeFileName guifg=#928374")
+
+    vim.cmd("hi link NeoTreeGitUntracked Red")
+    vim.cmd("hi NeoTreeGitIgnored guifg=#504945")
+    -- vim.cmd("hi NeoTreeGitStaged guifg=#ff0000")
+    -- vim.cmd("hi NeoTreeGitUnstaged guifg=#ff0000")
+    -- vim.cmd("hi NeoTreeGitConflict guifg=#ff0000")
+    -- vim.cmd("hi NeoTreeGitRenamed guifg=#ff0000")
+    -- vim.cmd("hi NeoTreeGitDeleted guifg=#ff0000")
+
   end,
 }
 
