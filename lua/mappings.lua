@@ -221,4 +221,15 @@ M.nullls = {
   },
 }
 
+M.codewindow = {
+  {
+    "<leader>mm",
+    function()
+      require("codewindow").toggle_minimap()
+    end,
+    mode = "n",
+    desc = "Toggle minimap",
+  },
+}
+
 return M

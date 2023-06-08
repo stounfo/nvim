@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true
 vim.opt.swapfile = false
@@ -18,9 +19,12 @@ for type, icon in pairs(require("consts").diagnostic_signs) do
 end
 
 -- fix colors
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 -- fix tabs (tabs vs spaces. The spaces win!)
-vim.o.softtabstop = 4
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+
+-- fix maps in russian
+vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
