@@ -2,12 +2,12 @@ local M = {}
 
 M.general = {
   -- Windows
-  { "<C-h>", "<C-w>h", mode = "n", desc = "Window left" },
-  { "<C-l>", "<C-w>l", mode = "n", desc = "Window right" },
-  { "<C-j>", "<C-w>j", mode = "n", desc = "Window down" },
-  { "<C-k>", "<C-w>k", mode = "n", desc = "Window up" },
+  { "<C-h>", "<C-w>h",               mode = "n", desc = "Window left" },
+  { "<C-l>", "<C-w>l",               mode = "n", desc = "Window right" },
+  { "<C-j>", "<C-w>j",               mode = "n", desc = "Window down" },
+  { "<C-k>", "<C-w>k",               mode = "n", desc = "Window up" },
   -- Tabs # TODO - it rewrite "Jump to tag"
-  { "<C-]>", "<cmd>tabnext<cr>", mode = "n", desc = "Next Tab" },
+  { "<C-]>", "<cmd>tabnext<cr>",     mode = "n", desc = "Next Tab" },
   { "<C-[>", "<cmd>tabprevious<cr>", mode = "n", desc = "Next Tab" },
 }
 
@@ -45,12 +45,12 @@ M.comment = {
   },
 
   -- defaults
-  { "gcc", mode = "n" },
-  { "gbc", mode = "n" },
-  { "gc", mode = "v" },
-  { "gb", mode = "v" },
-  { "[count]gcc", mode = "n" },
-  { "[count]gbc", mode = "n" },
+  { "gcc",               mode = "n" },
+  { "gbc",               mode = "n" },
+  { "gc",                mode = "v" },
+  { "gb",                mode = "v" },
+  { "[count]gcc",        mode = "n" },
+  { "[count]gbc",        mode = "n" },
   { "gc[count]{motion}", mode = "n" },
   { "gb[count]{motion}", mode = "n" },
 }
@@ -230,6 +230,67 @@ M.codewindow = {
     mode = "n",
     desc = "Toggle minimap",
   },
+  {
+    "<leader>mm",
+    function()
+      require("codewindow").toggle_minimap()
+    end,
+    mode = "v",
+    desc = "Toggle minimap",
+  },
+  {
+    "<leader>mm",
+    function()
+      require("codewindow").toggle_minimap()
+    end,
+    mode = "i",
+    desc = "Toggle minimap",
+  },
+
 }
+
+M.gisigns = {
+  {
+    "<leader>ghb",
+    function()
+      require("gitsigns").blame_line()
+    end,
+    mode = "n",
+    desc = "Blame line",
+  },
+  {
+    "<leader>ghp",
+    function()
+      require("gitsigns").preview_hunk()
+    end,
+    mode = "n",
+    desc = "Preview hunk",
+  },
+  {
+    "<leader>ghr",
+    function()
+      require("gitsigns").reset_hunk()
+    end,
+    mode = "n",
+    desc = "Reset hunk",
+  },
+  {
+    "<leader>ghn",
+    function()
+      require("gitsigns").next_hunk()
+    end,
+    mode = "n",
+    desc = "Next hunk",
+  },
+  {
+    "<leader>ghp",
+    function()
+      require("gitsigns").prev_hunk()
+    end,
+    mode = "n",
+    desc = "Prev hunk",
+  },
+}
+
 
 return M
