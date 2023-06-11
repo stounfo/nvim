@@ -44,8 +44,10 @@ local opts = {
       hide_gitignored = false,
       never_show = {
         ".DS_Store",
-        "__pycache__",
         ".git",
+
+        "__pycache__",
+        "venv"
       },
     },
     follow_current_file = false,

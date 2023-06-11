@@ -275,7 +275,15 @@ M.gisigns = {
     desc = "Reset hunk",
   },
   {
-    "<leader>ghn",
+    "<leader>ghR",
+    function()
+      require("gitsigns").reset_buffer()
+    end,
+    mode = "n",
+    desc = "Reset buffer",
+  },
+  {
+    "<leader>ghj",
     function()
       require("gitsigns").next_hunk()
     end,
@@ -283,7 +291,7 @@ M.gisigns = {
     desc = "Next hunk",
   },
   {
-    "<leader>ghp",
+    "<leader>ghk",
     function()
       require("gitsigns").prev_hunk()
     end,
