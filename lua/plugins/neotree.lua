@@ -50,7 +50,9 @@ local opts = {
         "venv"
       },
     },
-    follow_current_file = false,
+    follow_current_file = {
+      enabled = false
+    } ,
     use_libuv_file_watcher = true,
   },
 }
