@@ -1,3 +1,9 @@
+-- TODO maybe split the file between plugins dirs
+local search_commands = require("plugins.search.commands")
+local filetree_commands = require("plugins.filetree.commands")
+local comment_commands = require("plugins.other.comment.commands")
+local gitsigns_commans = require("plugins.git.commands")
+
 local M = {}
 
 M.general = {
@@ -13,16 +19,16 @@ M.general = {
 
 require("utils").load_mappings(M.general)
 
-M.neotree = {
+M.filetree = {
   {
     "<C-n>",
-    "<cmd>Neotree toggle left<cr>",
+    filetree_commands.toggle_tree,
     mode = "n",
     desc = "Toggle tree",
   },
   {
     "<leader>e",
-    "<cmd>Neotree reveal left<cr>",
+    filetree_commands.focus_tree,
     mode = "n",
     desc = "Focus tree",
   },
@@ -31,15 +37,13 @@ M.neotree = {
 M.comment = {
   {
     "<leader>/",
-    function()
-      require("Comment.api").toggle.linewise.current()
-    end,
+    comment_commands.toogle_comment,
     mode = "n",
     desc = "Toggle comment",
   },
   {
     "<leader>/",
-    "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    comment_commands.toogle_comment_visual,
     mode = "v",
     desc = "Toggle comment",
   },
@@ -55,49 +59,53 @@ M.comment = {
   { "gb[count]{motion}", mode = "n" },
 }
 
-M.telescope = {
+M.search = {
   -- find
   {
     "<leader>ff",
-    "<cmd> Telescope find_files <CR>",
+    search_commands.find_files,
     mode = "n",
     desc = "Find files",
   },
   {
-    "<leader>fa",
-    "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
+    "<leader>fF",
+    search_commands.find_files_all,
     mode = "n",
-    desc = "Find all",
+    desc = "Find files all",
   },
   {
     "<leader>fw",
-    function()
-      require("telescope.builtin").live_grep()
-    end,
+    search_commands.live_grep,
     mode = "n",
     desc = "Live grep",
   },
   {
+    "<leader>fW",
+    search_commands.live_grep_args,
+    mode = "n",
+    desc = "Live grep (Args)",
+  },
+  {
     "<leader>fb",
-    "<cmd> Telescope buffers <CR>",
+    search_commands.buffers,
     mode = "n",
     desc = "Find buffers",
   },
   {
     "<leader>fh",
-    "<cmd> Telescope help_tags <CR>",
+    search_commands.help_tags,
     mode = "n",
-    desc = "Help page",
+    desc = "Help tags",
   },
   {
     "<leader>fo",
-    "<cmd> Telescope oldfiles <CR>",
+    search_commands.oldfiles,
     mode = "n",
     desc = "Find oldfiles",
   },
   {
     "<leader>fz",
-    "<cmd> Telescope current_buffer_fuzzy_find <CR>",
+    search_commands.current_buffer_fuzzy_find,
     mode = "n",
     desc = "Find in current buffer",
   },
@@ -105,19 +113,19 @@ M.telescope = {
   -- git
   {
     "<leader>gc",
-    "<cmd> Telescope git_commits <CR>",
+    search_commands.git_commits,
     mode = "n",
     desc = "Git commits",
   },
   {
     "<leader>gs",
-    "<cmd> Telescope git_status <CR>",
+    search_commands.git_status,
     mode = "n",
     desc = "Git status",
   },
   {
     "<leader>gb",
-    "<cmd> Telescope git_branches<CR>",
+    search_commands.git_branches,
     mode = "n",
     desc = "Git branches",
   },
@@ -125,7 +133,7 @@ M.telescope = {
   -- marks
   {
     "<leader>ma",
-    "<cmd> Telescope marks <CR>",
+    search_commands.marks,
     mode = "n",
     desc = "Telescope bookmarks",
   },
@@ -210,82 +218,60 @@ M.lspconfig = {
   },
 }
 
-M.nullls = {
+M.conform = {
   {
     "<leader>fm",
     function()
-      vim.lsp.buf.format({ async = true })
+      require("conform").format()
     end,
     mode = "n",
-    desc = "LSP formatting",
+    desc = "Formatting",
   },
 }
 
-M.codewindow = {
+M.aerial = {
   {
     "<leader>mm",
-    function()
-      require("codewindow").toggle_minimap()
-    end,
+    "<cmd>AerialToggle left<cr>",
     mode = "n",
-    desc = "Toggle minimap",
-  },
-  {
-    "<leader>mm",
-    function()
-      require("codewindow").toggle_minimap()
-    end,
-    mode = "v",
-    desc = "Toggle minimap",
+    desc = "Toggle aerial",
   },
 }
 
 M.gisigns = {
   {
     "<leader>ghb",
-    function()
-      require("gitsigns").blame_line()
-    end,
+    gitsigns_commans.blame_line,
     mode = "n",
     desc = "Blame line",
   },
   {
     "<leader>ghp",
-    function()
-      require("gitsigns").preview_hunk()
-    end,
+    gitsigns_commans.preview_hunk,
     mode = "n",
     desc = "Preview hunk",
   },
   {
     "<leader>ghr",
-    function()
-      require("gitsigns").reset_hunk()
-    end,
+    gitsigns_commans.reset_hunk,
     mode = "n",
     desc = "Reset hunk",
   },
   {
     "<leader>ghR",
-    function()
-      require("gitsigns").reset_buffer()
-    end,
+    gitsigns_commans.reset_buffer,
     mode = "n",
     desc = "Reset buffer",
   },
   {
     "<leader>ghj",
-    function()
-      require("gitsigns").next_hunk()
-    end,
+    gitsigns_commans.next_hunk,
     mode = "n",
     desc = "Next hunk",
   },
   {
     "<leader>ghk",
-    function()
-      require("gitsigns").prev_hunk()
-    end,
+    gitsigns_commans.prev_hunk,
     mode = "n",
     desc = "Prev hunk",
   },
