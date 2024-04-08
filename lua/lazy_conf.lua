@@ -15,6 +15,10 @@ local lazy_opts = {
   defaults = {
     lazy = true,
   },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
