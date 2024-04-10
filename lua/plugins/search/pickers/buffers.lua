@@ -1,7 +1,3 @@
 return {
-  mappings = {
-    i = {
-      ["<C-x>"] = "delete_buffer",
-    },
-  },
+  mappings = require("plugins.search.mappings").buffers,
 }

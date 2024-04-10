@@ -4,20 +4,14 @@ return function()
     close_if_last_window = true,
     enable_diagnostics = false,
     hide_root_node = true,
+    popup_border_style = "rounded",
     window = {
       position = "float",
       popup = {
         size = { height = "80%", width = "40%" },
         position = "50%", -- 50% means center it
       },
-      mappings = {
-        ["s"] = "open_split",
-        ["v"] = "open_vsplit",
-        ["P"] = {
-          "toggle_preview",
-          config = { use_float = true, use_image_nvim = false },
-        },
-      },
+      mappings = require("plugins.filetree.mappings"),
     },
     default_component_configs = {
       indent = {

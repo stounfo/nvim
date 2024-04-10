@@ -4,7 +4,7 @@ local ui = function()
     IblIndent = { ctermfg = colors.muted_fg, blend = 0 },
     IblScope = { ctermfg = colors.muted_fg, blend = 0 },
   }
-  require("utils").set_h1(groups)
+  require("utils").set_hl(groups)
 end
 
 return {

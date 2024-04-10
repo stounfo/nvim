@@ -28,6 +28,7 @@ return {
   Tag = { ctermfg = colors.blue }, -- you can use CTRL-] on this
   Statement = { ctermfg = colors.magenta }, -- (preferred) any statement
   StorageClass = { ctermfg = colors.magenta }, -- static, privat, register, volatile, etc.
+  Typedef = { ctermfg = colors.yellow }, --  A typedef
 
   -- operators
   Operator = { ctermfg = colors.bright_white }, -- "sizeof", "+", "*", etc.
@@ -52,15 +53,22 @@ return {
   -- Italic = { ctermbg = colors.green },
 
   -- diff
-  -- DiffAdd =  { ctermbg = colors.debug },   -- diff mode: Added line |diff.txt|
-  -- DiffChange =  { ctermbg = colors.debug },   -- diff mode: Changed line |diff.txt|
-  -- DiffDelete =  { ctermbg = colors.debug },   -- diff mode: Deleted line |diff.txt|
-  -- DiffText =  { ctermbg = colors.debug },   -- diff mode: Changed line |diff.txt|
+  DiffAdd =  { ctermfg = colors.green },   -- diff mode: Added line |diff.txt|
+  DiffChange =  { ctermfg = colors.blue },   -- diff mode: Changed line |diff.txt|
+  DiffDelete =  { ctermfg = colors.red },   -- diff mode: Deleted line |diff.txt|
+  DiffText =  { ctermfg = colors.debug },   -- diff mode: Changed line |diff.txt|
+  --
+  diffAdded = { ctermfg = colors.green },
+  diffRemoved = { ctermfg = colors.red },
+  diffChanged = { ctermfg = colors.blue },
+  -- diffOldFile = { ctermbg = colors.debug },
+  -- diffNewFile = { ctermbg = colors.debug },
+  -- diffFile = { ctermbg = colors.debug },
+  -- diffLine = { ctermbg = colors.debug },
+  -- diffIndexLine = { ctermbg = colors.debug },
 
   -- Unknown
-  Typedef = { ctermbg = colors.debug }, --  A typedef
   Debug = { ctermbg = colors.debug }, -- debugging statements
-
 
   Error = { ctermbg = colors.debug, cterm = { bold = true } }, -- (preferred) any erroneous construct
   Todo = { ctermbg = colors.debug, cterm = { bold = true } }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -68,7 +76,6 @@ return {
   healthError = { ctermbg = colors.red },
   healthSuccess = { ctermbg = colors.teal },
   healthWarning = { ctermbg = colors.yellow },
-
 
   -- treesitter
   ["@constant.builtin"] = { ctermfg = colors.bright_yellow },
@@ -91,16 +98,6 @@ return {
   -- -- illuminate
   -- illuminatedWord = { bg = C.surface1 },
   -- illuminatedCurWord = { bg = C.surface1 },
-  --
-  -- -- diff
-  -- diffAdded = { fg = C.green },
-  -- diffRemoved = { fg = C.red },
-  -- diffChanged = { fg = C.blue },
-  -- diffOldFile = { fg = C.yellow },
-  -- diffNewFile = { fg = C.peach },
-  -- diffFile = { fg = C.blue },
-  -- diffLine = { fg = C.overlay0 },
-  -- diffIndexLine = { fg = C.teal },
   --
   -- -- glyphs
   -- GlyphPalette1 = { fg = C.red },

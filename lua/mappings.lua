@@ -1,280 +1,120 @@
--- TODO maybe split the file between plugins dirs
-local search_commands = require("plugins.search.commands")
-local filetree_commands = require("plugins.filetree.commands")
-local comment_commands = require("plugins.other.comment.commands")
-local gitsigns_commans = require("plugins.git.commands")
+return function()
+  local search_commands = require("plugins.search.commands")
+  local filetree_commands = require("plugins.filetree.commands")
+  local comment_commands = require("plugins.other.comment.commands")
+  local gitsigns_commans = require("plugins.git.commands")
+  local conform_commands = require("plugins.languages.formatting.commands")
+  local aerial_commands = require("plugins.code_navigation.commands")
+  local lsp_commands = require("plugins.languages.lsp.commands")
+  local copilot_commands = require("plugins.autocompletion.copilot.commands")
 
-local M = {}
+  local wk = require("which-key")
+  -- general
+  wk.register({
+    K = { lsp_commands.hover, "Hover" },
+    ["<leader>d"] = { lsp_commands.line_diagnostic, "Line diagnostic" },
+    ["<leader>D"] = {
+      search_commands.current_buff_diagnostic,
+      "Current buff diagnostic",
+    },
+  }, { mode = "n" })
 
-M.general = {
-  -- Windows
-  { "<C-h>", "<C-w>h", mode = "n", desc = "Window left" },
-  { "<C-l>", "<C-w>l", mode = "n", desc = "Window right" },
-  { "<C-j>", "<C-w>j", mode = "n", desc = "Window down" },
-  { "<C-k>", "<C-w>k", mode = "n", desc = "Window up" },
-  -- Tabs # TODO - it rewrite "Jump to tag"
-  { "<C-]>", "<cmd>tabnext<cr>", mode = "n", desc = "Next Tab" },
-  { "<C-[>", "<cmd>tabprevious<cr>", mode = "n", desc = "Next Tab" },
-}
+  -- window
+  wk.register({
+    ["<C-h>"] = { "<C-w>h", "Window left" },
+    ["<C-l>"] = { "<C-w>l", "Window right" },
+    ["<C-j>"] = { "<C-w>j", "Window down" },
+    ["<C-k>"] = { "<C-w>k", "Window up" },
+  }, {})
 
-require("utils").load_mappings(M.general)
+  -- next
+  wk.register({
+    ["]b"] = { "<C-^>", "Next buffer" },
+    ["]h"] = { gitsigns_commans.next_hunk, "Next hunk" },
+  }, { name = "Next" })
 
-M.filetree = {
-  {
-    "<C-n>",
-    filetree_commands.toggle_tree,
-    mode = "n",
-    desc = "Toggle tree",
-  },
-  {
-    "<leader>e",
-    filetree_commands.focus_tree,
-    mode = "n",
-    desc = "Focus tree",
-  },
-}
+  -- previous
+  wk.register({
+    ["[b"] = { "<C-^>", "Previous buffer" },
+    ["[h"] = { gitsigns_commans.prev_hunk, "Previous hunk" },
+  }, { name = "Previous" })
 
-M.comment = {
-  {
-    "<leader>/",
-    comment_commands.toogle_comment,
-    mode = "n",
-    desc = "Toggle comment",
-  },
-  {
-    "<leader>/",
-    comment_commands.toogle_comment_visual,
-    mode = "v",
-    desc = "Toggle comment",
-  },
+  -- focus
+  wk.register({
+    ["<C-y>"] = { aerial_commands.open, "Focus symbols" },
+  }, {})
 
-  -- defaults
-  { "gcc", mode = "n" },
-  { "gbc", mode = "n" },
-  { "gc", mode = "v" },
-  { "gb", mode = "v" },
-  { "[count]gcc", mode = "n" },
-  { "[count]gbc", mode = "n" },
-  { "gc[count]{motion}", mode = "n" },
-  { "gb[count]{motion}", mode = "n" },
-}
+  -- toggle
+  wk.register({
+    y = { aerial_commands.toggle_aerial, "Toggle symbols" },
+    c = { copilot_commands.toggle_copilot, "Toggle copilot" },
+  }, { mode = "n", desc = "Toggle", prefix = "<leader>t" })
 
-M.search = {
-  -- find
-  {
-    "<leader>ff",
-    search_commands.find_files,
-    mode = "n",
-    desc = "Find files",
-  },
-  {
-    "<leader>fF",
-    search_commands.find_files_all,
-    mode = "n",
-    desc = "Find files all",
-  },
-  {
-    "<leader>fw",
-    search_commands.live_grep,
-    mode = "n",
-    desc = "Live grep",
-  },
-  {
-    "<leader>fW",
-    search_commands.live_grep_args,
-    mode = "n",
-    desc = "Live grep (Args)",
-  },
-  {
-    "<leader>fb",
-    search_commands.buffers,
-    mode = "n",
-    desc = "Find buffers",
-  },
-  {
-    "<leader>fh",
-    search_commands.help_tags,
-    mode = "n",
-    desc = "Help tags",
-  },
-  {
-    "<leader>fo",
-    search_commands.oldfiles,
-    mode = "n",
-    desc = "Find oldfiles",
-  },
-  {
-    "<leader>fz",
-    search_commands.current_buffer_fuzzy_find,
-    mode = "n",
-    desc = "Find in current buffer",
-  },
+  -- go to
+  wk.register({
+    D = { lsp_commands.declaration, "Declaration" },
+    d = { search_commands.lsp_definitions, "Definition" },
+    t = { search_commands.lsp_type_definitions, "Type definition" },
+    r = { search_commands.lsp_references, "References" },
+  }, { mode = "n", desc = "Go to", prefix = "g" })
+
+  -- filetree
+  wk.register({
+    ["<C-f>"] = { filetree_commands.toggle_tree, "Toggle tree" },
+    ["<leader>e"] = { filetree_commands.focus_tree, "Focus tree" },
+  }, { mode = "n" })
+  wk.register(
+    { ["<C-f>"] = { filetree_commands.toggle_tree, "Toggle tree" } },
+    { mode = "i" }
+  )
+
+  -- comment
+  wk.register({
+    ["<leader>/"] = { comment_commands.toogle_comment, "Toggle comment" },
+  }, { mode = "n" })
+  wk.register({
+    ["<leader>/"] = { comment_commands.toogle_comment_visual, "Toggle comment" },
+  }, { mode = "v" })
+
+  -- search
+  wk.register({
+    -- files
+    f = { search_commands.find_files, "Find files" },
+    F = { search_commands.find_files_all, "Find files all" },
+    w = { search_commands.live_grep, "Live grep" },
+    W = { search_commands.live_grep_args, "Live grep (Args)" },
+    o = { search_commands.oldfiles, "Find oldfiles" },
+    -- vim
+    z = {
+      search_commands.current_buffer_fuzzy_find,
+      "Find in current buffer",
+    },
+    b = { search_commands.buffers, "Find buffers" },
+    t = { search_commands.help_tags, "Help tags" },
+    m = { search_commands.marks, "Bookmarks" },
+    k = { search_commands.keymaps, "Keymaps" },
+  }, { mode = "n", desc = "Search", prefix = "<leader>f" })
 
   -- git
-  {
-    "<leader>gc",
-    search_commands.git_commits,
-    mode = "n",
-    desc = "Git commits",
-  },
-  {
-    "<leader>gs",
-    search_commands.git_status,
-    mode = "n",
-    desc = "Git status",
-  },
-  {
-    "<leader>gb",
-    search_commands.git_branches,
-    mode = "n",
-    desc = "Git branches",
-  },
+  wk.register({
+    c = { search_commands.git_commits, "Git commits" },
+    s = { search_commands.git_status, "Git status" },
+    b = { search_commands.git_branches, "Git branches" },
+    l = { gitsigns_commans.blame_line, "Blame line" },
+    r = { gitsigns_commans.reset_buffer, "Reset buffer" },
+    h = {
+      name = "Hunk",
+      p = { gitsigns_commans.preview_hunk, "Preview hunk" },
+      r = { gitsigns_commans.reset_hunk, "Reset hunk" },
+    },
+  }, { mode = "n", desc = "Git", prefix = "<leader>g" })
 
-  -- marks
-  {
-    "<leader>ma",
-    search_commands.marks,
-    mode = "n",
-    desc = "Telescope bookmarks",
-  },
-}
-
-M.lspconfig = {
-  {
-    "gD",
-    vim.lsp.buf.declaration,
-    mode = "n",
-    desc = "LSP declaration",
-  },
-
-  {
-    "gd",
-    function()
-      require("telescope.builtin").lsp_definitions({ show_line = false })
-    end,
-    mode = "n",
-    desc = "LSP definition",
-  },
-
-  {
-    "gr",
-    function()
-      require("telescope.builtin").lsp_references({ show_line = false })
-    end,
-    mode = "n",
-    desc = "LSP references",
-  },
-  {
-    "<leader>D",
-    function()
-      require("telescope.builtin").lsp_type_definitions({ show_line = false })
-    end,
-    mode = "n",
-    desc = "LSP definition type",
-  },
-  {
-    "<leader>q",
-    function()
-      require("telescope.builtin").diagnostics({
-        bufnr = 0,
-        path_display = "hidden",
-        wrap_results = true,
-      })
-    end,
-    mode = "n",
-    desc = "Diagnostic setloclist",
-  },
-  {
-    "<leader>d",
-    function()
-      vim.diagnostic.open_float({ border = "rounded" })
-    end,
-    mode = "n",
-    desc = "Floating diagnostic",
-  },
-  {
-    "<leader>ca",
-    function()
-      vim.lsp.buf.code_action()
-    end,
-    mode = "n",
-    desc = "LSP code action",
-  },
-  {
-    "K",
-    function()
-      vim.lsp.buf.hover()
-    end,
-    mode = "n",
-    desc = "LSP hover",
-  },
-  {
-    "<leader>ra",
-    function()
-      vim.lsp.buf.rename()
-    end,
-    mode = "n",
-    desc = "LSP rename",
-  },
-}
-
-M.conform = {
-  {
-    "<leader>fm",
-    function()
-      require("conform").format()
-    end,
-    mode = "n",
-    desc = "Formatting",
-  },
-}
-
-M.aerial = {
-  {
-    "<leader>mm",
-    "<cmd>AerialToggle left<cr>",
-    mode = "n",
-    desc = "Toggle aerial",
-  },
-}
-
-M.gisigns = {
-  {
-    "<leader>ghb",
-    gitsigns_commans.blame_line,
-    mode = "n",
-    desc = "Blame line",
-  },
-  {
-    "<leader>ghp",
-    gitsigns_commans.preview_hunk,
-    mode = "n",
-    desc = "Preview hunk",
-  },
-  {
-    "<leader>ghr",
-    gitsigns_commans.reset_hunk,
-    mode = "n",
-    desc = "Reset hunk",
-  },
-  {
-    "<leader>ghR",
-    gitsigns_commans.reset_buffer,
-    mode = "n",
-    desc = "Reset buffer",
-  },
-  {
-    "<leader>ghj",
-    gitsigns_commans.next_hunk,
-    mode = "n",
-    desc = "Next hunk",
-  },
-  {
-    "<leader>ghk",
-    gitsigns_commans.prev_hunk,
-    mode = "n",
-    desc = "Prev hunk",
-  },
-}
-
-return M
+  -- refactoring
+  wk.register({
+    r = { lsp_commands.rename, "Rename" },
+    f = { conform_commands.format, "Formating" },
+    F = { conform_commands.format_all, "Formating" },
+    a = { lsp_commands.code_action, "Code action" },
+    c = { copilot_commands.panel, "Copilot panel" },
+  }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
+end

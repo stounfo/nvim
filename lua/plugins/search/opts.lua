@@ -7,7 +7,7 @@ return function()
           height = 0.9,
           width = 0.8,
           mirror = true,
-          preview_cutoff = 30
+          preview_cutoff = 30,
         },
       },
       layout_strategy = "vertical",
@@ -24,14 +24,7 @@ return function()
         "--no-ignore",
       },
       dynamic_preview_title = true,
-      mappings = {
-        i = {
-          ["<C-s>"] = "select_horizontal",
-        },
-        n = {
-          ["<C-s>"] = "select_horizontal",
-        },
-      },
+      mappings = require("plugins.search.mappings").general,
     },
     pickers = {
       buffers = require("plugins.search.pickers.buffers"),
