@@ -4,28 +4,30 @@ return {
   dependencies = {
     require("plugins.languages.mason"),
   },
-  keys = require("mappings").lspconfig,
   config = function()
-    -- turn off text
-    vim.lsp.handlers["textDocument/publishDiagnostics"] =
-        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-          virtual_text = false,
-          signs = true,
-          underline = true,
-          update_in_insert = false,
-        })
 
     local lspconfig = require("lspconfig")
 
-    lspconfig.lua_ls.setup(require("plugins.languages.configs.lua").lsp_config)
-    lspconfig.pyright.setup(
-      require("plugins.languages.configs.python").lsp_config
-    )
-    lspconfig.rust_analyzer.setup(
-      require("plugins.languages.configs.rust").lsp_config
-    )
-    lspconfig.tsserver.setup(
-      require("plugins.languages.configs.typescript").lsp_config
-    )
+    -- lua
+    for name, opts in pairs(require("plugins.languages.configs.lua").lsp_configs) do
+      lspconfig[name].setup(opts)
+    end
+
+    -- python
+    for name, opts in pairs(require("plugins.languages.configs.python").lsp_configs) do
+      lspconfig[name].setup(opts)
+    end
+
+    -- rust
+    for name, opts in pairs(require("plugins.languages.configs.rust").lsp_configs) do
+      lspconfig[name].setup(opts)
+    end
+
+    -- typescript
+    for name, opts in pairs(require("plugins.languages.configs.typescript").lsp_configs) do
+      lspconfig[name].setup(opts)
+    end
+    require("plugins.languages.lsp.ui")
+
   end,
 }

@@ -5,4 +5,9 @@ M.neotree = {
   filetypes = { "neo-tree" },
 }
 
+M.aerial = {
+  winbar = {},
+  filetypes = { "aerial" },
+}
+
 return M

@@ -9,5 +9,8 @@ return {
     require("plugins.autocompletion.nvimcmp.dependencies.cmppath"),
   },
   opts = require("plugins.autocompletion.nvimcmp.opts"),
-  config = true,
+  config = function(_, opts)
+    require("plugins.autocompletion.nvimcmp.ui")
+    require("cmp").setup(opts)
+  end,
 }

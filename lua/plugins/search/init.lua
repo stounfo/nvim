@@ -2,7 +2,6 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  keys = require("mappings").search,
   opts = require("plugins.search.opts"),
   dependencies = {
     require("plugins.shared.plenary"),

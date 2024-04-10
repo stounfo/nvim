@@ -17,7 +17,7 @@ return function()
     result,
     require("plugins.languages.configs.typescript").treesitter_to_install
   )
-  result = utils.merge_arrays(result, { "html", "json", "vimdoc" })
+  result = utils.merge_arrays(result, { "html", "json", "vimdoc", "yaml" })
 
   return {
     ensure_installed = result,

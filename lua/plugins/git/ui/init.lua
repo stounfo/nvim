@@ -1,1 +1,1 @@
-require("utils").set_h1(require("plugins.git.ui.colorscheme"))
+require("utils").set_hl(require("plugins.git.ui.colorscheme"))

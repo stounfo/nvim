@@ -1,9 +1,6 @@
 return function()
   local cmp = require("cmp")
-  local window_opts = {
-    winhighlight = "Normal:Normal,FloatBorder:Normal",
-    border = "rounded",
-  }
+  local window_opts = require("plugins.autocompletion.nvimcmp.ui").window_opts
 
   return {
     completion = {

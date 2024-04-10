@@ -2,5 +2,4 @@
 require("settings")
 require("ui")
 require("lazy_conf")
-require("mappings")
 require("autocmds")
