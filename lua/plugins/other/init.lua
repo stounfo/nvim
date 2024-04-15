@@ -4,8 +4,5 @@ return {
     require("plugins.other.illuminate"),
     require("plugins.other.whichkey"),
     { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
-    {
-        "folke/zen-mode.nvim",
-        lazy = true,
-    },
+    require("plugins.other.zenmode"),
 }

@@ -1,10 +1,11 @@
 return function()
+    local formatters_by_ft = {}
+    for name, opts in pairs(require("plugins.languages.configs")) do
+        if opts.formatters then
+            formatters_by_ft[name] = opts.formatters
+        end
+    end
     return {
-        formatters_by_ft = {
-            lua = require("plugins.languages.configs.lua").formatters,
-            python = require("plugins.languages.configs.python").formatters,
-            rust = require("plugins.languages.configs.rust").formatters,
-            typescript = require("plugins.languages.configs.typescript").formatters,
-        },
+        formatters_by_ft = formatters_by_ft,
     }
 end

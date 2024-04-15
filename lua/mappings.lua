@@ -7,6 +7,7 @@ return function()
     local aerial_commands = require("plugins.code_navigation.commands")
     local lsp_commands = require("plugins.languages.lsp.commands")
     local copilot_commands = require("plugins.autocompletion.copilot.commands")
+    local zen_mode_commands = require("plugins.other.zenmode.commands")
 
     local wk = require("which-key")
     -- general
@@ -48,6 +49,7 @@ return function()
     wk.register({
         y = { aerial_commands.toggle_aerial, "Toggle symbols" },
         c = { copilot_commands.toggle_copilot, "Toggle copilot" },
+        z = { zen_mode_commands.toggle_zen_mode, "Toggle zen mode" },
     }, { mode = "n", desc = "Toggle", prefix = "<leader>t" })
 
     -- go to

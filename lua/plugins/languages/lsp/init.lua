@@ -6,33 +6,12 @@ return {
     },
     config = function()
         local lspconfig = require("lspconfig")
-
-        -- lua
-        for name, opts in
-            pairs(require("plugins.languages.configs.lua").lsp_configs)
-        do
-            lspconfig[name].setup(opts)
-        end
-
-        -- python
-        for name, opts in
-            pairs(require("plugins.languages.configs.python").lsp_configs)
-        do
-            lspconfig[name].setup(opts)
-        end
-
-        -- rust
-        for name, opts in
-            pairs(require("plugins.languages.configs.rust").lsp_configs)
-        do
-            lspconfig[name].setup(opts)
-        end
-
-        -- typescript
-        for name, opts in
-            pairs(require("plugins.languages.configs.typescript").lsp_configs)
-        do
-            lspconfig[name].setup(opts)
+        for _, opts in pairs(require("plugins.languages.configs")) do
+            if opts.lsp_configs then
+                for name, config in pairs(opts.lsp_configs) do
+                    lspconfig[name].setup(config)
+                end
+            end
         end
         require("plugins.languages.lsp.ui")
     end,

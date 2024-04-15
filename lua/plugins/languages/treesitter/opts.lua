@@ -1,26 +1,21 @@
 return function()
     local utils = require("utils")
-    local result = {}
-    result = utils.merge_arrays(
-        result,
-        require("plugins.languages.configs.lua").treesitter_to_install
+    local ensure_installed = {}
+
+    for _, opts in pairs(require("plugins.languages.configs")) do
+        if opts.treesitter_to_install then
+            ensure_installed =
+                utils.merge_arrays(ensure_installed, opts.treesitter_to_install)
+        end
+    end
+
+    ensure_installed = utils.merge_arrays(
+        ensure_installed,
+        { "html", "json", "vimdoc", "yaml" }
     )
-    result = utils.merge_arrays(
-        result,
-        require("plugins.languages.configs.python").treesitter_to_install
-    )
-    result = utils.merge_arrays(
-        result,
-        require("plugins.languages.configs.rust").treesitter_to_install
-    )
-    result = utils.merge_arrays(
-        result,
-        require("plugins.languages.configs.typescript").treesitter_to_install
-    )
-    result = utils.merge_arrays(result, { "html", "json", "vimdoc", "yaml" })
 
     return {
-        ensure_installed = result,
+        ensure_installed = ensure_installed,
         highlight = { enable = true },
     }
 end
