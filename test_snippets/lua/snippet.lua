@@ -9,8 +9,10 @@ local number = 42 -- Number
 local string = "Hello, Lua!" -- String
 local boolean = true -- Boolean
 local nilValue = nil -- Nil
-local table = {key = "value", "list", 42} -- Table
-local functionValue = function() print("This is a function") end -- Function
+local table = { key = "value", "list", 42 } -- Table
+local functionValue = function()
+    print("This is a function")
+end -- Function
 local thread = coroutine.create(function() end) -- Thread
 local userdata = {} -- Userdata
 
@@ -55,22 +57,21 @@ end
 greet("Lua user")
 
 -- Tables (Lua’s sole data structuring mechanism)
-local person = {name = "John Doe", age = 30}
+local person = { name = "John Doe", age = 30 }
 print(person.name, person.age) -- Accessing table elements
 
 -- Table as array
-local colors = {"red", "green", "blue"}
+local colors = { "red", "green", "blue" }
 for index, color in ipairs(colors) do
     print(index, color)
 end
 
 -- Coroutine example
-local co = coroutine.create(function ()
+local co = coroutine.create(function()
     for i = 1, 5 do
-      print("co", i)
-      coroutine.yield()
+        print("co", i)
+        coroutine.yield()
     end
 end)
 
 coroutine.resume(co) -- Starts or continues the execution of coroutine co
-

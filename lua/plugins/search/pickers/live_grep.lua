@@ -1,4 +1,4 @@
 return {
-  path_display = {"tail"},
-  disable_coordinates = true,
+    path_display = { "tail" },
+    disable_coordinates = true,
 }

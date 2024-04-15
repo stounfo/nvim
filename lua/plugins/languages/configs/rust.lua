@@ -3,8 +3,8 @@ local M = {}
 M.mason_to_install = { "rust-analyzer", "rustfmt" }
 M.treesitter_to_install = { "rust" }
 M.lsp_configs = {
-  rust_analyzer = {},
+    rust_analyzer = {},
 }
-M.formatters = { "rustfmt",  }
+M.formatters = { "rustfmt" }
 
 return M

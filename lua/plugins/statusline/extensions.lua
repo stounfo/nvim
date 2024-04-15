@@ -1,13 +1,13 @@
 local M = {}
 
 M.neotree = {
-  winbar = {},
-  filetypes = { "neo-tree" },
+    winbar = {},
+    filetypes = { "neo-tree" },
 }
 
 M.aerial = {
-  winbar = {},
-  filetypes = { "aerial" },
+    winbar = {},
+    filetypes = { "aerial" },
 }
 
 return M

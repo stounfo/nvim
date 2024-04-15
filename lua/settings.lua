@@ -24,7 +24,7 @@ vim.opt.timeoutlen = 150
 -- fix maps in russian
 -- TODO set keymap=russian-jcukenwin
 vim.opt.langmap =
-  "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+    "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 -- fix relatie path of current dir for neotree
 -- vim.opt.autochdir = true
@@ -32,37 +32,37 @@ vim.opt.langmap =
 M = {}
 
 M.hide_by_pattern = utils.merge_arrays(
-  utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
-  utils.read_local_settings().hide_by_pattern
+    utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
+    utils.read_local_settings().hide_by_pattern
 )
 
 M.icons = {
-  File = " ",
-  Module = " ",
-  Namespace = " ",
-  Package = " ",
-  Class = " ",
-  Method = " ",
-  Property = " ",
-  Field = " ",
-  Constructor = " ",
-  Enum = " ",
-  Interface = " ",
-  Function = " ",
-  Variable = " ",
-  Constant = " ",
-  String = " ",
-  Number = " ",
-  Boolean = " ",
-  Array = " ",
-  Object = " ",
-  Key = " ",
-  Null = " ",
-  EnumMember = " ",
-  Struct = " ",
-  Event = " ",
-  Operator = " ",
-  TypeParameter = " ",
+    File = " ",
+    Module = " ",
+    Namespace = " ",
+    Package = " ",
+    Class = " ",
+    Method = " ",
+    Property = " ",
+    Field = " ",
+    Constructor = " ",
+    Enum = " ",
+    Interface = " ",
+    Function = " ",
+    Variable = " ",
+    Constant = " ",
+    String = " ",
+    Number = " ",
+    Boolean = " ",
+    Array = " ",
+    Object = " ",
+    Key = " ",
+    Null = " ",
+    EnumMember = " ",
+    Struct = " ",
+    Event = " ",
+    Operator = " ",
+    TypeParameter = " ",
 }
 
 return M
