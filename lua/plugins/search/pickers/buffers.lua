@@ -1,3 +1,3 @@
 return {
-  mappings = require("plugins.search.mappings").buffers,
+    mappings = require("plugins.search.mappings").buffers,
 }

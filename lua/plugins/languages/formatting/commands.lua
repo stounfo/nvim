@@ -1,11 +1,11 @@
 local M = {}
 
 M.format = function()
-  require("conform").format()
+    require("conform").format()
 end
 
 M.format_all = function()
-  require("conform").format_all()
+    require("conform").format_all()
 end
 
 return M
