@@ -30,6 +30,7 @@ return function()
                         final_path = final_path
                             .. " "
                             .. location.icon
+                            .. " "
                             .. location.name
                     end
                 end

@@ -4,4 +4,23 @@ return {
     typescript = require("plugins.languages.configs.typescript"),
     rust = require("plugins.languages.configs.rust"),
     php = require("plugins.languages.configs.php"),
+
+    -- others
+    yaml = {
+        formatters = {
+            "prettier",
+        },
+    },
+
+    json = {
+        formatters = {
+            "prettier",
+        },
+    },
+
+    html = {
+        formatters = {
+            "prettier",
+        },
+    },
 }

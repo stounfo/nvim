@@ -19,7 +19,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 
-vim.opt.timeoutlen = 150
+vim.opt.timeoutlen = 200
 
 -- fix maps in russian
 -- TODO set keymap=russian-jcukenwin
@@ -37,32 +37,32 @@ M.hide_by_pattern = utils.merge_arrays(
 )
 
 M.icons = {
-    File = " ",
-    Module = " ",
-    Namespace = " ",
-    Package = " ",
-    Class = " ",
-    Method = " ",
-    Property = " ",
-    Field = " ",
-    Constructor = " ",
-    Enum = " ",
-    Interface = " ",
-    Function = " ",
-    Variable = " ",
-    Constant = " ",
-    String = " ",
-    Number = " ",
-    Boolean = " ",
-    Array = " ",
-    Object = " ",
-    Key = " ",
-    Null = " ",
-    EnumMember = " ",
-    Struct = " ",
-    Event = " ",
-    Operator = " ",
-    TypeParameter = " ",
+    File = "",
+    Module = "",
+    Namespace = "",
+    Package = "",
+    Class = "",
+    Method = "",
+    Property = "",
+    Field = "",
+    Constructor = "",
+    Enum = "",
+    Interface = "",
+    Function = "",
+    Variable = "",
+    Constant = "",
+    String = "",
+    Number = "",
+    Boolean = "",
+    Array = "",
+    Object = "",
+    Key = "",
+    Null = "",
+    EnumMember = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
 }
 
 return M
