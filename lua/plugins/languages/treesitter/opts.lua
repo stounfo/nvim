@@ -11,7 +11,7 @@ return function()
 
     ensure_installed = utils.merge_arrays(
         ensure_installed,
-        { "html", "json", "vimdoc", "yaml" }
+        { "html", "json", "vimdoc", "yaml", "toml" }
     )
 
     return {

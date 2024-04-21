@@ -89,6 +89,7 @@ return function()
         w = { search_commands.live_grep, "Live grep" },
         W = { search_commands.live_grep_args, "Live grep (Args)" },
         o = { search_commands.oldfiles, "Find oldfiles" },
+        O = { search_commands.oldfiles_all, "Find oldfiles all" },
         -- vim
         z = {
             search_commands.current_buffer_fuzzy_find,

@@ -29,6 +29,8 @@ return function()
         pickers = {
             buffers = require("plugins.search.pickers.buffers"),
             live_grep = require("plugins.search.pickers.live_grep"),
+            find_files = require("plugins.search.pickers.find_files"),
+            oldfiles = require("plugins.search.pickers.oldfiles"),
         },
         extensions = {
             fzf = {

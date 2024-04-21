@@ -12,7 +12,7 @@ M.lsp_configs = {
             },
         },
     },
-    ruff_lsp = {},
+    -- ruff_lsp = {},
 }
 M.formatters = { "ruff_format" }
 

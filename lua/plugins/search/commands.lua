@@ -45,6 +45,10 @@ M.current_buffer_fuzzy_find = function()
 end
 
 M.oldfiles = function()
+    require("telescope.builtin").oldfiles({ only_cwd = true })
+end
+
+M.oldfiles_all = function()
     require("telescope.builtin").oldfiles()
 end
 
