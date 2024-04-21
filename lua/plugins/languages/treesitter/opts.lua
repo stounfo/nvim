@@ -9,10 +9,15 @@ return function()
         end
     end
 
-    ensure_installed = utils.merge_arrays(
-        ensure_installed,
-        { "html", "json", "vimdoc", "yaml", "toml" }
-    )
+    ensure_installed = utils.merge_arrays(ensure_installed, {
+        "html",
+        "json",
+        "vimdoc",
+        "yaml",
+        "toml",
+        "markdown",
+        "markdown_inline",
+    })
 
     return {
         ensure_installed = ensure_installed,
