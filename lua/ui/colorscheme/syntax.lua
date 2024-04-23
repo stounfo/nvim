@@ -12,7 +12,7 @@ return {
     Character = { ctermfg = colors.green }, --  a character constant: 'c', '\n'
     Number = { ctermfg = colors.bright_yellow }, --   a number constant: 234, 0xff
     Float = { link = "Number" }, --    a floating point constant: 2.3e10
-    Boolean = { ctermfg = colors.bright_yellow }, --  a boolean constant: TRUE, false
+    Boolean = { ctermfg = colors.magenta }, --  a boolean constant: TRUE, false
     Identifier = { ctermfg = colors.bright_white }, -- (preferred) any variable name
     Function = { ctermfg = colors.blue }, -- function name (also: methods for classes)
     SpecialChar = { ctermfg = colors.bright_yellow }, -- special character in a constant
@@ -78,7 +78,13 @@ return {
     healthWarning = { ctermbg = colors.yellow },
 
     -- treesitter
-    ["@constant.builtin"] = { ctermfg = colors.bright_yellow },
+    ["@constant.builtin"] = { ctermfg = colors.magenta },
+    ["@variable.builtin"] = { ctermfg = colors.bright_red },
+
+    ["@function.builtin"] = { ctermfg = colors.blue },
+    ["@function.call"] = { ctermfg = colors.blue },
+    ["@function.method.call"] = { ctermfg = colors.blue },
+    ["@constructor"] = { ctermfg = colors.blue },
 
     -- TODO
     -- qfLineNr = { fg = C.yellow },

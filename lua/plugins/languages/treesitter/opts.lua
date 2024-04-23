@@ -17,6 +17,7 @@ return function()
         "toml",
         "markdown",
         "markdown_inline",
+        "bash",
     })
 
     return {

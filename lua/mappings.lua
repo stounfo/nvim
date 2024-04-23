@@ -41,9 +41,9 @@ return function()
     }, { name = "Previous" })
 
     -- focus
-    wk.register({
-        ["<C-y>"] = { aerial_commands.open, "Focus symbols" },
-    }, {})
+    -- wk.register({
+    --     ["<C-y>"] = { aerial_commands.open, "Focus symbols" },
+    -- }, {})
 
     -- toggle
     wk.register({
