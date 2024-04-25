@@ -5,6 +5,13 @@ M.treesitter_to_install = { "typescript", "tsx" }
 M.lsp_configs = {
     tsserver = {},
 }
-M.formatters = { "prettier" }
+M.formatters = {
+    typescriptreact = {
+        "prettier",
+    },
+    typescript = {
+        "prettier",
+    },
+}
 
 return M

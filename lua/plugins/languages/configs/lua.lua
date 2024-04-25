@@ -13,6 +13,6 @@ M.lsp_configs = {
         },
     },
 }
-M.formatters = { "stylua" }
+M.formatters = { lua = { "stylua" } }
 
 return M

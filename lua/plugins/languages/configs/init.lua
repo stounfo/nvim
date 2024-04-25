@@ -8,19 +8,19 @@ return {
     -- others
     yaml = {
         formatters = {
-            "prettier",
+            yaml = { "prettier" },
         },
     },
 
     json = {
         formatters = {
-            "prettier",
+            json = { "prettier" },
         },
     },
 
     html = {
         formatters = {
-            "prettier",
+            html = { "prettier" },
         },
     },
 }

@@ -14,6 +14,6 @@ M.lsp_configs = {
     },
     -- ruff_lsp = {},
 }
-M.formatters = { "ruff_format" }
+M.formatters = { python = { "ruff_format" } }
 
 return M

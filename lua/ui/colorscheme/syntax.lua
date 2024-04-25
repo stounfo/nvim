@@ -80,11 +80,16 @@ return {
     -- treesitter
     ["@constant.builtin"] = { ctermfg = colors.magenta },
     ["@variable.builtin"] = { ctermfg = colors.bright_red },
+    ["@variable.parameter"] = { ctermfg = colors.bright_yellow },
 
     ["@function.builtin"] = { ctermfg = colors.blue },
     ["@function.call"] = { ctermfg = colors.blue },
     ["@function.method.call"] = { ctermfg = colors.blue },
     ["@constructor"] = { ctermfg = colors.blue },
+
+    ["@attribute"] = { ctermfg = colors.blue },
+    ["@attribute.builtin"] = { ctermfg = colors.blue },
+    ["@property"] = { ctermfg = colors.blue },
 
     -- TODO
     -- qfLineNr = { fg = C.yellow },

@@ -5,6 +5,6 @@ M.treesitter_to_install = { "rust" }
 M.lsp_configs = {
     rust_analyzer = {},
 }
-M.formatters = { "rustfmt" }
+M.formatters = { rust = { "rustfmt" } }
 
 return M

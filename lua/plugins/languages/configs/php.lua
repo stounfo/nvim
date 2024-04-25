@@ -5,6 +5,6 @@ M.treesitter_to_install = { "php" }
 M.lsp_configs = {
     intelephense = {},
 }
-M.formatters = { "phpcbf" }
+M.formatters = {}
 
 return M
