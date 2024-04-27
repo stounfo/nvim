@@ -1,13 +1,13 @@
 return function()
     local search_commands = require("plugins.search.commands")
     local filetree_commands = require("plugins.filetree.commands")
-    local comment_commands = require("plugins.other.comment.commands")
+    local comment_commands = require("plugins.autocompletion.comment.commands")
     local gitsigns_commans = require("plugins.git.commands")
     local conform_commands = require("plugins.languages.formatting.commands")
-    local aerial_commands = require("plugins.code_navigation.commands")
+    local aerial_commands = require("plugins.symbols.commands")
     local lsp_commands = require("plugins.languages.lsp.commands")
     local copilot_commands = require("plugins.autocompletion.copilot.commands")
-    local zen_mode_commands = require("plugins.other.zenmode.commands")
+    local dabbodui_commands = require("plugins.db.vimdadbodui.commands")
 
     local wk = require("which-key")
     -- general
@@ -40,17 +40,12 @@ return function()
         ["[h"] = { gitsigns_commans.prev_hunk, "Previous hunk" },
     }, { name = "Previous" })
 
-    -- focus
-    -- wk.register({
-    --     ["<C-y>"] = { aerial_commands.open, "Focus symbols" },
-    -- }, {})
-
     -- toggle
     wk.register({
         y = { aerial_commands.toggle_aerial, "Toggle symbols" },
         c = { copilot_commands.toggle_copilot, "Toggle copilot" },
-        z = { zen_mode_commands.toggle_zen_mode, "Toggle zen mode" },
-    }, { mode = "n", desc = "Toggle", prefix = "<leader>t" })
+        b = { dabbodui_commands.toggle_dabbodui, "Toggle db" },
+    }, { mode = "n", desc = "Togglf", prefix = "<leader>t" })
 
     -- go to
     wk.register({
@@ -119,7 +114,6 @@ return function()
     wk.register({
         r = { lsp_commands.rename, "Rename" },
         f = { conform_commands.format, "Formating" },
-        F = { conform_commands.format_all, "Formating" },
         a = { lsp_commands.code_action, "Code action" },
         c = { copilot_commands.panel, "Copilot panel" },
     }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
