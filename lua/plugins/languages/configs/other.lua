@@ -48,4 +48,18 @@ return {
     bash = {
         treesitter_to_install = { "bash" },
     },
+
+    ltex = {
+        mason_to_install = { "ltex-ls" },
+        lsp_configs = {
+            ltex = {
+                settings = {
+                    ltex = {
+                        language = "en-US",
+                        enabled = true,
+                    },
+                },
+            },
+        },
+    },
 }
