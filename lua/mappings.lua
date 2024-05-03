@@ -8,6 +8,8 @@ return function()
     local lsp_commands = require("plugins.languages.lsp.commands")
     local copilot_commands = require("plugins.autocompletion.copilot.commands")
     local dabbodui_commands = require("plugins.db.vimdadbodui.commands")
+    local terminal_commands = require("plugins.terminal.commands")
+    local zoom_commands = require("modules.zoom.commands")
 
     local wk = require("which-key")
     -- general
@@ -26,6 +28,9 @@ return function()
         ["<C-l>"] = { "<C-w>l", "Window right" },
         ["<C-j>"] = { "<C-w>j", "Window down" },
         ["<C-k>"] = { "<C-w>k", "Window up" },
+    }, {})
+    wk.register({
+        ["<C-w>z"] = { zoom_commands.toggle_zoom, "Toggle zoom" },
     }, {})
 
     -- next
@@ -65,13 +70,23 @@ return function()
         { mode = "i" }
     )
 
+    -- terminal
+    wk.register({
+        ["<C-n>"] = { "<C-\\><C-n>", "Terminal mode escape" },
+        ["<S-Tab>"] = { terminal_commands.toggle_terminal, "Toggle terminal" },
+    }, { mode = "t" })
+
+    wk.register({
+        ["<S-Tab>"] = { terminal_commands.toggle_terminal, "Toggle terminal" },
+    }, {})
+
     -- comment
     wk.register({
-        ["<leader>/"] = { comment_commands.toogle_comment, "Toggle comment" },
+        ["<leader>/"] = { comment_commands.toggle_comment, "Toggle comment" },
     }, { mode = "n" })
     wk.register({
         ["<leader>/"] = {
-            comment_commands.toogle_comment_visual,
+            comment_commands.toggle_comment_visual,
             "Toggle comment",
         },
     }, { mode = "v" })

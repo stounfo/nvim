@@ -29,7 +29,7 @@ vim.opt.langmap =
 -- fix relatie path of current dir for neotree
 -- vim.opt.autochdir = true
 
-M = {}
+local M = {}
 
 M.hide_by_pattern = utils.merge_arrays(
     utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),

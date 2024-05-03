@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 M.diagnostic_signs = {
     error = "",

@@ -1,10 +1,10 @@
 local M = {}
 
-M.toogle_comment = function()
+M.toggle_comment = function()
     require("Comment.api").toggle.linewise.current()
 end
 
-M.toogle_comment_visual =
+M.toggle_comment_visual =
     "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>"
 
 return M

@@ -1,6 +1,3 @@
--- switch to absolute line numbers in insert mode
-require("plugins.filetree.autocmds")
-
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
     callback = function()
         if require("utils").numbercolumn_enabled() then

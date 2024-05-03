@@ -1,4 +1,5 @@
 -- file manager
+require("plugins.filetree.autocmds")
 return {
     cmd = "Neotree",
     branch = "v3.x",
