@@ -153,5 +153,9 @@ return function()
             ),
             "To PascalCase",
         },
+        t = {
+            "[[:'<,'> !~/Desktop/txc/target/debug/txc -t title <cr>]]",
+            "To Title",
+        },
     }, { mode = "v", desc = "Reformat", prefix = "<leader>r" })
 end
