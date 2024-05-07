@@ -12,7 +12,7 @@ return {
     SignColumnSB = { ctermbg = colors.debug, ctermfg = colors.normal_fg }, -- column where |signs| are displayed
     Question = { ctermbg = colors.normal_bg, ctermfg = colors.blue }, -- |hit-enter| prompt and yes/no questions
     MatchParen = { ctermbg = colors.highlighted_bg }, -- {}, () highlighting
-    WinSeparator = { ctermbg = colors.normal_bg, ctermfg = colors.muted_fg },
+    WinSeparator = { ctermbg = colors.normal_bg, ctermfg = colors.muted_bg },
     -- ColorColumn = { ctermbg = colors.debug, ctermfg = colors.debug },
     -- Conceal = { ctermbg = colors.debug, ctermfg = colors.debug },
     -- Cursor = { ctermbg = colors.debug, ctermfg = colors.debug },

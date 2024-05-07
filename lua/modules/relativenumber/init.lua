@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
     callback = function()
-        if require("utils").numbercolumn_enabled() then
+        if require("modules.relativenumber.utils").numbercolumn_enabled() then
             vim.opt.relativenumber = false
             vim.opt.cursorline = false
         end
@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 })
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     callback = function()
-        if require("utils").numbercolumn_enabled() then
+        if require("modules.relativenumber.utils").numbercolumn_enabled() then
             vim.opt.relativenumber = true
             vim.opt.cursorline = true
         end

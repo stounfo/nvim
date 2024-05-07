@@ -10,6 +10,8 @@ return function()
     local dabbodui_commands = require("plugins.db.vimdadbodui.commands")
     local zoom_commands = require("modules.zoom.commands")
 
+    local utils = require("utils")
+
     local wk = require("which-key")
     -- general
     wk.register({
@@ -121,4 +123,35 @@ return function()
         a = { lsp_commands.code_action, "Code action" },
         c = { copilot_commands.panel, "Copilot panel" },
     }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
+
+    wk.register({
+        o = {
+            ":'<,'> !~/Desktop/txc/target/debug/txc -t one-line <cr>",
+            "To one line",
+        },
+        s = {
+            utils.replace_with_command(
+                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t snake-case"
+            ),
+            "To snake_case",
+        },
+        k = {
+            utils.replace_with_command(
+                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t kebab-case"
+            ),
+            "To kebab-case",
+        },
+        c = {
+            utils.replace_with_command(
+                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t camel-case"
+            ),
+            "To camelCase",
+        },
+        p = {
+            utils.replace_with_command(
+                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t pascal-case"
+            ),
+            "To PascalCase",
+        },
+    }, { mode = "v", desc = "Reformat", prefix = "<leader>r" })
 end

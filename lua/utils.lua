@@ -1,9 +1,5 @@
 local M = {}
 
-M.numbercolumn_enabled = function()
-    return vim.opt.number:get() or vim.opt.relativenumber:get()
-end
-
 M.set_hl = function(groups)
     for group, settings in pairs(groups) do
         vim.api.nvim_set_hl(0, group, settings)
@@ -78,6 +74,70 @@ M.merge_tables = function(t1, t2)
         t1[k] = v
     end
     return t1
+end
+
+M.replace_with_command = function(command)
+    return function()
+        local function get_cursor()
+            local cursor = vim.api.nvim_win_get_cursor(0)
+            return { row = cursor[1], col = cursor[2] }
+        end
+
+        local function get_visual_selection()
+            local vpos = vim.fn.getpos("v")
+            local begin_pos = { row = vpos[2], col = vpos[3] - 1 }
+            local end_pos = get_cursor()
+            if
+                (begin_pos.row < end_pos.row)
+                or (
+                    (begin_pos.row == end_pos.row)
+                    and (begin_pos.col <= end_pos.col)
+                )
+            then
+                return {
+                    start = begin_pos,
+                    finish = {
+                        row = end_pos.row,
+                        col = end_pos.col + 1,
+                    },
+                }
+            else
+                return {
+                    start = end_pos,
+                    finish = {
+                        row = begin_pos.row,
+                        col = begin_pos.col + 1,
+                    },
+                }
+            end
+        end
+
+        local selection = get_visual_selection()
+        local selected_text = vim.fn.shellescape(
+            table.concat(
+                vim.api.nvim_buf_get_text(
+                    0,
+                    selection.start.row - 1,
+                    selection.start.col,
+                    selection.finish.row - 1,
+                    selection.finish.col,
+                    {}
+                )
+            ),
+            "\n"
+        )
+        local final_command = "echo " .. selected_text .. command
+
+        local result = vim.fn.system(final_command)
+        vim.api.nvim_buf_set_text(
+            0,
+            selection.start.row - 1,
+            selection.start.col,
+            selection.finish.row - 1,
+            selection.finish.col,
+            { result }
+        )
+    end
 end
 
 return M
