@@ -10,9 +10,8 @@ return function()
     local dabbodui_commands = require("plugins.db.vimdadbodui.commands")
     local zoom_commands = require("modules.zoom.commands")
 
-    local utils = require("utils")
-
     local wk = require("which-key")
+
     -- general
     wk.register({
         K = { lsp_commands.hover, "Hover" },
