@@ -1,6 +1,5 @@
 local M = {}
 
-vim.g.prev_window_sizes = vim.g.prev_window_sizes or {}
 M.toggle_zoom = function()
     local cur_win = vim.api.nvim_get_current_win()
     local all_wins = vim.api.nvim_tabpage_list_wins(0) -- Get all windows in the current tab

@@ -76,68 +76,89 @@ M.merge_tables = function(t1, t2)
     return t1
 end
 
-M.replace_with_command = function(command)
-    return function()
-        local function get_cursor()
-            local cursor = vim.api.nvim_win_get_cursor(0)
-            return { row = cursor[1], col = cursor[2] }
+M.replace_visual_selection_with_command = function(command)
+    local function split_string_by_newline(str)
+        local result = {}
+        for line in str:gmatch("[^\n]+") do
+            table.insert(result, line)
         end
-
-        local function get_visual_selection()
-            local vpos = vim.fn.getpos("v")
-            local begin_pos = { row = vpos[2], col = vpos[3] - 1 }
-            local end_pos = get_cursor()
-            if
-                (begin_pos.row < end_pos.row)
-                or (
-                    (begin_pos.row == end_pos.row)
-                    and (begin_pos.col <= end_pos.col)
-                )
-            then
-                return {
-                    start = begin_pos,
-                    finish = {
-                        row = end_pos.row,
-                        col = end_pos.col + 1,
-                    },
-                }
+        return result
+    end
+    local function get_visual_selection_coordinates()
+        local function get_line_length(line_id)
+            local bufnr = 0
+            local line_content =
+                vim.api.nvim_buf_get_lines(bufnr, line_id - 1, line_id, false)
+            if #line_content > 0 then
+                return #line_content[1]
             else
-                return {
-                    start = end_pos,
-                    finish = {
-                        row = begin_pos.row,
-                        col = begin_pos.col + 1,
-                    },
-                }
+                return 0
             end
         end
+        local modeInfo = vim.api.nvim_get_mode()
+        local mode = modeInfo.mode
 
-        local selection = get_visual_selection()
-        local selected_text = vim.fn.shellescape(
-            table.concat(
-                vim.api.nvim_buf_get_text(
-                    0,
-                    selection.start.row - 1,
-                    selection.start.col,
-                    selection.finish.row - 1,
-                    selection.finish.col,
-                    {}
-                )
+        local cursor = vim.api.nvim_win_get_cursor(0)
+        local cline, ccol = cursor[1], cursor[2]
+        local vline, vcol = vim.fn.line("v"), vim.fn.col("v")
+
+        local sline, scol
+        local eline, ecol
+        if cline == vline then
+            if ccol <= vcol then
+                sline, scol = cline, ccol
+                eline, ecol = vline, vcol
+                scol = scol + 1
+            else
+                sline, scol = vline, vcol
+                eline, ecol = cline, ccol
+                ecol = ecol + 1
+            end
+        elseif cline < vline then
+            sline, scol = cline, ccol
+            eline, ecol = vline, vcol
+            scol = scol + 1
+        else
+            sline, scol = vline, vcol
+            eline, ecol = cline, ccol
+            ecol = ecol + 1
+        end
+
+        if mode == "V" or mode == "CTRL-V" or mode == "\22" then
+            scol = 1
+            ecol = get_line_length(eline)
+        end
+        return {
+            start = { row = sline, col = scol - 1 },
+            finish = { row = eline, col = ecol },
+        }
+    end
+
+    local coordinates = get_visual_selection_coordinates()
+    local selected_text = vim.fn.shellescape(
+        table.concat(
+            vim.api.nvim_buf_get_text(
+                0,
+                coordinates.start.row - 1,
+                coordinates.start.col,
+                coordinates.finish.row - 1,
+                coordinates.finish.col,
+                {}
             ),
             "\n"
         )
-        local final_command = "echo " .. selected_text .. command
+    )
 
-        local result = vim.fn.system(final_command)
-        vim.api.nvim_buf_set_text(
-            0,
-            selection.start.row - 1,
-            selection.start.col,
-            selection.finish.row - 1,
-            selection.finish.col,
-            { result }
-        )
-    end
+    local final_command = "echo -n " .. selected_text .. " | " .. command
+    local result = vim.fn.system(final_command)
+    vim.api.nvim_buf_set_text(
+        0,
+        coordinates.start.row - 1,
+        coordinates.start.col,
+        coordinates.finish.row - 1,
+        coordinates.finish.col,
+        split_string_by_newline(result)
+    )
 end
 
 return M

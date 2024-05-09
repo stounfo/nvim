@@ -1,4 +1,6 @@
 -- Autocommand to restore window sizes when leaving any window, if needed
+vim.g.prev_window_sizes = vim.g.prev_window_sizes or {}
+
 vim.api.nvim_create_autocmd("WinLeave", {
     callback = function()
         local cur_win = vim.api.nvim_get_current_win()

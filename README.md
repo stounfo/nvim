@@ -1,5 +1,4 @@
-# Neovim configuration
-Neovim configuration for coding Python, Rust, Lua.
+Neovim configuration for coding
 
 ## Requirements
 - [Neovim 0.9+](https://github.com/neovim/neovim/releases/tag/v0.9.1)

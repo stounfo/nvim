@@ -125,37 +125,37 @@ return function()
     }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
 
     wk.register({
-        o = {
-            ":'<,'> !~/Desktop/txc/target/debug/txc -t one-line <cr>",
+        l = {
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t single-line') <cr>",
             "To one line",
         },
         s = {
-            utils.replace_with_command(
-                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t snake-case"
-            ),
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t snake-case') <cr>",
             "To snake_case",
         },
         k = {
-            utils.replace_with_command(
-                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t kebab-case"
-            ),
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t kebab-case') <cr>",
             "To kebab-case",
         },
         c = {
-            utils.replace_with_command(
-                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t camel-case"
-            ),
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t camel-case') <cr>",
             "To camelCase",
         },
         p = {
-            utils.replace_with_command(
-                " | ~/Desktop/txc/target/debug/txc -t word | ~/Desktop/txc/target/debug/txc -t pascal-case"
-            ),
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t pascal-case') <cr>",
             "To PascalCase",
         },
         t = {
-            "[[:'<,'> !~/Desktop/txc/target/debug/txc -t title <cr>]]",
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t title') <cr>",
             "To Title",
+        },
+        w = {
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t word') <cr>",
+            "To Word",
+        },
+        T = {
+            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t text') <cr>",
+            "To text",
         },
     }, { mode = "v", desc = "Reformat", prefix = "<leader>r" })
 end
