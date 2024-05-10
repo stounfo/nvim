@@ -2,7 +2,8 @@ return function()
     local search_commands = require("plugins.search.commands")
     local filetree_commands = require("plugins.filetree.commands")
     local comment_commands = require("plugins.autocompletion.comment.commands")
-    local gitsigns_commans = require("plugins.git.commands")
+    local gitsigns_commans = require("plugins.git.gitsigns.commands")
+    local blame_commands = require("plugins.git.blame.commands")
     local conform_commands = require("plugins.languages.formatting.commands")
     local aerial_commands = require("plugins.symbols.commands")
     local lsp_commands = require("plugins.languages.lsp.commands")
@@ -107,6 +108,7 @@ return function()
         s = { search_commands.git_status, "Git status" },
         b = { search_commands.git_branches, "Git branches" },
         l = { gitsigns_commans.blame_line, "Blame line" },
+        L = { blame_commands.toggle_blame, "Toggle blame" },
         r = { gitsigns_commans.reset_buffer, "Reset buffer" },
         h = {
             name = "Hunk",
