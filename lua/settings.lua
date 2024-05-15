@@ -21,6 +21,8 @@ vim.opt.shiftwidth = 4
 
 vim.opt.timeoutlen = 200
 
+vim.opt.termguicolors = false
+
 -- fix maps in russian
 -- TODO set keymap=russian-jcukenwin
 vim.opt.langmap =
@@ -29,40 +31,9 @@ vim.opt.langmap =
 -- fix relatie path of current dir for neotree
 -- vim.opt.autochdir = true
 
-local M = {}
-
-M.hide_by_pattern = utils.merge_arrays(
-    utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
-    utils.read_local_settings().hide_by_pattern
-)
-
-M.icons = {
-    File = "",
-    Module = "",
-    Namespace = "",
-    Package = "",
-    Class = "",
-    Method = "",
-    Property = "",
-    Field = "",
-    Constructor = "",
-    Enum = "",
-    Interface = "",
-    Function = "",
-    Variable = "",
-    Constant = "",
-    String = "",
-    Number = "",
-    Boolean = "",
-    Array = "",
-    Object = "",
-    Key = "",
-    Null = "",
-    EnumMember = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
+return {
+    hide_by_pattern = utils.merge_arrays(
+        utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
+        utils.read_local_settings().hide_by_pattern
+    ),
 }
-
-return M

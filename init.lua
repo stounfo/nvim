@@ -1,5 +1,3 @@
 -- vim.loader.enable()
 require("settings")
-require("ui")
 require("lazy_conf")
-require("modules")

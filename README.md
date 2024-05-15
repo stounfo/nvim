@@ -1,7 +1,7 @@
 Neovim configuration for coding
 
 ## Requirements
-- [Neovim 0.9+](https://github.com/neovim/neovim/releases/tag/v0.9.1)
+- [Neovim 0.10+](https://github.com/neovim/neovim/releases/tag/v0.10.0)
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
