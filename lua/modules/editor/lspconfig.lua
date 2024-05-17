@@ -17,15 +17,15 @@ local my_commands = {
 }
 
 local colorscheme = {
-    DiagnosticUnderlineError = { cterm = { undercurl = true }, sp = "LightRed" },
+    DiagnosticUnderlineError = { cterm = { undercurl = true }, sp = "Red" },
     DiagnosticUnderlineWarn = {
         cterm = { undercurl = true },
-        sp = "LightYellow",
+        sp = "Yellow",
     },
-    DiagnosticUnderlineInfo = { cterm = { undercurl = true }, sp = "LightBlue" },
+    DiagnosticUnderlineInfo = { cterm = { undercurl = true }, sp = "Blue" },
     DiagnosticUnderlineHint = {
         cterm = { undercurl = true },
-        sp = "LightGreen",
+        sp = "Green",
     },
 }
 
