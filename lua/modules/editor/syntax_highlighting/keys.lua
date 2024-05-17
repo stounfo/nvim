@@ -7,7 +7,6 @@ local colorscheme = {
     Exception = { ctermfg = color }, --  try, catch, throw
     Label = { ctermfg = color }, --    case, default, etc.
     Structure = { ctermfg = color }, --  struct, union, enum, etc.
-    Special = { ctermfg = color }, -- (preferred) any special symbol
     Tag = { ctermfg = color }, -- you can use CTRL-] on this
     Statement = { ctermfg = color }, -- (preferred) any statement
     StorageClass = { ctermfg = color }, -- static, privat, register, volatile, etc.

@@ -8,6 +8,7 @@ local colorscheme = {
     Float = { link = "Number" }, --    a floating point constant: 2.3e10
     Boolean = { ctermfg = color }, --  a boolean constant: TRUE, false
     SpecialChar = { ctermfg = colors.white }, -- special character in a constant
+    Special = { ctermfg = colors.white }, -- (preferred) any special symbol
 
     Constant = { ctermfg = colors.white }, -- (preferred) any constant
     ["@constant.builtin"] = { ctermfg = color },
