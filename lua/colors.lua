@@ -1,7 +1,7 @@
 return {
     black = 238,
     bright_black = 242,
-    dim_black = 236,
+    dim_black = 237,
 
     red = 160,
     bright_red = 197,
