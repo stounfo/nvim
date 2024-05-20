@@ -56,6 +56,32 @@ return {
         ui()
 
         local lspconfig = require("lspconfig")
+        local configs = require("lspconfig.configs")
+        local util = require("lspconfig.util")
+
+        configs.mylsp = {
+            default_config = {
+                cmd = { "mylsp" },
+                filetypes = { "python" },
+                root_dir = util.root_pattern(
+                    ".git",
+                    "setup.py",
+                    "setup.cfg",
+                    "pyproject.toml",
+                    "requirements.txt",
+                    "pyvenv.cfg"
+                ),
+                settings = {
+                    python = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            useLibraryCodeForTypes = true,
+                        },
+                    },
+                },
+            },
+        }
+
         for _, opts in pairs(require("languages")) do
             if opts.lsp_configs then
                 for name, config in pairs(opts.lsp_configs) do

@@ -35,9 +35,9 @@ return {
         TypeParameter = "",
     },
 
-    folder_state = {
-        folder_closed = "",
-        folder_open = "",
-        folder_empty = "◇",
+    node_state = {
+        open = "",
+        closed = "",
+        empty = "◇",
     },
 }

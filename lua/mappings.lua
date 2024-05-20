@@ -12,6 +12,9 @@ return function()
     local zoom_commands = require("modules.tui.zoom_window").my_commands
     local copilot_chat_commands =
         require("modules.tools.copilot_chat").my_commands
+    local neotest = require("modules.tools.neotest").my_commands
+    local dap = require("modules.tools.dap.dap").my_commands
+    local dapui = require("modules.tools.dap.dap_ui").my_commands
 
     local wk = require("which-key")
 
@@ -134,6 +137,32 @@ return function()
         a = { lspconfig_commands.code_action, "Code action" },
         c = { copilot_commands.panel, "Copilot panel" },
     }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
+
+    -- debug/run
+    wk.register({
+        c = { dap.continue, "Continue" },
+        b = { dap.toggle_breakpoint, "Toggle breakpoint" },
+        o = { dap.step_over, "Step over" },
+        i = { dap.step_into, "Step into" },
+        O = { dap.run_to_cursor, "Run to cursor" },
+        T = { dap.terminate, "Terminate" },
+        K = { dapui.hover, "Hover" },
+
+        r = { dap.run, "Run" },
+        t = {
+            name = "test",
+            n = { neotest.test_nearest, "Run nearest test" },
+            N = { neotest.test_nearest_debug, "Debug nearest test" },
+            f = { neotest.test_file, "Run all tests in file" },
+            u = { neotest.toggle_ui, "Toggle neotest ui" },
+        },
+
+        u = { dapui.toggle_dapui, "Toggle dapui" },
+    }, {
+        mode = "n",
+        desc = "Debug",
+        prefix = "<leader>u",
+    })
 
     wk.register({
         l = {

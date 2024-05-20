@@ -38,6 +38,7 @@ local mappings = {
 
 local options = function()
     local settings = require("settings")
+    local node_state = require("icons").node_state
     return {
         close_if_last_window = true,
         enable_diagnostics = false,
@@ -55,7 +56,11 @@ local options = function()
             indent = {
                 last_indent_marker = "│",
             },
-            icon = require("icons").folder_state,
+            icon = {
+                folder_closed = node_state.closed,
+                folder_open = node_state.open,
+                folder_empty = node_state.empty,
+            },
             modified = {
                 symbol = "",
             },
