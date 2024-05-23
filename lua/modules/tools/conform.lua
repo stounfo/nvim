@@ -1,6 +1,10 @@
 local my_commands = {
     format = function()
-        require("conform").format({ async = true })
+        require("conform").format({ async = true }, function(err)
+            if not err then
+                print("Formatted")
+            end
+        end)
     end,
 }
 

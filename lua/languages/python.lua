@@ -18,8 +18,11 @@ M.lsp_configs = {
             },
         },
     },
-    mylsp = {},
+    mylsp = {
+        -- autostart = false,
+    },
     ruff_lsp = {
+        autostart = false,
         init_options = {
             settings = {
                 args = {

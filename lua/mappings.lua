@@ -15,6 +15,8 @@ return function()
     local neotest = require("modules.tools.neotest").my_commands
     local dap = require("modules.tools.dap.dap").my_commands
     local dapui = require("modules.tools.dap.dap_ui").my_commands
+    local gitlinker = require("modules.tools.vcs.gitlinker").my_commands
+    local git_dev = require("modules.tools.vcs.git_dev").my_commands
 
     local wk = require("which-key")
 
@@ -112,7 +114,12 @@ return function()
             p = { gitsigns_commans.preview_hunk, "Preview hunk" },
             r = { gitsigns_commans.reset_hunk, "Reset hunk" },
         },
+        Y = { gitlinker.git_link, "Create link and open" },
+        O = { git_dev.open_repo, "Open remote repo" },
     }, { mode = "n", desc = "Git", prefix = "<leader>g" })
+    wk.register({
+        Y = { gitlinker.git_link, "Create link and open" },
+    }, { mode = "v", desc = "Git", prefix = "<leader>g" })
 
     -- copilot_chat
     wk.register({

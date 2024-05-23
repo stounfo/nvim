@@ -62,4 +62,7 @@ return {
             },
         },
     },
+    regex = {
+        treesitter_to_install = { "regex" },
+    },
 }

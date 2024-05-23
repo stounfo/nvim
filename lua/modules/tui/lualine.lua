@@ -62,6 +62,7 @@ end
 local dependencies = {
     require("modules.dependencies.nvim_web_devicons"),
     require("modules.tools.aerial"),
+    require("modules.tui.noice"),
     {
         "linrongbin16/lsp-progress.nvim",
         opts = {
@@ -178,6 +179,15 @@ local options = function()
                 { "branch", icon = "" },
             },
             lualine_x = {
+                {
+                    require("noice").api.status.mode.get,
+                    cond = require("noice").api.status.mode.has,
+                    color = { fg = colors.special_foreground },
+                },
+                {
+                    require("noice").api.status.command.get,
+                    cond = require("noice").api.status.command.has,
+                },
                 function()
                     return require("lsp-progress").progress()
                 end,

@@ -30,12 +30,6 @@ local colorscheme = {
 }
 
 local ui = function()
-    -- Hover border style
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
-
     vim.diagnostic.config({
         virtual_text = false,
         underline = true,

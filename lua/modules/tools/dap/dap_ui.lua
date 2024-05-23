@@ -67,7 +67,6 @@ local colorscheme = {
 
 return {
     "rcarriga/nvim-dap-ui",
-    lazy = false,
     dependencies = {
         require("modules.tools.dap.dap"),
         require("modules.dependencies.nvim_nio"),

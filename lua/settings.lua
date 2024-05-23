@@ -23,6 +23,8 @@ vim.opt.timeoutlen = 200
 
 vim.opt.termguicolors = false
 
+vim.opt.colorcolumn = "+1"
+
 -- fix maps in russian
 -- TODO set keymap=russian-jcukenwin
 vim.opt.langmap =

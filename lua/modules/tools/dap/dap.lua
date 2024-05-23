@@ -36,6 +36,7 @@ local options = {}
 
 return {
     "mfussenegger/nvim-dap",
+    dependencies = { "rcarriga/nvim-dap-ui" },
     opts = options,
     config = function(_, opts)
         local dap = require("dap")
