@@ -25,6 +25,9 @@ vim.opt.termguicolors = false
 
 vim.opt.colorcolumn = "+1"
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- fix maps in russian
 -- TODO set keymap=russian-jcukenwin
 vim.opt.langmap =
