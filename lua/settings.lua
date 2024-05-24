@@ -14,7 +14,6 @@ vim.opt.showmode = false
 
 vim.opt.clipboard = "unnamedplus"
 
--- fix tabs (tabs vs spaces. The spaces win!)
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -28,13 +27,8 @@ vim.opt.colorcolumn = "+1"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- fix maps in russian
--- TODO set keymap=russian-jcukenwin
 vim.opt.langmap =
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
-
--- fix relatie path of current dir for neotree
--- vim.opt.autochdir = true
 
 return {
     hide_by_pattern = utils.merge_arrays(
