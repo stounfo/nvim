@@ -9,4 +9,5 @@ return {
     require("modules.tools.copilot_chat"),
     require("modules.tools.dap"),
     require("modules.tools.neotest"),
+    require("modules.tools.vim_dadbod_ui"),
 }
