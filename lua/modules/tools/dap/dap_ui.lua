@@ -49,11 +49,11 @@ local options = function()
                 elements = {
                     {
                         id = "repl",
-                        size = 0.70,
+                        size = 0.80,
                     },
                 },
                 position = "bottom",
-                size = 20,
+                size = 15,
             },
         },
     }
