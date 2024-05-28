@@ -15,9 +15,20 @@ local my_commands = {
 }
 
 local options = function()
+    local icons = require("icons")
     return {
         adapters = {
             require("neotest-python"),
+        },
+        icons = {
+            child_indent = " ",
+            child_prefix = " ",
+            collapsed = icons.node_state.closed,
+            expanded = icons.node_state.open,
+            final_child_indent = " ",
+            final_child_prefix = " ",
+            non_collapsible = " ",
+            running_animated = icons.loader,
         },
     }
 end
