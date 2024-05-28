@@ -30,6 +30,10 @@ return function()
             telescope_commands.current_buff_diagnostic,
             "Current buff diagnostic",
         },
+        ["}"] = { "}zz", "Next paragraph" },
+        ["{"] = { "{zz", "Previous paragraph" },
+        ["n"] = { "nzz", "Next search" },
+        ["N"] = { "Nzz", "Previous search" },
     }, { mode = "n" })
 
     -- window
