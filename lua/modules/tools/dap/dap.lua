@@ -34,9 +34,22 @@ local my_commands = {
 
 local options = {}
 
+local dependencies = {
+    "rcarriga/nvim-dap-ui",
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {
+            virt_text_pos = "eol",
+        },
+        config = function(_, opts)
+            require("nvim-dap-virtual-text").setup(opts)
+        end,
+    },
+}
+
 return {
     "mfussenegger/nvim-dap",
-    dependencies = { "rcarriga/nvim-dap-ui" },
+    dependencies = dependencies,
     opts = options,
     config = function(_, opts)
         local dap = require("dap")
