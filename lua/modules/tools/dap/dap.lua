@@ -40,16 +40,20 @@ return {
     opts = options,
     config = function(_, opts)
         local dap = require("dap")
-
-        local debugpy = {
-            type = "executable",
-            command = os.getenv("HOME")
-                .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python",
-            args = { "-m", "debugpy.adapter" },
-        }
-
-        dap.adapters.debugpy = debugpy
-        dap.adapters.python = debugpy
+        for _, lang in pairs(require("languages")) do
+            if lang.dap then
+                if lang.dap.adapters then
+                    for name, config in pairs(lang.dap.adapters) do
+                        dap.adapters[name] = config
+                    end
+                end
+                if lang.dap.configurations then
+                    for name, config in pairs(lang.dap.configurations) do
+                        dap.configurations[name] = config
+                    end
+                end
+            end
+        end
     end,
     my_commands = my_commands,
 }

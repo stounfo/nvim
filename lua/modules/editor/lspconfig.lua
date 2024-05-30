@@ -76,9 +76,9 @@ return {
             },
         }
 
-        for _, opts in pairs(require("languages")) do
-            if opts.lsp_configs then
-                for name, config in pairs(opts.lsp_configs) do
+        for _, lang in pairs(require("languages")) do
+            if lang.lsp_configs then
+                for name, config in pairs(lang.lsp_configs) do
                     lspconfig[name].setup(config)
                 end
             end
