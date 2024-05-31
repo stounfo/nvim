@@ -59,13 +59,6 @@ return function()
         ["[h"] = { gitsigns_commans.prev_hunk, "Previous hunk" },
     }, { name = "Previous" })
 
-    -- toggle
-    wk.register({
-        y = { aerial_commands.toggle_aerial, "Toggle symbols" },
-        c = { copilot_commands.toggle_copilot, "Toggle copilot" },
-        d = { dabbodui_commands.toggle_dabbodui, "Toggle db" },
-    }, { mode = "n", desc = "Toggle", prefix = "<leader>t" })
-
     -- go to
     wk.register({
         D = { lspconfig_commands.declaration, "Declaration" },
@@ -128,6 +121,7 @@ return function()
     -- copilot_chat
     wk.register({
         c = { copilot_chat_commands.toggle_chat, "Toggle chat" },
+        C = { copilot_commands.toggle_copilot, "Toggle copilot" },
         o = { copilot_chat_commands.commit_staged, "Commit staged" },
         O = { copilot_chat_commands.commit, "Commit" },
     }, { mode = "n", desc = "Copilot chat", prefix = "<leader>c" })
@@ -149,6 +143,16 @@ return function()
         c = { copilot_commands.panel, "Copilot panel" },
     }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
 
+    -- symbols
+    wk.register({
+        y = { aerial_commands.toggle_aerial, "Toggle symbols" },
+    }, { mode = "n", desc = "Symbols", prefix = "<leader>y" })
+
+    -- db
+    wk.register({
+        d = { dabbodui_commands.toggle_dabbodui, "Toggle database ui" },
+    }, { mode = "n", desc = "Database", prefix = "<leader>b" })
+
     -- debug/run
     wk.register({
         c = { dap.continue, "Continue" },
@@ -160,20 +164,22 @@ return function()
         K = { dapui.hover, "Hover" },
 
         r = { dap.run, "Run" },
-        t = {
-            name = "test",
-            n = { neotest.test_nearest, "Run nearest test" },
-            N = { neotest.test_nearest_debug, "Debug nearest test" },
-            f = { neotest.test_file, "Run all tests in file" },
-            u = { neotest.toggle_ui, "Toggle neotest ui" },
-        },
-
         u = { dapui.toggle_dapui, "Toggle dapui" },
+        e = { dapui.show_repl, "Show repl" },
+        E = { dapui.find_breakpoints, "Find breakpoints" },
     }, {
         mode = "n",
         desc = "Debug",
         prefix = "<leader>u",
     })
+
+    -- tests
+    wk.register({
+        t = { neotest.toggle_ui, "Toggle neotest ui" },
+        n = { neotest.test_nearest, "Run nearest test" },
+        N = { neotest.test_nearest_debug, "Debug nearest test" },
+        f = { neotest.test_file, "Run all tests in file" },
+    }, { mode = "n", desc = "Tests", prefix = "<leader>t" })
 
     wk.register({
         l = {
