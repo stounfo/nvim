@@ -152,7 +152,7 @@ return {
     dependencies = {
         require("modules.dependencies.plenary"),
         require("modules.dependencies.nvim_web_devicons"),
-        { "MunifTanjim/nui.nvim" },
+        require("modules.dependencies.nui"),
     },
     opts = options,
     config = function(_, opts)
