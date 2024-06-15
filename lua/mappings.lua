@@ -166,7 +166,6 @@ return function()
         r = { dap.run, "Run" },
         u = { dapui.toggle_dapui, "Toggle dapui" },
         e = { dapui.show_repl, "Show repl" },
-        E = { dapui.find_breakpoints, "Find breakpoints" },
     }, {
         mode = "n",
         desc = "Debug",

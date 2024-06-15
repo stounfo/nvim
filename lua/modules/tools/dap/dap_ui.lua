@@ -4,12 +4,6 @@ local my_commands = {
     toggle_dapui = function()
         require("dapui").toggle()
     end,
-    find_breakpoints = function()
-        require("dapui").float_element(
-            "breakpoints",
-            { width = 90, height = 50, position = "center" }
-        )
-    end,
     show_repl = function()
         require("dapui").float_element(
             "repl",
@@ -36,6 +30,10 @@ local options = function()
             {
                 elements = {
                     {
+                        id = "breakpoints",
+                        size = 0.25,
+                    },
+                    {
                         id = "stacks",
                         size = 0.25,
                     },
@@ -45,7 +43,7 @@ local options = function()
                     },
                     {
                         id = "scopes",
-                        size = 0.50,
+                        size = 0.25,
                     },
                 },
                 position = "left",
