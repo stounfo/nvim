@@ -38,7 +38,11 @@ return {
     },
 
     markdown = {
+        mason_to_install = { "marksman" },
         treesitter_to_install = { "markdown" },
+        lsp_configs = {
+            marksman = {},
+        },
     },
 
     markdown_inline = {
