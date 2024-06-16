@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local colorscheme = {
-    Normal = { ctermbg = 234 },
+    Normal = { ctermbg = colors.default_background },
     CursorLine = { ctermbg = colors.light_background },
     NormalFloat = { ctermbg = colors.default_background },
     LineNr = {
