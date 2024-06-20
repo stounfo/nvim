@@ -22,8 +22,6 @@ vim.opt.timeoutlen = 200
 
 vim.opt.termguicolors = false
 
-vim.opt.colorcolumn = "+1"
-
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
