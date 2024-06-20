@@ -44,13 +44,17 @@ local my_commands = {
 }
 
 vim.g.prev_window_sizes = vim.g.prev_window_sizes or {}
+vim.g.is_prev_window_float = vim.g.is_prev_window_float or false
 local _ = {
-    vim.api.nvim_create_autocmd("WinLeave", {
+    vim.api.nvim_create_autocmd("WinEnter", {
         callback = function()
             local cur_win = vim.api.nvim_get_current_win()
             local cur_win_str = tostring(cur_win)
 
-            if vim.g.prev_window_sizes[cur_win_str] then
+            if
+                vim.g.prev_window_sizes[cur_win_str]
+                and not vim.g.is_prev_window_float
+            then
                 for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
                     local win_str = tostring(win)
                     if vim.g.prev_window_sizes[win_str] then
@@ -66,6 +70,10 @@ local _ = {
                 end
                 vim.g.prev_window_sizes = {}
             end
+
+            -- Check if the current window is a float window
+            vim.g.is_prev_window_float = vim.api.nvim_win_get_config(cur_win).relative
+                ~= ""
         end,
     }),
 }

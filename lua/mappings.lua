@@ -126,6 +126,7 @@ return function()
         O = { copilot_chat_commands.commit, "Commit" },
     }, { mode = "n", desc = "Copilot chat", prefix = "<leader>c" })
     wk.register({
+        c = { copilot_chat_commands.toggle_chat, "Toggle chat" },
         e = { copilot_chat_commands.explain, "Explain" },
         r = { copilot_chat_commands.review, "Review" },
         f = { copilot_chat_commands.fix, "Fix" },
