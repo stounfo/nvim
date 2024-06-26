@@ -97,7 +97,6 @@ local theme = {
     replace = { a = { bg = colors.yellow, fg = colors.light_background } },
     visual = { a = { bg = colors.green, fg = colors.light_background } },
 }
-vim.api.nvim_set_hl(0, "WinBar", { ctermfg = colors.dark_foreground })
 
 local options = function()
     local symbols = {}
@@ -106,16 +105,6 @@ local options = function()
     end
     local winbar = {
         lualine_b = {
-            {
-                "filetype",
-                icon_only = true,
-                colored = false,
-                separator = "",
-                padding = {
-                    left = 1,
-                    right = 0,
-                },
-            },
             function()
                 local final_path = ""
 
