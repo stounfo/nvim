@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local colorscheme = {
-    Visual = { ctermbg = colors.special_background },
+    TabLine = { ctermfg = colors.dark_foreground },
 }
 require("utils").set_hl(colorscheme)
 
