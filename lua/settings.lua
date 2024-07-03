@@ -30,7 +30,10 @@ vim.opt.langmap =
 
 return {
     hide_by_pattern = utils.merge_arrays(
-        utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
+        utils.exclude_from_array(
+            utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
+            { ".mise.toml" }
+        ),
         utils.read_local_settings().hide_by_pattern
     ),
 }

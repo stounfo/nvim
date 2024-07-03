@@ -69,6 +69,23 @@ M.merge_arrays = function(a1, a2)
     return result
 end
 
+M.exclude_from_array = function(array, to_exclude)
+    local result = {}
+    for _, value in ipairs(array) do
+        local shouldExclude = false
+        for _, excludeValue in ipairs(to_exclude) do
+            if value == excludeValue then
+                shouldExclude = true
+                break
+            end
+        end
+        if not shouldExclude then
+            table.insert(result, value)
+        end
+    end
+    return result
+end
+
 M.merge_tables = function(t1, t2)
     for k, v in pairs(t2) do
         t1[k] = v
