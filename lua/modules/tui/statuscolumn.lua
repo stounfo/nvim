@@ -26,7 +26,7 @@ local my_utils = {
                         name = "Mark",
                         text = mark.mark:sub(2),
                         texthl = "DiagnosticHint",
-                        priority = 5,
+                        priority = 10,
                     }
                 end
             end
@@ -58,7 +58,7 @@ local my_utils = {
 
             -- Sort by priority
             table.sort(signs, function(a, b)
-                return (a.priority or 0) < (b.priority or 0)
+                return (a.priority or 0) > (b.priority or 0)
             end)
 
             return signs
@@ -96,12 +96,12 @@ local my_utils = {
         local final_line_number = ""
         if line_number then
             if git_sign and git_sign.texthl then
-                -- final_line_number = "%=%#"
-                --     .. git_sign.texthl
-                --     .. "#"
-                --     .. line_number
-                --     .. " "
-                final_line_number = "%=" .. line_number .. " "
+                final_line_number = "%=%#"
+                    .. git_sign.texthl
+                    .. "#"
+                    .. line_number
+                    .. " "
+                -- final_line_number = "%=" .. line_number .. " "
             else
                 final_line_number = "%=" .. line_number .. " "
             end
@@ -109,7 +109,7 @@ local my_utils = {
 
         local result = table.concat({
             final_line_number,
-            show_signs and icon(all_signs[1], 2) or "",
+            show_signs and icon(signs[1], 2) or "",
         })
         return result
     end,

@@ -53,6 +53,17 @@ return {
     opts = options,
     config = function(_, opts)
         local dap = require("dap")
+        vim.fn.sign_define("DapBreakpoint", { texthl = "DiagnosticError" })
+        vim.fn.sign_define(
+            "DapBreakpointCondition",
+            { texthl = "DiagnosticError" }
+        )
+        vim.fn.sign_define("DapLogPoint", { texthl = "DiagnosticError" })
+        vim.fn.sign_define("DapStopped", { texthl = "DiagnosticError" })
+        vim.fn.sign_define(
+            "DapBreakpointRejected",
+            { texthl = "DiagnosticError" }
+        )
         for _, lang in pairs(require("languages")) do
             if lang.dap then
                 if lang.dap.adapters then
