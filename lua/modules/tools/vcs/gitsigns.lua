@@ -28,6 +28,13 @@ local my_commands = {
 
 local options = function()
     return {
+        signs = {
+            changedelete = { text = "┃" },
+        },
+        signs_staged = {
+            changedelete = { text = "┃" },
+        },
+        sign_priority = 50,
         preview_config = {
             border = "rounded",
         },
@@ -41,7 +48,7 @@ local colorscheme = {
 
     GitSignsAddPreview = { link = "diffAdded" },
     GitSignsChangePreview = { link = "diffRemoved" },
-    GitSignsDeletePreview = { link = "diffChanged" },
+    GitSignsDeletePreview = { link = "diffDelete" },
 }
 
 return {

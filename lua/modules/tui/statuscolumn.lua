@@ -23,18 +23,18 @@ local my_utils = {
                     and mark.mark:match("[a-zA-Z]")
                 then
                     return {
+                        name = "Mark",
                         text = mark.mark:sub(2),
                         texthl = "DiagnosticHint",
+                        priority = 5,
                     }
                 end
             end
         end
 
         local function get_signs(buf, lnum)
-            -- Get regular signs
             local signs = {}
 
-            -- Get extmark signs
             local extmarks = vim.api.nvim_buf_get_extmarks(
                 buf,
                 -1,
@@ -51,6 +51,11 @@ local my_utils = {
                 }
             end
 
+            local mark = get_mark(buf, lnum)
+            if mark then
+                table.insert(signs, mark)
+            end
+
             -- Sort by priority
             table.sort(signs, function(a, b)
                 return (a.priority or 0) < (b.priority or 0)
@@ -61,66 +66,54 @@ local my_utils = {
 
         local win = vim.g.statusline_winid
         local buf = vim.api.nvim_win_get_buf(win)
-        local is_file = vim.bo[buf].buftype == ""
+        -- local is_file = vim.bo[buf].buftype == ""
         local show_signs = vim.wo[win].signcolumn ~= "no"
 
-        local components = { "", "", "" } -- left, middle, right
-
-        if show_signs then
-            local left, right, fold
-            for _, s in ipairs(get_signs(buf, vim.v.lnum)) do
-                if
-                    s.name
-                    and (s.name:find("GitSign") or s.name:find("MiniDiffSign"))
-                then
-                    right = s
-                    vim.print(right)
-                    right.text = right.text:sub(1, -2)
-                    vim.print(right)
-                else
-                    left = s
-                end
+        local all_signs = get_signs(buf, vim.v.lnum)
+        local git_sign = {}
+        local signs = {}
+        for _, s in ipairs(all_signs) do
+            if s.name and (s.name:find("GitSign")) then
+                git_sign = s
+            else
+                table.insert(signs, s)
             end
-            if vim.v.virtnum ~= 0 then
-                left = nil
-            end
-            vim.api.nvim_win_call(win, function()
-                if vim.fn.foldclosed(vim.v.lnum) >= 0 then
-                    fold = {
-                        text = vim.opt.fillchars:get().foldclose or "",
-                        texthl = "Folded",
-                    }
-                end
-            end)
-            -- Left: mark or non-git sign
-            components[1] = icon(get_mark(buf, vim.v.lnum) or left)
-            -- Right: fold icon or git sign (only if file)
-            components[3] = is_file and icon(fold or right) or ""
         end
 
         -- Numbers in Neovim are weird
         -- They show when either number or relativenumber is true
         local is_num = vim.wo[win].number
         local is_relnum = vim.wo[win].relativenumber
+        local line_number
         if (is_num or is_relnum) and vim.v.virtnum == 0 then
             if vim.v.relnum == 0 then
-                components[2] = is_num and "%l" or "%r" -- the current line
+                line_number = is_num and "%l" or "%r" -- the current line
             else
-                components[2] = is_relnum and "%r" or "%l" -- other lines
+                line_number = is_relnum and "%r" or "%l" -- other lines
             end
-            components[2] = "%=" .. components[2] .. " " -- right align
         end
 
-        if vim.v.virtnum ~= 0 then
-            components[2] = "%= "
+        local final_line_number = ""
+        if line_number then
+            if git_sign and git_sign.texthl then
+                -- final_line_number = "%=%#"
+                --     .. git_sign.texthl
+                --     .. "#"
+                --     .. line_number
+                --     .. " "
+                final_line_number = "%=" .. line_number .. " "
+            else
+                final_line_number = "%=" .. line_number .. " "
+            end
         end
 
-        return table.concat(components, "")
+        local result = table.concat({
+            final_line_number,
+            show_signs and icon(all_signs[1], 2) or "",
+        })
+        return result
     end,
 }
-
--- vim.opt.statuscolumn =
---     [[%!v:lua.require'modules.tui.relativenumber'.my_utils.statuscolumn()]]
 
 local _ = {
     vim.api.nvim_create_autocmd({ "InsertEnter" }, {

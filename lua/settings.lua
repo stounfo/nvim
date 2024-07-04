@@ -28,6 +28,9 @@ vim.opt.smartcase = true
 vim.opt.langmap =
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
+vim.opt.statuscolumn =
+    [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
+
 return {
     hide_by_pattern = utils.merge_arrays(
         utils.exclude_from_array(
