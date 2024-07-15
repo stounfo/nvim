@@ -190,10 +190,6 @@ local options = function()
             live_grep_args = require("utils").merge_tables({
                 auto_quoting = false,
             }, pickers().live_grep),
-
-            ["ui-select"] = {
-                require("telescope.themes").get_dropdown({}),
-            },
         },
     }
 end
@@ -208,7 +204,6 @@ local dependencies = {
         "nvim-telescope/telescope-live-grep-args.nvim",
         version = "^1.0.0",
     },
-    { "nvim-telescope/telescope-ui-select.nvim" },
 }
 
 local colorscheme = {
@@ -231,7 +226,6 @@ return {
         require("telescope").setup(opts)
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("live_grep_args")
-        require("telescope").load_extension("ui-select")
     end,
     my_commands = my_commands,
 }
