@@ -26,7 +26,7 @@ M.lsp_configs = {
         },
     },
     mylsp = {
-        -- autostart = false,
+        single_file_support = true,
     },
     ruff_lsp = {
         autostart = false,
