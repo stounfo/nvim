@@ -1,16 +1,20 @@
-local colors = require("colors")
-
-local colorscheme = {
-    WhichKeyFloat = { ctermbg = colors.dark_backgound },
-}
+local options = function()
+    return {
+        preset = "helix",
+        icons = {
+            separator = "",
+            mappings = false,
+        },
+    }
+end
 
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-        require("utils").set_hl(colorscheme)
+    opts = options,
+    config = function(_, opts)
         local wk = require("which-key")
-        wk.setup()
+        wk.setup(opts)
         require("mappings")()
     end,
 }

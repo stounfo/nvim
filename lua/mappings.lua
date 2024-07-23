@@ -21,198 +21,308 @@ return function()
     local wk = require("which-key")
 
     -- general
-    wk.register({
-        ["<leader>d"] = {
+    wk.add({
+        {
+            "<leader>d",
             lspconfig_commands.line_diagnostic,
-            "Line diagnostic",
+            desc = "Line diagnostic",
         },
-        ["<leader>D"] = {
+        {
+            "<leader>D",
             telescope_commands.current_buff_diagnostic,
-            "Current buff diagnostic",
+            desc = "Current buff diagnostic",
         },
-        ["}"] = { "}zz", "Next paragraph" },
-        ["{"] = { "{zz", "Previous paragraph" },
-        ["n"] = { "nzz", "Next search" },
-        ["N"] = { "Nzz", "Previous search" },
-    }, { mode = "n" })
+        { "}", "}zz", desc = "Next paragraph" },
+        { "{", "{zz", desc = "Previous paragraph" },
+        { "n", "nzz", desc = "Next search" },
+        { "N", "Nzz", desc = "Previous search" },
+    })
 
     -- window
-    wk.register({
-        ["<C-h>"] = { "<C-w>h", "Window left" },
-        ["<C-l>"] = { "<C-w>l", "Window right" },
-        ["<C-j>"] = { "<C-w>j", "Window down" },
-        ["<C-k>"] = { "<C-w>k", "Window up" },
-    }, {})
-    wk.register({
-        ["<C-w>z"] = { zoom_commands.toggle_zoom, "Toggle zoom" },
-    }, {})
+    wk.add({
+        { "<C-h>", "<C-w>h", desc = "Window left" },
+        { "<C-l>", "<C-w>l", desc = "Window right" },
+        { "<C-j>", "<C-w>j", desc = "Window down" },
+        { "<C-k>", "<C-w>k", desc = "Window up" },
+        { "<C-w>z", zoom_commands.toggle_zoom, desc = "Toggle zoom" },
+    })
 
     -- next
-    wk.register({
-        ["]b"] = { "<C-^>", "Next buffer" },
-        ["]h"] = { gitsigns_commans.next_hunk, "Next hunk" },
-    }, { name = "Next" })
+    wk.add({
+        { "]b", "<C-^>", desc = "Next buffer" },
+        { "]h", gitsigns_commans.next_hunk, desc = "Next hunk" },
+    })
 
     -- previous
-    wk.register({
-        ["[b"] = { "<C-^>", "Previous buffer" },
-        ["[h"] = { gitsigns_commans.prev_hunk, "Previous hunk" },
-    }, { name = "Previous" })
+    wk.add({
+        { "[b", "<C-^>", desc = "Previous buffer" },
+        { "[h", gitsigns_commans.prev_hunk, desc = "Previous hunk" },
+    })
 
     -- go to
-    wk.register({
-        D = { lspconfig_commands.declaration, "Declaration" },
-        d = { telescope_commands.lsp_definitions, "Definition" },
-        t = { telescope_commands.lsp_type_definitions, "Type definition" },
-        r = { telescope_commands.lsp_references, "References" },
-    }, { mode = "n", desc = "Go to", prefix = "g" })
+    wk.add({
+        {
+            "g",
+            group = "Go to",
+        },
+        {
+            "gD",
+            lspconfig_commands.declaration,
+            desc = "Declaration",
+        },
+        {
+            "gd",
+            telescope_commands.lsp_definitions,
+            desc = "Definition",
+        },
+        {
+            "gt",
+            telescope_commands.lsp_type_definitions,
+            desc = "Type definition",
+        },
+        {
+            "gr",
+            telescope_commands.lsp_references,
+            desc = "References",
+        },
+    })
 
     -- filetree
-    wk.register({
-        ["<C-f>"] = { neo_tree_commands.toggle_tree, "Toggle tree" },
-        ["<leader>e"] = { neo_tree_commands.focus_tree, "Focus tree" },
-    }, { mode = "n" })
-    wk.register(
-        { ["<C-f>"] = { neo_tree_commands.toggle_tree, "Toggle tree" } },
-        { mode = "i" }
-    )
+    wk.add({
+        {
+            "<C-f>",
+            neo_tree_commands.toggle_tree,
+            mode = { "n", "i" },
+            desc = "Toggle tree",
+        },
+        { "<leader>e", neo_tree_commands.focus_tree, desc = "Focus tree" },
+    })
 
     -- search
-    wk.register({
+    wk.add({
+        { "<leader>f", group = "Search" },
         -- files
-        f = { telescope_commands.find_files, "Find files" },
-        F = { telescope_commands.find_files_all, "Find files all" },
-        w = { telescope_commands.live_grep, "Live grep" },
-        W = { telescope_commands.live_grep_args, "Live grep (Args)" },
-        o = { telescope_commands.oldfiles, "Find oldfiles" },
-        O = { telescope_commands.oldfiles_all, "Find oldfiles all" },
+        { "<leader>ff", telescope_commands.find_files, desc = "Find files" },
+        {
+            "<leader>fF",
+            telescope_commands.find_files_all,
+            desc = "Find files all",
+        },
+        { "<leader>fw", telescope_commands.live_grep, desc = "Live grep" },
+        {
+            "<leader>fW",
+            telescope_commands.live_grep_args,
+            desc = "Live grep (Args)",
+        },
+        { "<leader>fo", telescope_commands.oldfiles, desc = "Find oldfiles" },
+        {
+            "<leader>fO",
+            telescope_commands.oldfiles_all,
+            desc = "Find oldfiles all",
+        },
         -- vim
-        z = {
+        {
+            "<leader>fz",
             telescope_commands.current_buffer_fuzzy_find,
-            "Find in current buffer",
+            desc = "Find in current buffer",
         },
-        b = { telescope_commands.buffers, "Find buffers" },
-        t = { telescope_commands.help_tags, "Help tags" },
-        m = { telescope_commands.marks, "Bookmarks" },
-        k = { telescope_commands.keymaps, "Keymaps" },
-        h = { telescope_commands.highlights, "Highlights" },
-    }, { mode = "n", desc = "Search", prefix = "<leader>f" })
+        { "<leader>fb", telescope_commands.buffers, desc = "Find buffers" },
+        { "<leader>ft", telescope_commands.help_tags, desc = "Help tags" },
+        { "<leader>fm", telescope_commands.marks, desc = "Bookmarks" },
+        { "<leader>fk", telescope_commands.keymaps, desc = "Keymaps" },
+        { "<leader>fh", telescope_commands.highlights, desc = "Highlights" },
+    })
 
-    -- git
-    wk.register({
-        c = { telescope_commands.git_commits, "Git commits" },
-        s = { telescope_commands.git_status, "Git status" },
-        b = { telescope_commands.git_branches, "Git branches" },
-        l = { gitsigns_commans.blame_line, "Blame line" },
-        L = { blame_commands.toggle_blame, "Toggle blame" },
-        r = { gitsigns_commans.reset_buffer, "Reset buffer" },
-        h = {
-            name = "Hunk",
-            p = { gitsigns_commans.preview_hunk, "Preview hunk" },
-            r = { gitsigns_commans.reset_hunk, "Reset hunk" },
+    -- vsc
+    wk.add({
+        { "<leader>g", group = "vsc" },
+        { "<leader>gc", telescope_commands.git_commits, desc = "Commits" },
+        { "<leader>gs", telescope_commands.git_status, desc = "Status" },
+        {
+            "<leader>gb",
+            telescope_commands.git_branches,
+            desc = "Branches",
         },
-        Y = { gitlinker.git_link, "Create link and open" },
-        O = { git_dev.open_repo, "Open remote repo" },
-    }, { mode = "n", desc = "Git", prefix = "<leader>g" })
-    wk.register({
-        Y = { gitlinker.git_link, "Create link and open" },
-    }, { mode = "v", desc = "Git", prefix = "<leader>g" })
+        { "<leader>gl", gitsigns_commans.blame_line, desc = "Blame line" },
+        { "<leader>gL", blame_commands.toggle_blame, desc = "Toggle blame" },
+        { "<leader>gr", gitsigns_commans.reset_buffer, desc = "Reset buffer" },
+        {
+            "<leader>gh",
+            group = "Hunk",
+        },
+        {
+            "<leader>ghp",
+            gitsigns_commans.preview_hunk,
+            desc = "Preview hunk",
+        },
+        {
+            "<leader>ghr",
+            gitsigns_commans.reset_hunk,
+            desc = "Reset hunk",
+        },
+        {
+            "<leader>gY",
+            gitlinker.git_link,
+            mode = { "n", "v" },
+            desc = "Create link and open",
+        },
+        { "<leader>gO", git_dev.open_repo, desc = "Open remote repo" },
+    })
 
-    -- copilot_chat
-    wk.register({
-        c = { copilot_chat_commands.toggle_chat, "Toggle chat" },
-        C = { copilot_commands.toggle_copilot, "Toggle copilot" },
-        o = { copilot_chat_commands.commit_staged, "Commit staged" },
-        O = { copilot_chat_commands.commit, "Commit" },
-    }, { mode = "n", desc = "Copilot chat", prefix = "<leader>c" })
-    wk.register({
-        c = { copilot_chat_commands.toggle_chat, "Toggle chat" },
-        e = { copilot_chat_commands.explain, "Explain" },
-        r = { copilot_chat_commands.review, "Review" },
-        f = { copilot_chat_commands.fix, "Fix" },
-        p = { copilot_chat_commands.optimize, "Optimize" },
-        d = { copilot_chat_commands.docs, "Docs" },
-        t = { copilot_chat_commands.tests, "Tests" },
-        i = { copilot_chat_commands.diagnostic, "Diagnostic" },
-    }, { mode = "v", desc = "Copilot chat", prefix = "<leader>c" })
-
-    -- refactoring
-    wk.register({
-        r = { lspconfig_commands.rename, "Rename" },
-        f = { conform_commands.format, "Formating" },
-        a = { lspconfig_commands.code_action, "Code action" },
-        c = { copilot_commands.panel, "Copilot panel" },
-    }, { mode = "n", desc = "Refactoring", prefix = "<leader>r" })
+    -- ai
+    wk.add({
+        { "<leader>a", group = "ai" },
+        {
+            "<leader>aa",
+            copilot_chat_commands.toggle_chat,
+            desc = "Toggle chat",
+        },
+        {
+            "<leader>aC",
+            copilot_commands.toggle_copilot,
+            desc = "Toggle copilot",
+        },
+        {
+            "<leader>ao",
+            copilot_chat_commands.commit_staged,
+            desc = "Commit staged",
+        },
+        { "<leader>aP", copilot_commands.panel },
+        { "<leader>aO", copilot_chat_commands.commit, desc = "Commit" },
+        {
+            mode = { "v" },
+            {
+                "<leader>ae",
+                copilot_chat_commands.explain,
+                desc = "Explain",
+            },
+            {
+                "<leader>ar",
+                copilot_chat_commands.review,
+                desc = "Review",
+            },
+            {
+                "<leader>af",
+                copilot_chat_commands.fix,
+                desc = "Fix",
+            },
+            {
+                "<leader>ap",
+                copilot_chat_commands.optimize,
+                desc = "Optimize",
+            },
+            {
+                "<leader>ad",
+                copilot_chat_commands.docs,
+                desc = "Docs",
+            },
+            {
+                "<leader>at",
+                copilot_chat_commands.tests,
+                desc = "Tests",
+            },
+            {
+                "<leader>ai",
+                copilot_chat_commands.diagnostic,
+                desc = "Diagnostic",
+            },
+        },
+    })
 
     -- symbols
-    wk.register({
-        y = { aerial_commands.toggle_aerial, "Toggle symbols" },
-    }, { mode = "n", desc = "Symbols", prefix = "<leader>y" })
+    wk.add({
+        { "<leader>y", group = "Symbols" },
+        {
+            "<leader>yy",
+            aerial_commands.toggle_aerial,
+            desc = "Toggle symbols",
+        },
+    })
 
     -- db
-    wk.register({
-        d = { dabbodui_commands.toggle_dabbodui, "Toggle database ui" },
-    }, { mode = "n", desc = "Database", prefix = "<leader>b" })
+    wk.add({
+        { "<leader>b", group = "Database" },
+        {
+            "<leader>bd",
+            dabbodui_commands.toggle_dabbodui,
+            desc = "Toggle database ui",
+        },
+    })
 
-    -- debug/run
-    wk.register({
-        c = { dap.continue, "Continue" },
-        b = { dap.toggle_breakpoint, "Toggle breakpoint" },
-        o = { dap.step_over, "Step over" },
-        i = { dap.step_into, "Step into" },
-        O = { dap.run_to_cursor, "Run to cursor" },
-        T = { dap.terminate, "Terminate" },
-        K = { dapui.hover, "Hover" },
+    -- debug
+    wk.add({
+        { "<leader>u", group = "Debug" },
+        { "<leader>uc", dap.continue, desc = "Continue" },
+        { "<leader>ub", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
+        { "<leader>uo", dap.step_over, desc = "Step over" },
+        { "<leader>ui", dap.step_into, desc = "Step into" },
+        { "<leader>uO", dap.run_to_cursor, desc = "Run to cursor" },
+        { "<leader>uT", dap.terminate, desc = "Terminate" },
+        { "<leader>uK", dapui.hover, desc = "Hover" },
 
-        r = { dap.run, "Run" },
-        u = { dapui.toggle_dapui, "Toggle dapui" },
-        e = { dapui.show_repl, "Show repl" },
-    }, {
-        mode = "n",
-        desc = "Debug",
-        prefix = "<leader>u",
+        { "<leader>ur", dap.run, desc = "Run" },
+        { "<leader>uu", dapui.toggle_dapui, desc = "Toggle dapui" },
+        { "<leader>ue", dapui.show_repl, desc = "Show repl" },
     })
 
     -- tests
-    wk.register({
-        t = { neotest.toggle_ui, "Toggle neotest ui" },
-        n = { neotest.test_nearest, "Run nearest test" },
-        N = { neotest.test_nearest_debug, "Debug nearest test" },
-        f = { neotest.test_file, "Run all tests in file" },
-    }, { mode = "n", desc = "Tests", prefix = "<leader>t" })
+    wk.add({
+        { "<leader>t", group = "Tests" },
+        { "<leader>tt", neotest.toggle_ui, desc = "Toggle neotest ui" },
+        { "<leader>tn", neotest.test_nearest, desc = "Run nearest test" },
+        {
+            "<leader>tN",
+            neotest.test_nearest_debug,
+            desc = "Debug nearest test",
+        },
+        { "<leader>tf", neotest.test_file, desc = "Run all tests in file" },
+    })
 
-    wk.register({
-        l = {
+    -- refactoring
+    wk.add({
+        { "<leader>r", group = "Refactoring" },
+        { "<leader>rr", lspconfig_commands.rename, desc = "Rename" },
+        { "<leader>rf", conform_commands.format, desc = "Formating" },
+        { "<leader>ra", lspconfig_commands.code_action, desc = "Code action" },
+        {
+            "<leader>rl",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t single-line') <cr>",
-            "To one line",
+            desc = "To one line",
         },
-        s = {
+        {
+            "<leader>rs",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t snake-case') <cr>",
-            "To snake_case",
+            desc = "To snake_case",
         },
-        k = {
+        {
+            "<leader>rk",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t kebab-case') <cr>",
-            "To kebab-case",
+            desc = "To kebab-case",
         },
-        c = {
+        {
+            "<leader>rc",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t camel-case') <cr>",
-            "To camelCase",
+            desc = "To camelCase",
         },
-        p = {
+        {
+            "<leader>rp",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t pascal-case') <cr>",
-            "To PascalCase",
+            desc = "To PascalCase",
         },
-        t = {
+        {
+            "<leader>rt",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t title') <cr>",
-            "To Title",
+            desc = "To Title",
         },
-        w = {
+        {
+            "<leader>rw",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t word') <cr>",
-            "To Word",
+            desc = "To Word",
         },
-        T = {
+        {
+            "<leader>rT",
             "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t text') <cr>",
-            "To text",
+            desc = "To text",
         },
-    }, { mode = "v", desc = "Reformat", prefix = "<leader>r" })
+    })
 end
