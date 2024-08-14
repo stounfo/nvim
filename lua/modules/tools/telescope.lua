@@ -119,10 +119,12 @@ local mappings = function()
 
         general = {
             i = {
+                ["<C-q>"] = require("telescope.actions").send_to_qflist,
                 ["<C-s>"] = "select_horizontal",
                 ["<C-v>"] = "select_vertical",
             },
             n = {
+                ["<C-q>"] = require("telescope.actions").send_to_qflist,
                 ["<C-s>"] = "select_horizontal",
                 ["<C-v>"] = "select_vertical",
                 ["]h"] = require("telescope.actions").cycle_history_next,

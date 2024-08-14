@@ -32,6 +32,12 @@ return function()
             telescope_commands.current_buff_diagnostic,
             desc = "Current buff diagnostic",
         },
+        {
+            "Y",
+            '"+y',
+            mode = { "v" },
+            desc = "Copy to clipboard",
+        },
         { "}", "}zz", desc = "Next paragraph" },
         { "{", "{zz", desc = "Previous paragraph" },
         { "n", "nzz", desc = "Next search" },

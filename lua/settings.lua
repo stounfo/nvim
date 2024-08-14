@@ -12,8 +12,6 @@ vim.opt.wrap = false
 
 vim.opt.showmode = false
 
-vim.opt.clipboard = "unnamedplus"
-
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
