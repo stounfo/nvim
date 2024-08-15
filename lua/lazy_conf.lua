@@ -29,6 +29,9 @@ local lazy_opts = {
             },
         },
     },
+    ui = {
+        border = "rounded",
+    },
 }
 
 require("lazy").setup("modules", lazy_opts)
