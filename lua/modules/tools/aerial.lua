@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local my_commands = {
-    toggle_aerial = "<cmd>AerialToggle left<cr>",
+    toggle_aerial = "<cmd>AerialToggle<cr>",
 }
 
 local options = function()
