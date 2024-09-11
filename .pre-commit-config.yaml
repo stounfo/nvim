@@ -3,3 +3,9 @@ repos:
     rev: v0.20.0
     hooks:
       - id: stylua
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.24.5
+    hooks:
+      - id: typos
+        args: []

@@ -1,7 +1,7 @@
 return function()
     local telescope_commands = require("modules.tools.telescope").my_commands
     local neo_tree_commands = require("modules.tools.neo_tree").my_commands
-    local gitsigns_commans = require("modules.tools.vcs.gitsigns").my_commands
+    local gitsigns_commands = require("modules.tools.vcs.gitsigns").my_commands
     local blame_commands = require("modules.tools.vcs.blame").my_commands
     local conform_commands = require("modules.tools.conform").my_commands
     local aerial_commands = require("modules.tools.aerial").my_commands
@@ -56,13 +56,13 @@ return function()
     -- next
     wk.add({
         { "]b", "<C-^>", desc = "Next buffer" },
-        { "]h", gitsigns_commans.next_hunk, desc = "Next hunk" },
+        { "]h", gitsigns_commands.next_hunk, desc = "Next hunk" },
     })
 
     -- previous
     wk.add({
         { "[b", "<C-^>", desc = "Previous buffer" },
-        { "[h", gitsigns_commans.prev_hunk, desc = "Previous hunk" },
+        { "[h", gitsigns_commands.prev_hunk, desc = "Previous hunk" },
     })
 
     -- go to
@@ -120,7 +120,7 @@ return function()
             telescope_commands.live_grep_args,
             desc = "Live grep (Args)",
         },
-        { "<leader>fo", telescope_commands.oldfiles, desc = "Find oldfiles" },
+        { "<leader>fo", telescope_commands.oldfiles, desc = "Find oldfiles" }, -- spellchecker:disable-line
         {
             "<leader>fO",
             telescope_commands.oldfiles_all,
@@ -149,21 +149,21 @@ return function()
             telescope_commands.git_branches,
             desc = "Branches",
         },
-        { "<leader>gl", gitsigns_commans.blame_line, desc = "Blame line" },
+        { "<leader>gl", gitsigns_commands.blame_line, desc = "Blame line" },
         { "<leader>gL", blame_commands.toggle_blame, desc = "Toggle blame" },
-        { "<leader>gr", gitsigns_commans.reset_buffer, desc = "Reset buffer" },
+        { "<leader>gr", gitsigns_commands.reset_buffer, desc = "Reset buffer" },
         {
             "<leader>gh",
             group = "Hunk",
         },
         {
             "<leader>ghp",
-            gitsigns_commans.preview_hunk,
+            gitsigns_commands.preview_hunk,
             desc = "Preview hunk",
         },
         {
             "<leader>ghr",
-            gitsigns_commans.reset_hunk,
+            gitsigns_commands.reset_hunk,
             desc = "Reset hunk",
         },
         {
@@ -268,7 +268,7 @@ return function()
 
         { "<leader>ur", dap.run, desc = "Run" },
         { "<leader>uu", dapui.toggle_dapui, desc = "Toggle dapui" },
-        { "<leader>ue", dapui.show_repl, desc = "Show repl" },
+        { "<leader>ue", dapui.show_repl, desc = "Show repl" }, -- spellchecker:disable-line
     })
 
     -- tests
@@ -288,7 +288,7 @@ return function()
     wk.add({
         { "<leader>r", group = "Refactoring" },
         { "<leader>rr", lspconfig_commands.rename, desc = "Rename" },
-        { "<leader>rf", conform_commands.format, desc = "Formating" },
+        { "<leader>rf", conform_commands.format, desc = "Formatting" },
         { "<leader>ra", lspconfig_commands.code_action, desc = "Code action" },
         {
             "<leader>rl",

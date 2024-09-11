@@ -25,7 +25,7 @@ local my_commands = {
     live_grep = function()
         local vimgrep_arguments =
             vim.deepcopy(require("telescope.config").values.vimgrep_arguments)
-        table.insert(vimgrep_arguments, "--fixed-strings") -- literal promt istead of regex
+        table.insert(vimgrep_arguments, "--fixed-strings") -- literal prompt instead of regex
         for _, v in ipairs(settings.hide_by_pattern) do -- exclude trash
             table.insert(vimgrep_arguments, "--glob=!" .. v)
         end
