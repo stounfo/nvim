@@ -1,7 +1,7 @@
 return {
     require("modules.tools.vcs"),
     require("modules.tools.neo_tree"),
-    require("modules.tools.whick_key"),
+    require("modules.tools.which_key"),
     require("modules.tools.aerial"),
     require("modules.tools.mason"),
     require("modules.tools.conform"),

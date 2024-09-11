@@ -36,7 +36,7 @@ return {
     default_background = 234,
     light_background = 235,
     lightest_background = 236,
-    dark_backgound = 233,
+    dark_background = 233,
     darkest_background = 232,
     special_background = 128,
 

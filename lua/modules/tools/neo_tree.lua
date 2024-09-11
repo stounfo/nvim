@@ -113,7 +113,7 @@ end
 
 local colorscheme = {
     NeoTreeDirectoryIcon = { ctermfg = colors.special_foreground },
-    NeoTreeFileIcon = { ctermfg = colors.dark_backgound },
+    NeoTreeFileIcon = { ctermfg = colors.dark_background },
     Directory = { ctermfg = colors.default_foreground },
     NeoTreeFileName = { ctermfg = colors.default_foreground },
     NeoTreeHiddenByName = { ctermfg = colors.magenta },

@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local colorscheme = {
-    IlluminatedWordText = { ctermbg = colors.default_backgound },
+    IlluminatedWordText = { ctermbg = colors.default_background },
     IlluminatedWordRead = { ctermbg = colors.lightest_background },
     IlluminatedWordWrite = { ctermbg = colors.lightest_background },
 }

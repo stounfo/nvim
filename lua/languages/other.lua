@@ -66,6 +66,12 @@ return {
             },
         },
     },
+    typos = {
+        mason_to_install = { "typos-lsp" },
+        lsp_configs = {
+            typos_lsp = {},
+        },
+    },
     regex = {
         treesitter_to_install = { "regex" },
     },
