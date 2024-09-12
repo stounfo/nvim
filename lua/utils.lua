@@ -27,22 +27,6 @@ M.read_gitignore = function(path)
     return lines
 end
 
-M.test = function()
-    local options = { "Option 1", "Option 2" }
-    vim.ui.select(options, {
-        prompt = "Choose an option:",
-        format_item = function(item)
-            return "Option: " .. item
-        end,
-    }, function(choice)
-        if choice == nil then
-            print("No option selected")
-        else
-            print("You selected: " .. choice)
-        end
-    end)
-end
-
 M.read_local_settings = function()
     local lua_dev_path = "./.dev/lua/?.lua"
     package.path = package.path .. ";" .. lua_dev_path
