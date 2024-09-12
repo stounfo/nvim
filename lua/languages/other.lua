@@ -69,7 +69,11 @@ return {
     typos = {
         mason_to_install = { "typos-lsp" },
         lsp_configs = {
-            typos_lsp = {},
+            typos_lsp = {
+                init_options = {
+                    diagnosticSeverity = "Warning",
+                },
+            },
         },
     },
     regex = {
