@@ -49,6 +49,7 @@ return {
         "CopilotChatCommit",
         "CopilotChatCommitStaged",
     },
+    build = "make tiktoken",
     opts = options,
     config = true,
     my_commands = my_commands,

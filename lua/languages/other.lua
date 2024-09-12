@@ -71,7 +71,7 @@ return {
         lsp_configs = {
             typos_lsp = {
                 init_options = {
-                    diagnosticSeverity = "Warning",
+                    diagnosticSeverity = "Info",
                 },
             },
         },
