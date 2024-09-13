@@ -23,6 +23,7 @@ local colorscheme = {
         ctermbg = colors.default_background,
         ctermfg = colors.light_foreground,
     },
+    ColorColumn = { ctermbg = colors.light_background },
 }
 require("utils").set_hl(colorscheme)
 
