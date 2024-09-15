@@ -1,4 +1,4 @@
-local color = require("colors").bright_black
+local color = require("colors").dark_foreground
 
 local colorscheme = {
     Conditional = { ctermfg = color }, --  if, then, else, endif, switch, etc.

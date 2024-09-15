@@ -1,19 +1,19 @@
 local colors = require("colors")
 
 local colorscheme = {
-    Type = { ctermfg = colors.white }, -- (preferred) int, long, char, etc.
+    Type = { ctermfg = colors.default_foreground }, -- (preferred) int, long, char, etc.
 
-    Identifier = { ctermfg = colors.white }, -- (preferred) any variable name
-    ["@variable.builtin"] = { ctermfg = colors.white },
-    ["@variable.parameter"] = { ctermfg = colors.white },
+    Identifier = { ctermfg = colors.default_foreground }, -- (preferred) any variable name
+    ["@variable.builtin"] = { ctermfg = colors.default_foreground },
+    ["@variable.parameter"] = { ctermfg = colors.default_foreground },
 
-    Function = { ctermfg = colors.white }, -- function name (also: methods for classes)
-    ["@function.builtin"] = { ctermfg = colors.white },
-    ["@function.call"] = { ctermfg = colors.white },
-    ["@function.method.call"] = { ctermfg = colors.white },
-    ["@constructor"] = { ctermfg = colors.white },
+    Function = { ctermfg = colors.default_foreground }, -- function name (also: methods for classes)
+    ["@function.builtin"] = { ctermfg = colors.default_foreground },
+    ["@function.call"] = { ctermfg = colors.default_foreground },
+    ["@function.method.call"] = { ctermfg = colors.default_foreground },
+    ["@constructor"] = { ctermfg = colors.default_foreground },
 
-    ["@attribute"] = { ctermfg = colors.white },
+    ["@attribute"] = { ctermfg = colors.default_foreground },
     ["@attribute.builtin"] = { link = "@attribute" },
     ["@property"] = { link = "@attribute" },
 

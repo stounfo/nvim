@@ -1,4 +1,4 @@
-local color = require("colors").bright_black
+local color = require("colors").dark_foreground
 
 local colorscheme = {
     Delimiter = { ctermfg = color }, -- character that needs attention like (, ), {, }, [, ], etc.
