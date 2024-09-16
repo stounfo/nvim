@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local colorscheme = {
-    Visual = { ctermbg = colors.special_background },
+    Visual = { ctermbg = colors.dim_blue },
 }
 require("utils").set_hl(colorscheme)
 

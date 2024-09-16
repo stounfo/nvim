@@ -17,7 +17,7 @@ local colorscheme = {
 
     FloatBorder = {
         ctermbg = colors.default_background,
-        ctermfg = colors.dark_foreground,
+        ctermfg = colors.darkest_foreground,
     },
     FloatTitle = {
         ctermbg = colors.default_background,

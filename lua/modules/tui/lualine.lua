@@ -53,7 +53,7 @@ local format = function(client_messages)
                 end
             end
         end
-        return "" .. " " .. table.concat(builder, ",")
+        return table.concat(builder, ",")
     else
         return ""
     end
@@ -88,9 +88,9 @@ local dependencies = {
 
 local theme = {
     normal = {
-        a = { bg = colors.light_background, fg = colors.dark_foreground },
-        b = { bg = colors.default_background, fg = colors.dark_foreground },
-        c = { bg = colors.light_background, fg = colors.dark_foreground },
+        a = { bg = colors.light_background, fg = colors.darkest_foreground },
+        b = { bg = colors.default_background, fg = colors.darkest_foreground },
+        c = { bg = colors.light_background, fg = colors.darkest_foreground },
     },
     insert = { a = { bg = colors.red, fg = colors.light_background } },
     command = { a = { bg = colors.cyan, fg = colors.light_background } },
