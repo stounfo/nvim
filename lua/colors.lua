@@ -1,20 +1,20 @@
 return {
-    red = 160,
+    red = 1,
     dim_red = 52,
 
-    green = 34,
+    green = 2,
     dim_green = 22,
 
-    yellow = 226,
+    yellow = 3,
     dim_yellow = 220,
 
-    blue = 33,
+    blue = 4,
     dim_blue = 18,
 
-    magenta = 140,
+    magenta = 5,
     dim_magenta = 92,
 
-    cyan = 43,
+    cyan = 6,
     dim_cyan = 31,
 
     debug = 196,

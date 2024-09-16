@@ -95,7 +95,7 @@ local theme = {
     insert = { a = { bg = colors.red, fg = colors.light_background } },
     command = { a = { bg = colors.cyan, fg = colors.light_background } },
     replace = { a = { bg = colors.yellow, fg = colors.light_background } },
-    visual = { a = { bg = colors.green, fg = colors.light_background } },
+    visual = { a = { bg = colors.blue, fg = colors.light_background } },
 }
 
 local options = function()

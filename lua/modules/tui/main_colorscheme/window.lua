@@ -6,7 +6,7 @@ local colorscheme = {
     NormalFloat = { ctermbg = colors.default_background },
     LineNr = {
         ctermbg = colors.default_background,
-        ctermfg = colors.dark_foreground,
+        ctermfg = colors.darkest_foreground,
     },
     CursorLineNr = {
         ctermbg = colors.default_background,
@@ -21,7 +21,7 @@ local colorscheme = {
     },
     FloatTitle = {
         ctermbg = colors.default_background,
-        ctermfg = colors.light_foreground,
+        ctermfg = colors.default_foreground,
     },
     ColorColumn = { ctermbg = colors.light_background },
 }

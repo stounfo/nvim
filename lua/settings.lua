@@ -17,6 +17,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 
 vim.opt.termguicolors = false
+vim.opt.background = "dark"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
