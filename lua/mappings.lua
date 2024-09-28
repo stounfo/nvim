@@ -8,7 +8,6 @@ return function()
     local lspconfig_commands = require("modules.editor.lspconfig").my_commands
     local copilot_commands =
         require("modules.editor.completion.copilot").my_commands
-    local dabbodui_commands = require("modules.tools.vim_dadbod_ui").my_commands
     local zoom_commands = require("modules.tui.zoom_window").my_commands
     local copilot_chat_commands =
         require("modules.tools.copilot_chat").my_commands
@@ -242,16 +241,6 @@ return function()
             "<leader>yy",
             aerial_commands.toggle_aerial,
             desc = "Toggle symbols",
-        },
-    })
-
-    -- db
-    wk.add({
-        { "<leader>b", group = "Database" },
-        {
-            "<leader>bd",
-            dabbodui_commands.toggle_dabbodui,
-            desc = "Toggle database ui",
         },
     })
 

@@ -63,7 +63,6 @@ local dependencies = {
     },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
-    { "kristijanhusak/vim-dadbod-completion" },
 }
 
 local colorscheme = {
@@ -78,15 +77,5 @@ return {
     config = function(_, opts)
         require("utils").set_hl(colorscheme)
         require("cmp").setup(opts)
-
-        -- stupid hack to get vim-dadbod-completion to work, I don't
-        -- understand how this works, but it does
-        local sources =
-            table.insert(opts.sources, { name = "vim-dadbod-completion" })
-        for _, sql_file_type in ipairs({ "sql", "mysql", "pgsql", "sqlite" }) do
-            require("cmp").setup.filetype(sql_file_type, {
-                sources = sources,
-            })
-        end
     end,
 }
