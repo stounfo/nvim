@@ -279,45 +279,5 @@ return function()
         { "<leader>rr", lspconfig_commands.rename, desc = "Rename" },
         { "<leader>rf", conform_commands.format, desc = "Formatting" },
         { "<leader>ra", lspconfig_commands.code_action, desc = "Code action" },
-        {
-            "<leader>rl",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t single-line') <cr>",
-            desc = "To one line",
-        },
-        {
-            "<leader>rs",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t snake-case') <cr>",
-            desc = "To snake_case",
-        },
-        {
-            "<leader>rk",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t kebab-case') <cr>",
-            desc = "To kebab-case",
-        },
-        {
-            "<leader>rc",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t camel-case') <cr>",
-            desc = "To camelCase",
-        },
-        {
-            "<leader>rp",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t pascal-case') <cr>",
-            desc = "To PascalCase",
-        },
-        {
-            "<leader>rt",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t title') <cr>",
-            desc = "To Title",
-        },
-        {
-            "<leader>rw",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t word') <cr>",
-            desc = "To Word",
-        },
-        {
-            "<leader>rT",
-            "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t text') <cr>",
-            desc = "To text",
-        },
     })
 end

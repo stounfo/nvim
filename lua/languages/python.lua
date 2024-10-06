@@ -8,33 +8,18 @@ local debugpy_adapter = {
 }
 
 M.mason_to_install = {
-    "pyright",
+    "basedpyright",
     "ruff",
     "debugpy",
-    "ruff-lsp",
 }
 M.treesitter_to_install = { "python" }
 M.lsp_configs = {
-    pyright = {
-        autostart = false,
+    basedpyright = {
+        autostart = true,
         settings = {
-            python = {
+            basedpyright = {
                 analysis = {
-                    typeCheckingMode = "off",
-                },
-            },
-        },
-    },
-    mylsp = {
-        single_file_support = true,
-    },
-    ruff_lsp = {
-        autostart = false,
-        init_options = {
-            settings = {
-                args = {
-                    "--ignore",
-                    "I001",
+                    typeCheckingMode = "basic",
                 },
             },
         },
