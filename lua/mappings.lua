@@ -15,7 +15,6 @@ return function()
     local dap = require("modules.tools.dap.dap").my_commands
     local dapui = require("modules.tools.dap.dap_ui").my_commands
     local gitlinker = require("modules.tools.vcs.gitlinker").my_commands
-    local git_dev = require("modules.tools.vcs.git_dev").my_commands
 
     local wk = require("which-key")
 
@@ -171,7 +170,6 @@ return function()
             mode = { "n", "v" },
             desc = "Create link and open",
         },
-        { "<leader>gO", git_dev.open_repo, desc = "Open remote repo" },
     })
 
     -- ai
