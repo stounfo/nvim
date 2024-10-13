@@ -10,5 +10,4 @@ return {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     opts = options,
-    config = true,
 }

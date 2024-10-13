@@ -9,4 +9,6 @@ return {
     require("modules.tools.copilot_chat"),
     require("modules.tools.dap"),
     require("modules.tools.neotest"),
+    require("modules.tools.render_markdown"),
+    require("modules.tools.zen_mode"),
 }

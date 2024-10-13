@@ -15,6 +15,8 @@ return function()
     local dap = require("modules.tools.dap.dap").my_commands
     local dapui = require("modules.tools.dap.dap_ui").my_commands
     local gitlinker = require("modules.tools.vcs.gitlinker").my_commands
+    local zen_mode = require("modules.tools.zen_mode").my_commands
+    local render_markdown = require("modules.tools.render_markdown").my_commands
 
     local wk = require("which-key")
 
@@ -277,5 +279,12 @@ return function()
         { "<leader>rr", lspconfig_commands.rename, desc = "Rename" },
         { "<leader>rf", conform_commands.format, desc = "Formatting" },
         { "<leader>ra", lspconfig_commands.code_action, desc = "Code action" },
+    })
+
+    -- view mode
+    wk.add({
+        { "<leader>v", group = "View mode" },
+        { "<leader>vz", zen_mode.toggle_zen_mode, desc = "Toggle zen mode" },
+        { "<leader>vm", render_markdown.toggle_render_markdown, desc = "Toggle render markdown" },
     })
 end

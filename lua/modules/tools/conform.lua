@@ -19,12 +19,16 @@ local options = function()
     end
     return {
         formatters_by_ft = formatters_by_ft,
+        formatters = {
+            prettier = {
+                prepend_args = { "--prose-wrap=always" },
+            },
+        },
     }
 end
 
 return {
     "stevearc/conform.nvim",
     opts = options,
-    config = true,
     my_commands = my_commands,
 }

@@ -5,19 +5,29 @@ local colorscheme = {
     IblScope = { ctermfg = colors.darkest_foreground, blend = 0 },
 }
 
+local options = function()
+    return {
+        indent = {
+            char = "▏",
+        },
+        scope = {
+            enabled = false,
+        },
+        exclude = {
+            filetypes = {
+                "markdown",
+            },
+        },
+    }
+end
+
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
-    config = function()
+    opts = options,
+    config = function(_, opts)
         require("utils").set_hl(colorscheme)
-        require("ibl").setup({
-            indent = {
-                char = "▏",
-            },
-            scope = {
-                enabled = false,
-            },
-        })
+        require("ibl").setup(opts)
     end,
 }

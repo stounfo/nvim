@@ -14,6 +14,5 @@ return {
         "BlameToggle",
     },
     opts = options,
-    config = true,
     my_commands = my_commands,
 }

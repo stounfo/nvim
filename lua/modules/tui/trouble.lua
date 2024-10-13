@@ -8,6 +8,6 @@ local _ = {
 
 return {
     "folke/trouble.nvim",
+    opts = {},
     cmd = "Trouble",
-    config = true,
 }

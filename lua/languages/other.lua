@@ -38,10 +38,13 @@ return {
     },
 
     markdown = {
-        mason_to_install = { "marksman" },
+        mason_to_install = { "marksman", "prettier" },
         treesitter_to_install = { "markdown" },
         lsp_configs = {
             marksman = {},
+        },
+        formatters = {
+            markdown = { "prettier" },
         },
     },
 
