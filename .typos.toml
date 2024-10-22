@@ -4,5 +4,8 @@ extend-ignore-re = [
     "(?Rm)^.*(#|//|--)\\s*spellchecker:disable-line$"
 ]
 
+[files]
+ignore-hidden = false
+
 [default.extend-words]
 noice = "noice"
