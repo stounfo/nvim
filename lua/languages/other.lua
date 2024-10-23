@@ -8,9 +8,6 @@ return {
 
     toml = {
         treesitter_to_install = { "toml" },
-        formatters = {
-            toml = { "prettier" },
-        },
     },
 
     json = {
