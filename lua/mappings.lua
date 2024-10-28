@@ -285,6 +285,10 @@ return function()
     wk.add({
         { "<leader>v", group = "View mode" },
         { "<leader>vz", zen_mode.toggle_zen_mode, desc = "Toggle zen mode" },
-        { "<leader>vm", render_markdown.toggle_render_markdown, desc = "Toggle render markdown" },
+        {
+            "<leader>vm",
+            render_markdown.toggle_render_markdown,
+            desc = "Toggle render markdown",
+        },
     })
 end
