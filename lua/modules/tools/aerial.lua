@@ -13,7 +13,11 @@ local options = function()
         },
         open_automatic = false,
         attach_mode = "global",
-        backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
+        backends = {
+            ["_"] = { "lsp", "treesitter" },
+            markdown = { "markdown" },
+            help = { "treesitter" },
+        },
         icons = require("icons").symbols,
     }
 end
