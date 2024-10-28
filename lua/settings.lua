@@ -9,6 +9,7 @@ vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
+vim.opt.linebreak = false
 
 vim.opt.showmode = false
 

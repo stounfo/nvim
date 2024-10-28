@@ -16,6 +16,7 @@ local options = function()
             position = "right",
             width = "block",
             min_width = 80,
+            left_pad = 1,
             language_pad = 1,
         },
         dash = {
