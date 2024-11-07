@@ -29,6 +29,8 @@ vim.opt.langmap =
 vim.opt.statuscolumn =
     [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 
+vim.opt.autoread = true
+
 return {
     hide_by_pattern = utils.merge_arrays(
         utils.exclude_from_array(
