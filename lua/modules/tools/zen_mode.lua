@@ -25,7 +25,7 @@ local options = function()
 end
 
 local colorscheme = {
-    ZenBorder = { ctermfg = colors.darkest_foreground },
+    ZenBorder = { link = "WinSeparator" },
 }
 
 return {
