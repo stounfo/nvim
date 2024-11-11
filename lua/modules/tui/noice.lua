@@ -10,6 +10,7 @@ local options = function()
         },
         popupmenu = {
             enabled = true,
+            backend = "cmp",
         },
         lsp = {
             progress = {
