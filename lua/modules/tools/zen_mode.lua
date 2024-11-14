@@ -1,5 +1,3 @@
-local colors = require("colors")
-
 local my_commands = {
     toggle_zen_mode = function()
         require("zen-mode").toggle()

@@ -40,14 +40,29 @@ local colorscheme = {
     },
 
     RenderMarkdownH1Bg = {
-        ctermfg = colors.special_foreground,
+        ctermfg = colors.red,
         ctermbg = colors.default_background,
     },
-    RenderMarkdownH2Bg = { link = "RenderMarkdownH1Bg" },
-    RenderMarkdownH3Bg = { link = "RenderMarkdownH1Bg" },
-    RenderMarkdownH4Bg = { link = "RenderMarkdownH1Bg" },
-    RenderMarkdownH5Bg = { link = "RenderMarkdownH1Bg" },
-    RenderMarkdownH6Bg = { link = "RenderMarkdownH1Bg" },
+    RenderMarkdownH2Bg = {
+        ctermfg = colors.yellow,
+        ctermbg = colors.default_background,
+    },
+    RenderMarkdownH3Bg = {
+        ctermfg = colors.magenta,
+        ctermbg = colors.default_background,
+    },
+    RenderMarkdownH4Bg = {
+        ctermfg = colors.blue,
+        ctermbg = colors.default_background,
+    },
+    RenderMarkdownH5Bg = {
+        ctermfg = colors.cyan,
+        ctermbg = colors.default_background,
+    },
+    RenderMarkdownH6Bg = {
+        ctermfg = colors.green,
+        ctermbg = colors.default_background,
+    },
 }
 
 return {

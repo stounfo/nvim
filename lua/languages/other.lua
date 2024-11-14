@@ -35,10 +35,17 @@ return {
     },
 
     markdown = {
-        mason_to_install = { "markdown-oxide", "prettier" },
+        mason_to_install = { "markdown-oxide", "harper-ls", "prettier" },
         treesitter_to_install = { "markdown" },
         lsp_configs = {
             markdown_oxide = {},
+            harper_ls = {
+                settings = {
+                    ["harper-ls"] = {
+                        diagnosticSeverity = "information",
+                    },
+                },
+            },
         },
         formatters = {
             markdown = { "prettier" },
