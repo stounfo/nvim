@@ -10,11 +10,11 @@ local my_commands = {
     tests = "<cmd>CopilotChatTests<cr>",
     diagnostic = "<cmd>CopilotChatFixDiagnostic<cr>",
     commit = "<cmd>CopilotChatCommit<cr>",
-    commit_staged = "<cmd>CopilotChatCommitStaged<cr>",
 }
 
 local options = function()
     return {
+        log_level = "warn",
         window = {
             layout = "float",
             height = 0.8,

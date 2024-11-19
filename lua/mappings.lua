@@ -189,11 +189,10 @@ return function()
         },
         {
             "<leader>ao",
-            copilot_chat_commands.commit_staged,
+            copilot_chat_commands.commit,
             desc = "Commit staged",
         },
         { "<leader>aP", copilot_commands.panel },
-        { "<leader>aO", copilot_chat_commands.commit, desc = "Commit" },
         {
             mode = { "v" },
             {
