@@ -39,13 +39,6 @@ return {
         treesitter_to_install = { "markdown" },
         lsp_configs = {
             markdown_oxide = {},
-            harper_ls = {
-                settings = {
-                    ["harper-ls"] = {
-                        diagnosticSeverity = "information",
-                    },
-                },
-            },
         },
         formatters = {
             markdown = { "prettier" },
