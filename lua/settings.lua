@@ -2,12 +2,16 @@ local utils = require("utils")
 
 vim.g.mapleader = " "
 
-vim.opt.number = true
+vim.opt.numberwidth = 1
+vim.opt.statuscolumn =
+    [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.signcolumn = "yes"
+
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true
 vim.opt.swapfile = false
-vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.linebreak = false
 
@@ -25,9 +29,6 @@ vim.opt.smartcase = true
 
 vim.opt.langmap =
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
-
-vim.opt.statuscolumn =
-    [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 
 vim.opt.autoread = true
 
