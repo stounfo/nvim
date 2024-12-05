@@ -6,7 +6,6 @@ local my_utils = {
     statuscolumn = function()
         local function icon(sign, len)
             sign = sign or {}
-            len = len or 2
             local text = vim.fn.strcharpart(sign.text or "", 0, len)
             text = text .. string.rep(" ", len - vim.fn.strchars(text))
             return sign.texthl and ("%#" .. sign.texthl .. "#" .. text .. "%*")
@@ -101,7 +100,6 @@ local my_utils = {
                     .. "#"
                     .. line_number
                     .. " "
-                -- final_line_number = "%=" .. line_number .. " "
             else
                 final_line_number = "%=" .. line_number .. " "
             end
