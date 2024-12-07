@@ -44,7 +44,7 @@ local options = function()
 end
 
 return {
-    "stounfo/copilot.lua",
+    "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = { "BufReadPre", "BufNewFile" },
     build = ":Copilot auth",
