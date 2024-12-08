@@ -7,7 +7,7 @@ vim.opt.statuscolumn =
     [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number"
 
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true

@@ -8,8 +8,7 @@ local my_utils = {
             sign = sign or {}
             local text = vim.fn.strcharpart(sign.text or "", 0, len)
             text = text .. string.rep(" ", len - vim.fn.strchars(text))
-            return sign.texthl and ("%#" .. sign.texthl .. "#" .. text .. "%*")
-                or text
+            return sign.texthl and ("%#" .. sign.texthl .. "#" .. text) or text
         end
 
         local function get_mark(buf, lnum)
@@ -29,6 +28,30 @@ local my_utils = {
                     }
                 end
             end
+        end
+
+        local function buf_has_not_git_signs(buf)
+            local extmarks = vim.api.nvim_buf_get_extmarks(
+                buf,
+                -1,
+                0,
+                -1,
+                { details = true, type = "sign" }
+            )
+            for _, extmark in pairs(extmarks) do
+                if not extmark[4].sign_hl_group:find("GitSigns") then
+                    return true
+                end
+            end
+            local marks = vim.fn.getmarklist(buf)
+            vim.list_extend(marks, vim.fn.getmarklist())
+            for _, mark in ipairs(marks) do
+                if mark.pos[1] == buf and mark.mark:match("[a-zA-Z]") then
+                    return true
+                end
+            end
+
+            return false
         end
 
         local function get_signs(buf, lnum)
@@ -65,8 +88,7 @@ local my_utils = {
 
         local win = vim.g.statusline_winid
         local buf = vim.api.nvim_win_get_buf(win)
-        -- local is_file = vim.bo[buf].buftype == ""
-        local show_signs = vim.wo[win].signcolumn ~= "no"
+        local show_signs = true
 
         local all_signs = get_signs(buf, vim.v.lnum)
         local git_sign = {}
@@ -105,9 +127,11 @@ local my_utils = {
             end
         end
 
+        local t = buf_has_not_git_signs(buf)
+
         local result = table.concat({
             final_line_number,
-            show_signs and icon(signs[1], 2) or "",
+            t and icon(signs[1], 2) or "",
         })
         return result
     end,
