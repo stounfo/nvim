@@ -14,7 +14,7 @@ return function()
     local neotest = require("modules.tools.neotest").my_commands
     local dap = require("modules.tools.dap.dap").my_commands
     local dapui = require("modules.tools.dap.dap_ui").my_commands
-    local gitlinker = require("modules.tools.vcs.gitlinker").my_commands
+    local snacks = require("modules.snacks").my_commands
     local zen_mode = require("modules.tools.zen_mode").my_commands
     local render_markdown = require("modules.tools.render_markdown").my_commands
 
@@ -168,7 +168,7 @@ return function()
         },
         {
             "<leader>gY",
-            gitlinker.git_link,
+            snacks.git_link,
             mode = { "n", "v" },
             desc = "Create link and open",
         },

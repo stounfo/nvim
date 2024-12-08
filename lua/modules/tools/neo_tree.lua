@@ -38,8 +38,13 @@ local mappings = {
 }
 
 local options = function()
+    local function on_move(data)
+        require("snacks").rename.on_rename_file(data.source, data.destination)
+    end
+    local events = require("neo-tree.events")
     local settings = require("settings")
     local node_state = require("icons").node_state
+
     return {
         close_if_last_window = true,
         enable_diagnostics = false,
@@ -108,6 +113,10 @@ local options = function()
                 enabled = false,
             },
             use_libuv_file_watcher = true,
+        },
+        event_handlers = {
+            { event = events.FILE_MOVED, handler = on_move },
+            { event = events.FILE_RENAMED, handler = on_move },
         },
     }
 end
