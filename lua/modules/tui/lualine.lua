@@ -152,6 +152,7 @@ local options = function()
                 "dapui_console",
                 "dapui_stacks",
                 "dap-repl",
+                "snacks_dashboard",
             },
             section_separators = "",
             component_separators = "",

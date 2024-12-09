@@ -32,7 +32,7 @@ end
 
 return {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     dependencies = {
         require("modules.dependencies.plenary"),
         require("modules.editor.completion.copilot"),
