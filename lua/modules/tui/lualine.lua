@@ -134,6 +134,7 @@ local options = function()
                 symbols = symbols,
                 colored = false,
             },
+            { "diff", colored = false },
             function()
                 if vim.bo.modified then
                     return ""

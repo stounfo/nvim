@@ -17,6 +17,8 @@ local colorscheme = {
     ["@attribute.builtin"] = { link = "@attribute" },
     ["@property"] = { link = "@attribute" },
 
+    ["@module"] = { ctermfg = colors.default_foreground },
+
     -- preprocessor
     PreProc = { link = "@attribute" }, -- (preferred) generic Preprocessor
     Include = { link = "PreProc" }, --  preprocessor #include

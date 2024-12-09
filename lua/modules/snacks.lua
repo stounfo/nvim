@@ -43,7 +43,7 @@ local options = function()
                         desc = "Config",
                         action = function()
                             vim.fn.chdir(vim.fn.stdpath("config"))
-                            require("modules.tools.neo_tree").my_commands.toggle_tree()
+                            require("snacks").dashboard.update()
                         end,
                     },
                     {
@@ -66,11 +66,10 @@ local options = function()
                     enabled = function()
                         return snacks.git.get_root() ~= nil
                     end,
+                    height = 6,
                     cmd = "git status --branch --short",
-                    height = 5,
-                    padding = 1,
-                    ttl = 5 * 60,
-                    indent = 3,
+                    padding = 2,
+                    ttl = 1,
                 },
                 { section = "startup" },
             },
