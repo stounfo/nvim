@@ -59,18 +59,6 @@ local options = function()
             sections = {
                 { section = "header" },
                 { section = "keys", gap = 1, padding = 2 },
-                {
-                    icon = " ",
-                    title = "Git Status",
-                    section = "terminal",
-                    enabled = function()
-                        return snacks.git.get_root() ~= nil
-                    end,
-                    height = 6,
-                    cmd = "git status --branch --short",
-                    padding = 2,
-                    ttl = 1,
-                },
                 { section = "startup" },
             },
         },
