@@ -19,6 +19,10 @@ local colorscheme = {
         ctermbg = colors.default_background,
         ctermfg = colors.darkest_foreground,
     },
+    Title = {
+        ctermbg = colors.default_background,
+        ctermfg = colors.default_foreground,
+    },
     FloatTitle = {
         ctermbg = colors.default_background,
         ctermfg = colors.default_foreground,

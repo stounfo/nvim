@@ -17,11 +17,12 @@ local my_commands = {
 }
 
 local colorscheme = {
-    LspReferenceText = { ctermbg = colors.default_background },
+    LspReferenceText = { ctermbg = colors.lightest_background },
     LspReferenceRead = { ctermbg = colors.lightest_background },
     LspReferenceWrite = { ctermbg = colors.lightest_background },
     SnacksIndent = { ctermfg = colors.darkest_foreground, blend = 0 },
     SnacksIndentScope = { ctermfg = colors.darkest_foreground, blend = 0 },
+    SnacksDashboardHeader = { ctermfg = colors.special_foreground },
 }
 
 local options = function()
@@ -29,6 +30,7 @@ local options = function()
         bigfile = { enabled = true },
         quickfile = { enabled = true },
         gitbrowse = { enabled = true },
+        words = { enabled = true },
         dashboard = {
             preset = {
                 header = header,
@@ -55,7 +57,6 @@ local options = function()
                 { section = "startup" },
             },
         },
-        words = { enabled = true },
         indent = {
             indent = {
                 char = "│",
