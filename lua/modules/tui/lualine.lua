@@ -134,7 +134,15 @@ local options = function()
                 symbols = symbols,
                 colored = false,
             },
-            { "diff", colored = false },
+            {
+                "diff",
+                colored = true,
+                diff_color = {
+                    added = "GitSignsAdd",
+                    modified = "GitSignsChange",
+                    removed = "GitSignsDelete",
+                },
+            },
             function()
                 if vim.bo.modified then
                     return ""

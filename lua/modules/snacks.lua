@@ -19,10 +19,11 @@ local colorscheme = {
     LspReferenceText = { ctermbg = colors.default_background },
     LspReferenceRead = { ctermbg = colors.lightest_background },
     LspReferenceWrite = { ctermbg = colors.lightest_background },
+    SnacksIndent = { ctermfg = colors.darkest_foreground, blend = 0 },
+    SnacksIndentScope = { ctermfg = colors.darkest_foreground, blend = 0 },
 }
 
 local options = function()
-    local snacks = require("snacks")
     return {
         bigfile = { enabled = true },
         quickfile = { enabled = true },
@@ -36,15 +37,6 @@ local options = function()
                         key = "n",
                         desc = "New File",
                         action = ":ene | startinsert",
-                    },
-                    {
-                        icon = " ",
-                        key = "c",
-                        desc = "Config",
-                        action = function()
-                            vim.fn.chdir(vim.fn.stdpath("config"))
-                            require("snacks").dashboard.update()
-                        end,
                     },
                     {
                         icon = "󰒲 ",
@@ -63,6 +55,16 @@ local options = function()
             },
         },
         words = { enabled = true },
+        indent = {
+            indent = {
+                char = "│",
+            },
+            scope = {
+                animate = {
+                    enabled = false,
+                },
+            },
+        },
     }
 end
 
