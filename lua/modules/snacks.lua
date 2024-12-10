@@ -4,10 +4,10 @@ local header = [[
    |\_._/|        |,\__/|        |\___/|        |\/~\/|  
    | o o |        |  o o|        | ^ ^ |        | * * |  
    (  T  )        (   T )        (  v  )        (  U  )  
-  .^`-^-'^.      .^`--^'^.      .^`^--'^.      .^`o^o'^. 
+  .^`-^-'^.      .^`--^'^.      .^'-^-'^.      .^`o^o'^. 
   `.  ;  .'      `.  ;  .'      `.  *  .'      `.  |  .' 
   | | | | |      | | | | |      | |---| |      | || || | 
- ((_((|))_))    ((_((Y))_))    ((_(( ))_))    ((_((X))_))
+ ((_((N))_))    ((_((V))_))    ((_((I))_))    ((_((M))_))
 ]]
 
 local my_commands = {
@@ -22,7 +22,7 @@ local colorscheme = {
     LspReferenceWrite = { ctermbg = colors.lightest_background },
     SnacksIndent = { ctermfg = colors.darkest_foreground, blend = 0 },
     SnacksIndentScope = { ctermfg = colors.darkest_foreground, blend = 0 },
-    SnacksDashboardHeader = { ctermfg = colors.special_foreground },
+    SnacksDashboardHeader = { ctermfg = colors.blue },
 }
 
 local options = function()
