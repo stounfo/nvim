@@ -62,9 +62,7 @@ local options = function()
                 char = "│",
             },
             scope = {
-                animate = {
-                    enabled = false,
-                },
+                enabled = false,
             },
         },
     }
