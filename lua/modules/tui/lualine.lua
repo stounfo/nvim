@@ -136,7 +136,7 @@ local options = function()
             },
             function()
                 local final = ""
-                local colored = true
+                local colored = false
                 local signs = {
                     { key = "added", symbol = "+", hl = "%#GitSignsAdd#" },
                     { key = "changed", symbol = "~", hl = "%#GitSignsChange#" },
