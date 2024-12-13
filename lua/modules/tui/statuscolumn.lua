@@ -1,3 +1,10 @@
+local colors = require("colors")
+
+local colorsheme = {
+    StatusColumnSign = { ctermfg = colors.cyan },
+}
+require("utils").set_hl(colorsheme)
+
 local my_utils = {}
 
 my_utils.numbercolumn_enabled = function()
@@ -6,10 +13,13 @@ end
 
 my_utils.icon = function(sign, len, highlight)
     sign = sign or {}
+    highlight = highlight
+        or highlight == false and false
+        or sign.texthl and ("%#" .. sign.texthl .. "#")
+        or false
     local text = vim.fn.strcharpart(sign.text or "", 0, len)
     text = text .. string.rep(" ", len - vim.fn.strchars(text))
-    return highlight and sign.texthl and ("%#" .. sign.texthl .. "#" .. text)
-        or text
+    return highlight and (highlight .. text) or text
 end
 
 my_utils.get_mark = function(buf, lnum)
@@ -100,7 +110,14 @@ my_utils.statuscolumn = function()
         result = table.concat({
             "%=",
             git_sign_hl,
-            show_signs and signs[1] and my_utils.icon(signs[1], 1, false)
+            show_signs
+                    and signs[1]
+                    and my_utils.icon(
+                        signs[1],
+                        1,
+                        git_sign_hl ~= "" and git_sign_hl
+                            or "%#StatusColumnSign#"
+                    )
                 or line_number,
         })
     else
@@ -108,7 +125,7 @@ my_utils.statuscolumn = function()
             "%=",
             git_sign_hl,
             line_number,
-            show_signs and (" " .. my_utils.icon(signs[1], 1, true)) or "",
+            show_signs and (" " .. my_utils.icon(signs[1], 1)) or "",
         })
     end
     return result .. " "
