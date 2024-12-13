@@ -4,11 +4,12 @@ my_utils.numbercolumn_enabled = function()
     return vim.opt.number:get() or vim.opt.relativenumber:get()
 end
 
-my_utils.icon = function(sign, len)
+my_utils.icon = function(sign, len, highlight)
     sign = sign or {}
     local text = vim.fn.strcharpart(sign.text or "", 0, len)
     text = text .. string.rep(" ", len - vim.fn.strchars(text))
-    return sign.texthl and ("%#" .. sign.texthl .. "#" .. text) or text
+    return highlight and sign.texthl and ("%#" .. sign.texthl .. "#" .. text)
+        or text
 end
 
 my_utils.get_mark = function(buf, lnum)
@@ -92,31 +93,22 @@ my_utils.statuscolumn = function()
         end
     end
 
-    local final_line_number = ""
-    if line_number then
-        if git_sign and git_sign.texthl then
-            final_line_number = "%#"
-                .. git_sign.texthl
-                .. "#"
-                .. line_number
-                .. " "
-        else
-            final_line_number = line_number
-        end
-    end
-
     local result = ""
+    local git_sign_hl = git_sign.texthl and ("%#" .. git_sign.texthl .. "#")
+        or ""
     if signcolumn == "number" then
         result = table.concat({
             "%=",
-            show_signs and signs[1] and my_utils.icon(signs[1], 1)
-                or final_line_number,
+            git_sign_hl,
+            show_signs and signs[1] and my_utils.icon(signs[1], 1, false)
+                or line_number,
         })
     else
         result = table.concat({
             "%=",
-            final_line_number,
-            show_signs and (my_utils.icon(signs[1], 1) .. " ") or "",
+            git_sign_hl,
+            line_number,
+            show_signs and (" " .. my_utils.icon(signs[1], 1, true)) or "",
         })
     end
     return result .. " "
