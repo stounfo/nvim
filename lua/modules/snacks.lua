@@ -59,9 +59,12 @@ local options = function()
         },
         indent = {
             indent = {
-                char = "│",
+                char = "▏",
             },
             scope = {
+                enabled = false,
+            },
+            animate = {
                 enabled = false,
             },
         },

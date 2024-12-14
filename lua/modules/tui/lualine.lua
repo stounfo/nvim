@@ -117,11 +117,7 @@ local options = function()
                 local location_path = require("aerial").get_location()
                 if #location_path > 0 then
                     for _, location in ipairs(location_path) do
-                        final_path = final_path
-                            .. " "
-                            .. location.icon
-                            .. " "
-                            .. location.name
+                        final_path = final_path .. "::" .. location.name
                     end
                 end
 
