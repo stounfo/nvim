@@ -36,19 +36,19 @@ local options = function()
                 header = header,
                 keys = {
                     {
-                        icon = " ",
+                        icon = "",
                         key = "n",
                         desc = "New File",
                         action = ":ene | startinsert",
                     },
                     {
-                        icon = "󰒲 ",
+                        icon = "󰒲",
                         key = "l",
                         desc = "Lazy",
                         action = ":Lazy",
                         enabled = package.loaded.lazy ~= nil,
                     },
-                    { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+                    { icon = "", key = "q", desc = "Quit", action = ":qa" },
                 },
             },
             sections = {

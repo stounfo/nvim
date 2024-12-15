@@ -10,7 +10,6 @@ local options = function()
         },
         popupmenu = {
             enabled = true,
-            backend = "cmp",
         },
         lsp = {
             progress = {
@@ -31,9 +30,25 @@ local options = function()
         },
         views = {
             cmdline_popup = {
+                size = {
+                    width = "64",
+                },
                 position = {
-                    row = "15%",
+                    row = "7",
                     col = "50%",
+                },
+            },
+            popupmenu = {
+                size = {
+                    width = "66",
+                    height = "auto",
+                },
+                position = {
+                    row = "10",
+                    col = "50%",
+                },
+                border = {
+                    style = "rounded",
                 },
             },
             hover = {
@@ -66,6 +81,18 @@ local colorscheme = {
     NoiceVirtualText = {
         ctermfg = colors.dark_foreground,
     },
+    NoicePopupmenu = {
+        link = "NormalFloat",
+    },
+    NoicePopupmenuBorder = {
+        link = "FloatBorder",
+    },
+    NoicePopupmenuSelected = {
+        link = "CursorLine",
+    },
+    NoicePopupmenuMatch = {
+        link = "Search",
+    },
 }
 
 return {
@@ -73,7 +100,7 @@ return {
     event = "VeryLazy",
     opts = options,
     dependencies = {
-        require("modules.dependencies.nvim_nio"),
+        require("modules.dependencies.nui"),
     },
     config = function(_, opts)
         require("utils").set_hl(colorscheme)
