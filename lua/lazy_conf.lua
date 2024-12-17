@@ -29,6 +29,9 @@ local lazy_opts = {
             },
         },
     },
+    install = {
+        colorscheme = { "default" },
+    },
     ui = {
         border = "rounded",
     },
