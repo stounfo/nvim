@@ -37,7 +37,7 @@ local options = function()
                 keys = {
                     {
                         icon = "",
-                        key = "n",
+                        key = "i",
                         desc = "New File",
                         action = ":ene | startinsert",
                     },

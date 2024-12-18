@@ -168,6 +168,7 @@ local options = function()
                 "dapui_stacks",
                 "dap-repl",
                 "snacks_dashboard",
+                "trouble",
             },
             section_separators = "",
             component_separators = "",
@@ -196,8 +197,9 @@ local options = function()
                 function()
                     return require("lsp-progress").progress()
                 end,
-                "location",
-                "progress",
+                function()
+                    return "Col %v:%{strchars(getline('.'))} Line %l:%L"
+                end,
             },
             lualine_y = {},
             lualine_z = {},
