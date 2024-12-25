@@ -36,6 +36,7 @@ local options = function()
         },
         sources = {
             default = { "lsp", "snippets", "buffer", "path" },
+            cmdline = {},
         },
         completion = {
             accept = {
@@ -44,10 +45,10 @@ local options = function()
                 },
             },
             documentation = {
-                winblend = 10,
                 auto_show = true,
                 auto_show_delay_ms = 200,
                 window = {
+                    winblend = 10,
                     border = "rounded",
                 },
             },
