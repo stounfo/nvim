@@ -94,7 +94,7 @@ my_utils.statuscolumn = function()
     -- They show when either number or relativenumber is true
     local is_num = vim.wo[win].number
     local is_relnum = vim.wo[win].relativenumber
-    local line_number
+    local line_number = ""
     if (is_num or is_relnum) and vim.v.virtnum == 0 then
         if vim.v.relnum == 0 then
             line_number = is_num and "%l" or "%r" -- the current line
