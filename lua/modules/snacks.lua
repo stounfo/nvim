@@ -20,7 +20,7 @@ local colorscheme = {
     LspReferenceText = { ctermbg = colors.lightest_background },
     LspReferenceRead = { ctermbg = colors.lightest_background },
     LspReferenceWrite = { ctermbg = colors.lightest_background },
-    SnacksIndent = { ctermfg = colors.darkest_foreground, blend = 0 },
+    SnacksIndent = { ctermfg = colors.light_background, blend = 0 },
     SnacksIndentScope = { ctermfg = colors.darkest_foreground, blend = 0 },
     SnacksDashboardHeader = { ctermfg = colors.blue },
 }
