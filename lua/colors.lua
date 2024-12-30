@@ -22,13 +22,9 @@ return {
     default_background = 234,
     light_background = 235,
     lightest_background = 236,
-    dark_background = 233,
-    darkest_background = 232,
     special_background = 128,
 
     default_foreground = 245,
-    light_foreground = 246,
-    lightest_foreground = 247,
     dark_foreground = 244,
     darkest_foreground = 243,
     special_foreground = 177,

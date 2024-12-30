@@ -68,6 +68,13 @@ local options = function()
                 enabled = false,
             },
         },
+        scroll = {
+            enabled = true,
+            animate = {
+                duration = { step = 15, total = 250 },
+                easing = "inQuad",
+            },
+        },
     }
 end
 

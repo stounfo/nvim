@@ -13,7 +13,7 @@ local colorscheme = {
         ctermfg = colors.default_foreground,
     },
     SignColumn = { ctermbg = colors.default_background },
-    WinSeparator = { ctermfg = colors.darkest_background },
+    WinSeparator = { ctermfg = colors.light_background },
 
     FloatBorder = {
         ctermbg = colors.default_background,
