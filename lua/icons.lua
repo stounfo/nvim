@@ -36,8 +36,8 @@ return {
     },
 
     node_state = {
-        open = "",
-        closed = "",
+        open = "",
+        closed = "",
         empty = "◇",
     },
     loader = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
