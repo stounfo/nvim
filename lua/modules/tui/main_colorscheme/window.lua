@@ -1,31 +1,39 @@
 local colors = require("colors")
 
 local colorscheme = {
-    Normal = { ctermbg = colors.default_background },
-    CursorLine = { ctermbg = colors.light_background },
-    NormalFloat = { ctermbg = colors.default_background },
-    LineNr = {
+    Normal = {
+        ctermfg = colors.default_foreground,
         ctermbg = colors.default_background,
+    },
+    CursorLine = {
+        ctermbg = colors.light_background,
+    },
+    NormalFloat = {
+        ctermfg = colors.default_foreground,
+        ctermbg = colors.default_background,
+    },
+    LineNr = {
         ctermfg = colors.darkest_foreground,
+        ctermbg = colors.default_background,
     },
     CursorLineNr = {
-        ctermbg = colors.default_background,
         ctermfg = colors.default_foreground,
+        ctermbg = colors.default_background,
     },
     SignColumn = { ctermbg = colors.default_background },
     WinSeparator = { ctermfg = colors.light_background },
 
     FloatBorder = {
-        ctermbg = colors.default_background,
         ctermfg = colors.darkest_foreground,
+        ctermbg = colors.default_background,
     },
     Title = {
-        ctermbg = colors.default_background,
         ctermfg = colors.default_foreground,
+        ctermbg = colors.default_background,
     },
     FloatTitle = {
-        ctermbg = colors.default_background,
         ctermfg = colors.default_foreground,
+        ctermbg = colors.default_background,
     },
     ColorColumn = { ctermbg = colors.light_background },
 }
