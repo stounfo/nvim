@@ -48,7 +48,6 @@ local options = function()
                 auto_show = true,
                 auto_show_delay_ms = 200,
                 window = {
-                    winblend = 10,
                     border = "rounded",
                 },
             },
