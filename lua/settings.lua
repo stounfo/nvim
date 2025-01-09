@@ -11,6 +11,7 @@ vim.opt.signcolumn = "number"
 
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
 vim.opt.swapfile = false
 vim.opt.wrap = false
 vim.opt.linebreak = false
