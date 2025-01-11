@@ -115,7 +115,7 @@ local options = function()
                     cond = require("noice").api.status.command.has,
                 },
                 function()
-                    return "Col %v:%{strchars(getline('.'))} Line %l:%L"
+                    return "Ln %l:%L Col %v:%{strchars(getline('.'))}"
                 end,
             },
             lualine_y = {},
