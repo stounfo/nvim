@@ -19,13 +19,13 @@ return {
 
     debug = 196,
 
-    default_background = 234,
+    default_background = 0,
     light_background = 235,
     lightest_background = 236,
     special_background = 92,
 
-    default_foreground = 245,
-    dark_foreground = 244,
-    darkest_foreground = 243,
+    default_foreground = 15,
+    dark_foreground = 7,
+    darkest_foreground = 8,
     special_foreground = 5,
 }
