@@ -11,4 +11,5 @@ return {
     require("modules.tools.neotest"),
     require("modules.tools.render_markdown"),
     require("modules.tools.zen_mode"),
+    require("modules.tools.fzf_lua"),
 }

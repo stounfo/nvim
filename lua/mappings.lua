@@ -1,5 +1,6 @@
 return function()
     local telescope_commands = require("modules.tools.telescope").my_commands
+    local fzf_lua_commands = require("modules.tools.fzf_lua").my_commands
     local neo_tree_commands = require("modules.tools.neo_tree").my_commands
     local gitsigns_commands = require("modules.tools.vcs.gitsigns").my_commands
     local blame_commands = require("modules.tools.vcs.blame").my_commands
@@ -113,13 +114,18 @@ return function()
 
     -- filetree
     wk.add({
-        {
-            "<C-f>",
-            neo_tree_commands.toggle_tree,
-            mode = { "n", "i" },
-            desc = "Toggle tree",
-        },
         { "<leader>e", neo_tree_commands.focus_tree, desc = "Focus tree" },
+    })
+
+    wk.add({
+        { "<leader>F", group = "New Search" },
+        { "<leader>Ff", fzf_lua_commands.find_files, desc = "Find files" },
+        {
+            "<leader>FF",
+            fzf_lua_commands.find_files_all,
+            desc = "Find files all",
+        },
+        { "<leader>Fw", fzf_lua_commands.live_grep, desc = "Live grep" },
     })
 
     -- search
