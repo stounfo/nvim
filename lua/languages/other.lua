@@ -50,9 +50,19 @@ return {
     },
 
     bash = {
+        mason_to_install = { "shfmt" },
         treesitter_to_install = { "bash" },
+        formatters = {
+            bash = { "shfmt" },
+        },
     },
-
+    sh = {
+        mason_to_install = { "shfmt" },
+        treesitter_to_install = { "bash" },
+        formatters = {
+            sh = { "shfmt" },
+        },
+    },
     typos = {
         mason_to_install = { "typos-lsp" },
         lsp_configs = {
