@@ -3,11 +3,11 @@ local utils = require("utils")
 vim.g.mapleader = " "
 
 vim.opt.numberwidth = 1
-vim.opt.statuscolumn =
-    [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.signcolumn = "number"
+vim.opt.statuscolumn =
+    [[%!v:lua.require'modules.tui.statuscolumn'.my_utils.statuscolumn()]]
 
 vim.opt.fillchars = { eob = " " }
 vim.opt.cursorline = true
