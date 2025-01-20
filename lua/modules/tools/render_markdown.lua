@@ -23,7 +23,10 @@ local options = function()
             width = 80,
         },
         bullet = {
-            icons = {},
+            enabled = false,
+        },
+        checkbox = {
+            enabled = false,
         },
         pipe_table = {
             style = "normal",
