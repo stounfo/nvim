@@ -189,7 +189,7 @@ local options = function()
                 override_generic_sorter = true,
                 override_file_sorter = true,
             },
-            live_grep_args = require("utils").merge_tables({
+            live_grep_args = vim.tbl_deep_extend("error", {
                 auto_quoting = false,
             }, pickers().live_grep),
         },

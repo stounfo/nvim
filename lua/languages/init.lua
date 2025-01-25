@@ -6,4 +6,4 @@ local main = {
 }
 local other = require("languages.other")
 
-return require("utils").merge_tables(main, other)
+return vim.tbl_deep_extend("error", main, other)

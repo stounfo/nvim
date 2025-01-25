@@ -1,11 +1,9 @@
 local options = function()
-    local utils = require("utils")
-
     local ensure_installed = {}
     for _, opts in pairs(require("languages")) do
         if opts.treesitter_to_install then
             ensure_installed =
-                utils.merge_arrays(ensure_installed, opts.treesitter_to_install)
+                vim.list_extend(ensure_installed, opts.treesitter_to_install)
         end
     end
     return {

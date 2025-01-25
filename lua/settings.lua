@@ -33,11 +33,11 @@ vim.opt.langmap =
 vim.opt.autoread = true
 
 return {
-    hide_by_pattern = utils.merge_arrays(
+    hide_by_pattern = vim.list_extend(
         utils.exclude_from_array(
             utils.read_gitignore(os.getenv("HOME") .. "/.gitignore"),
             { ".mise.toml" }
         ),
-        utils.read_local_settings().hide_by_pattern
+        utils.read_local_settings().hide_by_pattern or {}
     ),
 }
