@@ -32,30 +32,10 @@ return function()
             telescope_commands.current_buff_diagnostic,
             desc = "Current buff diagnostic",
         },
-        {
-            "Y",
-            '"+y',
-            mode = { "v" },
-            desc = "Copy to clipboard",
-        },
-        {
-            "<leader>w",
-            "<cmd>w<cr><esc>",
-            mode = { "n" },
-            desc = "Save file",
-        },
-        {
-            "<leader>Q",
-            "<cmd>qa<cr>",
-            mode = { "n" },
-            desc = "Quit nvim",
-        },
-        {
-            "<leader>q",
-            "<cmd>q<cr>",
-            mode = { "n" },
-            desc = "Quit buffer",
-        },
+        { "Y", '"+y', mode = { "v" }, desc = "Copy to clipboard" },
+        { "<leader>w", "<cmd>w<cr><esc>", mode = { "n" }, desc = "Save file" },
+        { "<leader>Q", "<cmd>qa<cr>", mode = { "n" }, desc = "Quit nvim" },
+        { "<leader>q", "<cmd>q<cr>", mode = { "n" }, desc = "Quit buffer" },
         { "}", "}zz", desc = "Next paragraph" },
         { "{", "{zz", desc = "Previous paragraph" },
         { "n", "nzz", desc = "Next search" },
@@ -85,30 +65,15 @@ return function()
 
     -- go to
     wk.add({
-        {
-            "g",
-            group = "Go to",
-        },
-        {
-            "gD",
-            lspconfig_commands.declaration,
-            desc = "Declaration",
-        },
-        {
-            "gd",
-            telescope_commands.lsp_definitions,
-            desc = "Definition",
-        },
+        { "g", group = "Go to" },
+        { "gD", lspconfig_commands.declaration, desc = "Declaration" },
+        { "gd", telescope_commands.lsp_definitions, desc = "Definition" },
         {
             "gt",
             telescope_commands.lsp_type_definitions,
             desc = "Type definition",
         },
-        {
-            "gr",
-            telescope_commands.lsp_references,
-            desc = "References",
-        },
+        { "gr", telescope_commands.lsp_references, desc = "References" },
     })
 
     -- filetree
@@ -162,28 +127,17 @@ return function()
         { "<leader>g", group = "vsc" },
         { "<leader>gc", telescope_commands.git_commits, desc = "Commits" },
         { "<leader>gs", telescope_commands.git_status, desc = "Status" },
-        {
-            "<leader>gb",
-            telescope_commands.git_branches,
-            desc = "Branches",
-        },
+        { "<leader>gb", telescope_commands.git_branches, desc = "Branches" },
         { "<leader>gl", gitsigns_commands.blame_line, desc = "Blame line" },
         { "<leader>gL", blame_commands.toggle_blame, desc = "Toggle blame" },
         { "<leader>gr", gitsigns_commands.reset_buffer, desc = "Reset buffer" },
-        {
-            "<leader>gh",
-            group = "Hunk",
-        },
+        { "<leader>gh", group = "Hunk" },
         {
             "<leader>ghp",
             gitsigns_commands.preview_hunk,
             desc = "Preview hunk",
         },
-        {
-            "<leader>ghr",
-            gitsigns_commands.reset_hunk,
-            desc = "Reset hunk",
-        },
+        { "<leader>ghr", gitsigns_commands.reset_hunk, desc = "Reset hunk" },
         {
             "<leader>gY",
             snacks.git_link,
@@ -205,44 +159,16 @@ return function()
             copilot_commands.toggle_copilot,
             desc = "Toggle copilot",
         },
-        {
-            "<leader>ao",
-            copilot_chat_commands.commit,
-            desc = "Commit staged",
-        },
+        { "<leader>ao", copilot_chat_commands.commit, desc = "Commit staged" },
         { "<leader>aP", copilot_commands.panel },
         {
             mode = { "v" },
-            {
-                "<leader>ae",
-                copilot_chat_commands.explain,
-                desc = "Explain",
-            },
-            {
-                "<leader>ar",
-                copilot_chat_commands.review,
-                desc = "Review",
-            },
-            {
-                "<leader>af",
-                copilot_chat_commands.fix,
-                desc = "Fix",
-            },
-            {
-                "<leader>ap",
-                copilot_chat_commands.optimize,
-                desc = "Optimize",
-            },
-            {
-                "<leader>ad",
-                copilot_chat_commands.docs,
-                desc = "Docs",
-            },
-            {
-                "<leader>at",
-                copilot_chat_commands.tests,
-                desc = "Tests",
-            },
+            { "<leader>ae", copilot_chat_commands.explain, desc = "Explain" },
+            { "<leader>ar", copilot_chat_commands.review, desc = "Review" },
+            { "<leader>af", copilot_chat_commands.fix, desc = "Fix" },
+            { "<leader>ap", copilot_chat_commands.optimize, desc = "Optimize" },
+            { "<leader>ad", copilot_chat_commands.docs, desc = "Docs" },
+            { "<leader>at", copilot_chat_commands.tests, desc = "Tests" },
             {
                 "<leader>ai",
                 copilot_chat_commands.diagnostic,
@@ -291,12 +217,36 @@ return function()
     })
 
     -- refactoring
-    wk.add({
+    local txc_table = {}
+    for _, mapping in ipairs({
+        { key = "t", command = "title", desc = "To Title Case" },
+        { key = "l", command = "single-line", desc = "To one line" },
+        { key = "c", command = "camel-case", desc = "To camelCase" },
+        { key = "p", command = "pascal-case", desc = "To PascalCase" },
+        { key = "s", command = "snake-case", desc = "To snake_case" },
+        { key = "k", command = "kebab-case", desc = "To kebab-case" },
+    }) do
+        table.insert(txc_table, {
+            "<leader>rc" .. mapping.key,
+            string.format(
+                "<cmd> lua require('utils').replace_visual_selection_with_command('txc -t %s') <cr><esc>",
+                mapping.command
+            ),
+            desc = mapping.desc,
+            mode = { "v" },
+        })
+    end
+    wk.add(vim.list_extend({
         { "<leader>r", group = "Refactoring" },
         { "<leader>rr", lspconfig_commands.rename, desc = "Rename" },
         { "<leader>rf", conform_commands.format, desc = "Formatting" },
-        { "<leader>ra", lspconfig_commands.code_action, desc = "Code action" },
-    })
+        {
+            "<leader>ra",
+            lspconfig_commands.code_action,
+            desc = "Code action",
+        },
+        { "<leader>rc", group = "Convert text" },
+    }, txc_table))
 
     -- view mode
     wk.add({
