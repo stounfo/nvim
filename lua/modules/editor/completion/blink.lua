@@ -35,8 +35,15 @@ local options = function()
             -- ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         },
         sources = {
-            default = { "lsp", "snippets", "buffer", "path" },
+            default = { "lsp", "snippets", "buffer", "path", "markdown" },
             cmdline = {},
+            providers = {
+                markdown = {
+                    name = "RenderMarkdown",
+                    module = "render-markdown.integ.blink",
+                    fallbacks = { "lsp" },
+                },
+            },
         },
         completion = {
             accept = {
