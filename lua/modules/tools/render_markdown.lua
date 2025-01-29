@@ -9,7 +9,7 @@ local my_commands = {
 local options = function()
     return {
         heading = {
-            icons = {},
+            enabled = false,
         },
         code = {
             style = "full",
@@ -42,29 +42,35 @@ local colorscheme = {
         ctermbg = colors.light_background,
     },
 
-    RenderMarkdownH1Bg = {
+    ["@markup.heading.1.markdown"] = {
         ctermfg = colors.red,
         ctermbg = colors.default_background,
+        bold = true,
     },
-    RenderMarkdownH2Bg = {
+    ["@markup.heading.2.markdown"] = {
         ctermfg = colors.yellow,
         ctermbg = colors.default_background,
+        bold = true,
     },
-    RenderMarkdownH3Bg = {
+    ["@markup.heading.3.markdown"] = {
         ctermfg = colors.magenta,
         ctermbg = colors.default_background,
+        bold = true,
     },
-    RenderMarkdownH4Bg = {
+    ["@markup.heading.4.markdown"] = {
         ctermfg = colors.blue,
         ctermbg = colors.default_background,
+        bold = true,
     },
-    RenderMarkdownH5Bg = {
+    ["@markup.heading.5.markdown"] = {
         ctermfg = colors.cyan,
         ctermbg = colors.default_background,
+        bold = true,
     },
-    RenderMarkdownH6Bg = {
+    ["@markup.heading.6.markdown"] = {
         ctermfg = colors.green,
         ctermbg = colors.default_background,
+        bold = true,
     },
 }
 
