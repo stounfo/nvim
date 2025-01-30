@@ -34,6 +34,10 @@ local options = function()
         sign = {
             enabled = false,
         },
+        link = {
+            hyperlink = "",
+            wiki = { icon = "", highlight = "RenderMarkdownLink" },
+        },
     }
 end
 
@@ -42,34 +46,33 @@ local colorscheme = {
         ctermbg = colors.light_background,
     },
 
+    ["@markup.link.label.markdown_inline"] = {
+        ctermfg = colors.blue,
+        cterm = { underline = true },
+    },
+
     ["@markup.heading.1.markdown"] = {
         ctermfg = colors.red,
-        ctermbg = colors.default_background,
         bold = true,
     },
     ["@markup.heading.2.markdown"] = {
         ctermfg = colors.yellow,
-        ctermbg = colors.default_background,
         bold = true,
     },
     ["@markup.heading.3.markdown"] = {
         ctermfg = colors.magenta,
-        ctermbg = colors.default_background,
         bold = true,
     },
     ["@markup.heading.4.markdown"] = {
         ctermfg = colors.blue,
-        ctermbg = colors.default_background,
         bold = true,
     },
     ["@markup.heading.5.markdown"] = {
         ctermfg = colors.cyan,
-        ctermbg = colors.default_background,
         bold = true,
     },
     ["@markup.heading.6.markdown"] = {
         ctermfg = colors.green,
-        ctermbg = colors.default_background,
         bold = true,
     },
 }

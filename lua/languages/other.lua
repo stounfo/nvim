@@ -35,7 +35,7 @@ return {
     },
 
     markdown = {
-        mason_to_install = { "harper-ls", "prettier", "marksman" },
+        mason_to_install = { "prettier", "marksman" },
         treesitter_to_install = { "markdown" },
         lsp_configs = {
             marksman = {},
@@ -63,7 +63,11 @@ return {
             sh = { "shfmt" },
         },
     },
-    typos = {
+    regex = {
+        treesitter_to_install = { "regex" },
+    },
+
+    common = {
         mason_to_install = { "typos-lsp" },
         lsp_configs = {
             typos_lsp = {
@@ -72,8 +76,5 @@ return {
                 },
             },
         },
-    },
-    regex = {
-        treesitter_to_install = { "regex" },
     },
 }
