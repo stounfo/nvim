@@ -11,8 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Set up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.1
+      - name: Install stylua
+        run: cargo install stylua
+
+      - name: Install typos
+        run: cargo install typos-cli
+
+      - name: Check formatting
+        run: make formatter-check
+
+      - name: Check spelling
+        run: make spellchecker-check
+
+
