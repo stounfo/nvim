@@ -3,7 +3,7 @@ local colors = require("colors")
 local options = function()
     return {
         notify = {
-            enabled = false,
+            enabled = true,
         },
         messages = {
             enabled = true,

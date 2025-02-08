@@ -35,10 +35,10 @@ return {
     },
 
     markdown = {
-        mason_to_install = { "prettier", "marksman" },
+        mason_to_install = { "prettier", "markdown-oxide" },
         treesitter_to_install = { "markdown" },
         lsp_configs = {
-            marksman = {},
+            markdown_oxide = {},
         },
         formatters = {
             markdown = { "prettier" },
