@@ -55,8 +55,16 @@ local options = function()
                 local colored = false
                 local signs = {
                     { key = "added", symbol = "+", hl = "%#GitSignsAdd#" },
-                    { key = "changed", symbol = "~", hl = "%#GitSignsChange#" },
-                    { key = "removed", symbol = "-", hl = "%#GitSignsDelete#" },
+                    {
+                        key = "changed",
+                        symbol = "~",
+                        hl = "%#GitSignsChange#",
+                    },
+                    {
+                        key = "removed",
+                        symbol = "-",
+                        hl = "%#GitSignsDelete#",
+                    },
                 }
                 for _, sign in ipairs(signs) do
                     local count = vim.b.gitsigns_status_dict[sign.key] or 0

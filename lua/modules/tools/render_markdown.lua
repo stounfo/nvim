@@ -15,12 +15,12 @@ local options = function()
             style = "full",
             position = "right",
             width = "block",
-            min_width = 80,
+            min_width = 79,
             left_pad = 1,
             language_pad = 1,
         },
         dash = {
-            width = 80,
+            width = 79,
         },
         bullet = {
             enabled = false,

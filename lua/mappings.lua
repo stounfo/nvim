@@ -16,7 +16,8 @@ return function()
     local dapui = require("modules.tools.dap.dap_ui").my_commands
     local snacks = require("modules.snacks").my_commands
     local zen_mode = require("modules.tools.zen_mode").my_commands
-    local render_markdown = require("modules.tools.render_markdown").my_commands
+    local render_markdown =
+        require("modules.tools.render_markdown").my_commands
 
     local wk = require("which-key")
 
@@ -130,7 +131,11 @@ return function()
         { "<leader>gb", telescope_commands.git_branches, desc = "Branches" },
         { "<leader>gl", gitsigns_commands.blame_line, desc = "Blame line" },
         { "<leader>gL", blame_commands.toggle_blame, desc = "Toggle blame" },
-        { "<leader>gr", gitsigns_commands.reset_buffer, desc = "Reset buffer" },
+        {
+            "<leader>gr",
+            gitsigns_commands.reset_buffer,
+            desc = "Reset buffer",
+        },
         { "<leader>gh", group = "Hunk" },
         {
             "<leader>ghp",
@@ -166,7 +171,11 @@ return function()
             { "<leader>ae", copilot_chat_commands.explain, desc = "Explain" },
             { "<leader>ar", copilot_chat_commands.review, desc = "Review" },
             { "<leader>af", copilot_chat_commands.fix, desc = "Fix" },
-            { "<leader>ap", copilot_chat_commands.optimize, desc = "Optimize" },
+            {
+                "<leader>ap",
+                copilot_chat_commands.optimize,
+                desc = "Optimize",
+            },
             { "<leader>ad", copilot_chat_commands.docs, desc = "Docs" },
             { "<leader>at", copilot_chat_commands.tests, desc = "Tests" },
             {
