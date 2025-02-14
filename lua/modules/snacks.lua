@@ -1,6 +1,6 @@
 local colors = require("colors")
 
-local headerLines = {
+local header_lines = {
     "   |\\_._/|        |,\\__/|        |\\___/|        |\\/~\\/|  ",
     "   | o o |        |  o o|        | ^ ^ |        | * * |  ",
     "   (  T  )        (   W )        (  v  )        (  U  )  ",
@@ -9,7 +9,7 @@ local headerLines = {
     "  | | | | |      | | | | |      | |---| |      | || || | ",
     " ((_((N))_))    ((_((V))_))    ((_((I))_))    ((_((M))_))",
 }
-local header = table.concat(headerLines, "\n")
+local header = table.concat(header_lines, "\n")
 
 local my_commands = {
     git_link = function()
