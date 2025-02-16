@@ -83,7 +83,7 @@ local options = function()
             },
         },
         notifier = {
-            timeout = 700,
+            timeout = 1000,
             padding = true,
             width = { min = 0, max = 0.5 },
             margin = { right = 0 },
@@ -92,13 +92,9 @@ local options = function()
                 local whl = ctx.opts.wo.winhighlight
                 ctx.opts.wo.winhighlight =
                     whl:gsub(ctx.hl.msg, "SnacksNotifierMinimal")
-                vim.api.nvim_buf_set_lines(
-                    buf,
-                    0,
-                    -1,
-                    false,
-                    { notif.icon .. notif.msg }
-                )
+                local msg = vim.split(notif.msg, "\n")
+                msg[1] = (msg[1] and notif.icon .. msg[1]) or notif.icon
+                vim.api.nvim_buf_set_lines(buf, 0, -1, false, msg)
                 vim.api.nvim_buf_add_highlight(
                     buf,
                     ctx.ns,

@@ -83,7 +83,7 @@ end
 
 return {
     "saghen/blink.cmp",
-    version = "v0.*",
+    version = "0.11.0",
     event = "InsertEnter",
     dependencies = dependencies,
     opts = options,
