@@ -83,7 +83,7 @@ local options = function()
             },
         },
         notifier = {
-            timeout = 1000,
+            timeout = 1500,
             padding = true,
             width = { min = 0, max = 0.5 },
             margin = { right = 0 },
