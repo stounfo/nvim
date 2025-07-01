@@ -96,11 +96,7 @@ my_utils.statuscolumn = function()
     local is_relnum = vim.wo[win].relativenumber
     local line_number = ""
     if (is_num or is_relnum) and vim.v.virtnum == 0 then
-        if vim.v.relnum == 0 then
-            line_number = is_num and "%l" or "%r" -- the current line
-        else
-            line_number = is_relnum and "%r" or "%l" -- other lines
-        end
+        line_number = "%l"
     end
 
     local result = ""

@@ -29,10 +29,16 @@ local my_commands = {
 local options = function()
     return {
         signs = {
-            changedelete = { text = "┃" },
+            add = { text = "" },
+            change = { text = "" },
+            delete = { text = "" },
+            changedelete = { text = "" },
         },
         signs_staged = {
-            changedelete = { text = "┃" },
+            add = { text = "" },
+            change = { text = "" },
+            delete = { text = "" },
+            changedelete = { text = "" },
         },
         sign_priority = 50,
         preview_config = {
