@@ -104,7 +104,6 @@ my_utils.statuscolumn = function()
         or ""
     if signcolumn == "number" then
         result = table.concat({
-            "%=",
             git_sign_hl,
             show_signs
                     and signs[1]
@@ -118,13 +117,12 @@ my_utils.statuscolumn = function()
         })
     else
         result = table.concat({
-            "%=",
             git_sign_hl,
             line_number,
             show_signs and (" " .. my_utils.icon(signs[1], 1)) or "",
         })
     end
-    return result .. " "
+    return "%=" .. result .. " "
 end
 
 local _ = {
