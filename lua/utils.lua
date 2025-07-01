@@ -113,7 +113,7 @@ M.read_gitignore = function(path)
 end
 
 M.read_local_settings = function()
-    local lua_dev_path = "./.dev/lua/?.lua"
+    local lua_dev_path = "./.dev/nvim/?.lua"
     package.path = package.path .. ";" .. lua_dev_path
 
     local function file_exists(path)
@@ -126,7 +126,7 @@ M.read_local_settings = function()
         end
     end
 
-    local file_path = "./.dev/lua/local_settings.lua"
+    local file_path = "./.dev/nvim/local_settings.lua"
     if file_exists(file_path) then
         local local_settings = require("local_settings")
         return local_settings

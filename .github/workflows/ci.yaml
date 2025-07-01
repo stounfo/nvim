@@ -25,5 +25,3 @@ jobs:
 
       - name: Check spelling
         run: make spellchecker-check
-
-

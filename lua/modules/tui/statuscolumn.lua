@@ -90,13 +90,19 @@ my_utils.statuscolumn = function()
         end
     end
 
-    -- Numbers in Neovim are weird
-    -- They show when either number or relativenumber is true
     local is_num = vim.wo[win].number
     local is_relnum = vim.wo[win].relativenumber
     local line_number = ""
     if (is_num or is_relnum) and vim.v.virtnum == 0 then
-        line_number = "%l"
+        local num
+        if is_relnum and is_num and vim.v.relnum == 0 then
+            num = vim.v.lnum
+        elseif is_relnum then
+            num = vim.v.relnum
+        else
+            num = vim.v.lnum
+        end
+        line_number = tostring(num)
     end
 
     local result = ""
@@ -104,7 +110,6 @@ my_utils.statuscolumn = function()
         or ""
     if signcolumn == "number" then
         result = table.concat({
-            "%=",
             git_sign_hl,
             show_signs
                     and signs[1]
@@ -118,13 +123,12 @@ my_utils.statuscolumn = function()
         })
     else
         result = table.concat({
-            "%=",
             git_sign_hl,
             line_number,
             show_signs and (" " .. my_utils.icon(signs[1], 1)) or "",
         })
     end
-    return result .. " "
+    return "%=" .. result .. " "
 end
 
 local _ = {

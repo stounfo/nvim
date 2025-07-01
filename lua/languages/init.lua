@@ -3,6 +3,7 @@ local main = {
     python = require("languages.python"),
     typescript = require("languages.typescript"),
     rust = require("languages.rust"),
+    go = require("languages.go"),
 }
 local other = require("languages.other")
 
