@@ -6,11 +6,7 @@ return function()
     local conform_commands = require("modules.tools.conform").my_commands
     local aerial_commands = require("modules.tools.aerial").my_commands
     local lspconfig_commands = require("modules.editor.lspconfig").my_commands
-    local copilot_commands =
-        require("modules.editor.completion.copilot").my_commands
     local zoom_commands = require("modules.tui.zoom_window").my_commands
-    local copilot_chat_commands =
-        require("modules.tools.copilot_chat").my_commands
     local neotest = require("modules.tools.neotest").my_commands
     local dap = require("modules.tools.dap.dap").my_commands
     local dapui = require("modules.tools.dap.dap_ui").my_commands
@@ -148,41 +144,6 @@ return function()
             snacks.git_link,
             mode = { "n", "v" },
             desc = "Create link and open",
-        },
-    })
-
-    -- ai
-    wk.add({
-        { "<leader>a", group = "ai" },
-        {
-            "<leader>aa",
-            copilot_chat_commands.toggle_chat,
-            desc = "Toggle chat",
-        },
-        {
-            "<leader>aC",
-            copilot_commands.toggle_copilot,
-            desc = "Toggle copilot",
-        },
-        { "<leader>ao", copilot_chat_commands.commit, desc = "Commit staged" },
-        { "<leader>aP", copilot_commands.panel },
-        {
-            mode = { "v" },
-            { "<leader>ae", copilot_chat_commands.explain, desc = "Explain" },
-            { "<leader>ar", copilot_chat_commands.review, desc = "Review" },
-            { "<leader>af", copilot_chat_commands.fix, desc = "Fix" },
-            {
-                "<leader>ap",
-                copilot_chat_commands.optimize,
-                desc = "Optimize",
-            },
-            { "<leader>ad", copilot_chat_commands.docs, desc = "Docs" },
-            { "<leader>at", copilot_chat_commands.tests, desc = "Tests" },
-            {
-                "<leader>ai",
-                copilot_chat_commands.diagnostic,
-                desc = "Diagnostic",
-            },
         },
     })
 
