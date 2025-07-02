@@ -90,13 +90,19 @@ my_utils.statuscolumn = function()
         end
     end
 
-    -- Numbers in Neovim are weird
-    -- They show when either number or relativenumber is true
     local is_num = vim.wo[win].number
     local is_relnum = vim.wo[win].relativenumber
     local line_number = ""
     if (is_num or is_relnum) and vim.v.virtnum == 0 then
-        line_number = "%l"
+        local num
+        if is_relnum and is_num and vim.v.relnum == 0 then
+            num = vim.v.lnum
+        elseif is_relnum then
+            num = vim.v.relnum
+        else
+            num = vim.v.lnum
+        end
+        line_number = tostring(num)
     end
 
     local result = ""
