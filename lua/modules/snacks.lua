@@ -23,6 +23,12 @@ local colorscheme = {
     LspReferenceWrite = { ctermbg = colors.lightest_background },
     SnacksIndent = { ctermfg = colors.light_background, blend = 0 },
     SnacksIndentScope = { ctermfg = colors.darkest_foreground, blend = 0 },
+    SnacksInputIcon = { link = "Normal" },
+    SnacksInputNormal = { link = "NormalFloat" },
+    SnacksInputBorder = { link = "FloatBorder" },
+    SnacksInputTitle = { link = "FloatTitle" },
+    SnacksPickerIdx = { link = "Normal" },
+    SnacksPickerListCursorLine = { link = "CursorLine" },
     SnacksDashboardHeader = { ctermfg = colors.blue },
     SnacksNotifierMinimal = { ctermfg = colors.darkest_foreground },
     SnacksNotifierIconError = { ctermfg = colors.red },
@@ -38,6 +44,13 @@ local options = function()
         quickfile = { enabled = true },
         gitbrowse = { enabled = true },
         words = { enabled = true },
+        input = {
+            enabled = true,
+        },
+        picker = {
+            enabled = true,
+            ui_select = true,
+        },
         dashboard = {
             preset = {
                 header = header,

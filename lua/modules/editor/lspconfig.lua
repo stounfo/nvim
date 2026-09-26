@@ -58,15 +58,16 @@ return {
         require("utils").set_hl(colorscheme)
         ui()
 
-        local lspconfig = require("lspconfig")
-
+        local servers = {}
         for _, lang in pairs(require("languages")) do
             if lang.lsp_configs then
                 for name, config in pairs(lang.lsp_configs) do
-                    lspconfig[name].setup(config)
+                    vim.lsp.config(name, config)
+                    servers[#servers + 1] = name
                 end
             end
         end
+        vim.lsp.enable(servers)
     end,
     my_commands = my_commands,
 }

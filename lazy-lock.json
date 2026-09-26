@@ -15,10 +15,6 @@
         "branch": "master",
         "commit": "4c9003aab62879612c50136649baa1b8ed36cfa1"
     },
-    "dressing.nvim": {
-        "branch": "master",
-        "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639"
-    },
     "friendly-snippets": {
         "branch": "main",
         "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175"
