@@ -7,9 +7,6 @@ return function()
     local aerial_commands = require("modules.tools.aerial").my_commands
     local lspconfig_commands = require("modules.editor.lspconfig").my_commands
     local zoom_commands = require("modules.tui.zoom_window").my_commands
-    local neotest = require("modules.tools.neotest").my_commands
-    local dap = require("modules.tools.dap.dap").my_commands
-    local dapui = require("modules.tools.dap.dap_ui").my_commands
     local snacks = require("modules.snacks").my_commands
     local zen_mode = require("modules.tools.zen_mode").my_commands
     local render_markdown =
@@ -155,35 +152,6 @@ return function()
             aerial_commands.toggle_aerial,
             desc = "Toggle symbols",
         },
-    })
-
-    -- debug
-    wk.add({
-        { "<leader>u", group = "Debug" },
-        { "<leader>uc", dap.continue, desc = "Continue" },
-        { "<leader>ub", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
-        { "<leader>uo", dap.step_over, desc = "Step over" },
-        { "<leader>ui", dap.step_into, desc = "Step into" },
-        { "<leader>uO", dap.run_to_cursor, desc = "Run to cursor" },
-        { "<leader>uT", dap.terminate, desc = "Terminate" },
-        { "<leader>uK", dapui.hover, desc = "Hover" },
-
-        { "<leader>ur", dap.run, desc = "Run" },
-        { "<leader>uu", dapui.toggle_dapui, desc = "Toggle dapui" },
-        { "<leader>ue", dapui.show_repl, desc = "Show repl" }, -- spellchecker:disable-line
-    })
-
-    -- tests
-    wk.add({
-        { "<leader>t", group = "Tests" },
-        { "<leader>tt", neotest.toggle_ui, desc = "Toggle neotest ui" },
-        { "<leader>tn", neotest.test_nearest, desc = "Run nearest test" },
-        {
-            "<leader>tN",
-            neotest.test_nearest_debug,
-            desc = "Debug nearest test",
-        },
-        { "<leader>tf", neotest.test_file, desc = "Run all tests in file" },
     })
 
     -- refactoring
