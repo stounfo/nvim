@@ -21,6 +21,14 @@ local colorscheme = {
         ctermbg = colors.default_background,
     },
     SignColumn = { ctermbg = colors.default_background },
+    StatusLine = {
+        ctermfg = colors.default_background,
+        ctermbg = colors.default_background,
+    },
+    StatusLineNC = {
+        ctermfg = colors.default_background,
+        ctermbg = colors.default_background,
+    },
     WinSeparator = { ctermfg = colors.light_background },
 
     FloatBorder = {
