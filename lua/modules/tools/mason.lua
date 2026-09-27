@@ -14,6 +14,7 @@ end
 
 return {
     "williamboman/mason.nvim",
+    lazy = false,
     cmd = {
         "Mason",
         "MasonInstall",
@@ -28,7 +29,7 @@ return {
         local _ = {
             -- Cmd to install all mason binaries listed
             vim.api.nvim_create_user_command("MasonInstallAll", function()
-                local to_install = ""
+                local to_install = "tree-sitter-cli"
                 for _, opts in pairs(require("languages")) do
                     if opts.mason_to_install then
                         to_install = to_install
