@@ -52,7 +52,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        require("modules.tools.mason"),
+        require("modules.mason"),
     },
     config = function()
         require("utils").set_hl(colorscheme)

@@ -197,14 +197,13 @@ local options = function()
 end
 
 local dependencies = {
-    require("modules.dependencies.plenary"),
+    require("modules.plenary"),
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
     },
     {
         "nvim-telescope/telescope-live-grep-args.nvim",
-        version = "^1.0.0",
     },
 }
 

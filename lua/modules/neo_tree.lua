@@ -156,12 +156,11 @@ local colorscheme = {
 
 return {
     cmd = "Neotree",
-    branch = "v3.x",
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
-        require("modules.dependencies.plenary"),
-        require("modules.dependencies.nvim_web_devicons"),
-        require("modules.dependencies.nui"),
+        require("modules.plenary"),
+        require("modules.nvim_web_devicons"),
+        require("modules.nui"),
     },
     opts = options,
     config = function(_, opts)

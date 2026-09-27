@@ -81,8 +81,8 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = "markdown",
     dependencies = {
-        require("modules.editor.treesitter"),
-        require("modules.dependencies.nvim_web_devicons"),
+        require("modules.treesitter"),
+        require("modules.nvim_web_devicons"),
     },
     opts = options,
     config = function(_, opts)

@@ -1,4 +1,5 @@
 local dependencies = {
+    "saghen/blink.lib",
     "rafamadriz/friendly-snippets",
 }
 
@@ -11,6 +12,9 @@ local colorscheme = {
     },
     BlinkCmpMenuSelection = {
         link = "CursorLine",
+    },
+    BlinkCmpKind = {
+        link = "NormalFloat",
     },
     BlinkCmpDocBorder = {
         link = "BlinkCmpMenuBorder",
@@ -34,7 +38,6 @@ local options = function()
         },
         sources = {
             default = { "lsp", "snippets", "buffer", "path", "markdown" },
-            cmdline = {},
             providers = {
                 markdown = {
                     name = "RenderMarkdown",
@@ -42,6 +45,11 @@ local options = function()
                     fallbacks = { "lsp" },
                 },
             },
+        },
+        -- Blink v2 moved mode-specific sources from `sources` to `cmdline`.
+        -- Keep command-line completion disabled, as the old empty source list did.
+        cmdline = {
+            enabled = false,
         },
         completion = {
             accept = {
@@ -61,6 +69,14 @@ local options = function()
                     columns = {
                         { "label", "label_description", gap = 1 },
                         { "kind" },
+                    },
+                    components = {
+                        label = {
+                            highlight = "BlinkCmpLabel",
+                        },
+                        kind = {
+                            highlight = "BlinkCmpKind",
+                        },
                     },
                 },
                 enabled = true,
@@ -83,9 +99,11 @@ end
 
 return {
     "saghen/blink.cmp",
-    version = "0.11.0",
     event = "InsertEnter",
     dependencies = dependencies,
+    build = function()
+        require("blink.cmp").build():pwait()
+    end,
     opts = options,
     config = function(_, opts)
         require("utils").set_hl(colorscheme)

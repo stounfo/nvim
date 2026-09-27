@@ -1,9 +1,8 @@
 local colors = require("colors")
 
 local dependencies = {
-    require("modules.dependencies.nvim_web_devicons"),
-    require("modules.tools.aerial"),
-    require("modules.tui.noice"),
+    require("modules.nvim_web_devicons"),
+    require("modules.noice"),
 }
 
 local theme = {
@@ -33,13 +32,6 @@ local options = function()
                     file_path = "[No Name]"
                 end
                 final_path = final_path .. file_path
-
-                local location_path = require("aerial").get_location()
-                if #location_path > 0 then
-                    for _, location in ipairs(location_path) do
-                        final_path = final_path .. "::" .. location.name
-                    end
-                end
 
                 return final_path
             end,
@@ -129,11 +121,6 @@ local options = function()
             neotree = {
                 winbar = {},
                 filetypes = { "neo-tree" },
-            },
-
-            aerial = {
-                winbar = {},
-                filetypes = { "aerial" },
             },
         },
     }

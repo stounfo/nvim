@@ -6,7 +6,7 @@ Neovim configuration. Always a WIP.
 
 Using:
 
-- [Neovim 0.10](https://github.com/neovim/neovim/releases/tag/v0.10.0)
+- [Neovim 0.12.5](https://github.com/neovim/neovim/releases/tag/v0.12.5)
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 

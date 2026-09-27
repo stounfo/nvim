@@ -100,7 +100,7 @@ return {
     event = "VeryLazy",
     opts = options,
     dependencies = {
-        require("modules.dependencies.nui"),
+        require("modules.nui"),
     },
     config = function(_, opts)
         require("utils").set_hl(colorscheme)

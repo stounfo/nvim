@@ -1,16 +1,13 @@
 return function()
-    local telescope_commands = require("modules.tools.telescope").my_commands
-    local neo_tree_commands = require("modules.tools.neo_tree").my_commands
-    local gitsigns_commands = require("modules.tools.vcs.gitsigns").my_commands
-    local blame_commands = require("modules.tools.vcs.blame").my_commands
-    local conform_commands = require("modules.tools.conform").my_commands
-    local aerial_commands = require("modules.tools.aerial").my_commands
-    local lspconfig_commands = require("modules.editor.lspconfig").my_commands
-    local zoom_commands = require("modules.tui.zoom_window").my_commands
+    local telescope_commands = require("modules.telescope").my_commands
+    local neo_tree_commands = require("modules.neo_tree").my_commands
+    local gitsigns_commands = require("modules.gitsigns").my_commands
+    local conform_commands = require("modules.conform").my_commands
+    local lspconfig_commands = require("modules.lspconfig").my_commands
+    local zoom_commands = require("modules.zoom_window").my_commands
     local snacks = require("modules.snacks").my_commands
-    local zen_mode = require("modules.tools.zen_mode").my_commands
     local render_markdown =
-        require("modules.tools.render_markdown").my_commands
+        require("modules.render_markdown").my_commands
 
     local wk = require("which-key")
 
@@ -123,7 +120,6 @@ return function()
         { "<leader>gs", telescope_commands.git_status, desc = "Status" },
         { "<leader>gb", telescope_commands.git_branches, desc = "Branches" },
         { "<leader>gl", gitsigns_commands.blame_line, desc = "Blame line" },
-        { "<leader>gL", blame_commands.toggle_blame, desc = "Toggle blame" },
         {
             "<leader>gr",
             gitsigns_commands.reset_buffer,
@@ -141,16 +137,6 @@ return function()
             snacks.git_link,
             mode = { "n", "v" },
             desc = "Create link and open",
-        },
-    })
-
-    -- symbols
-    wk.add({
-        { "<leader>y", group = "Symbols" },
-        {
-            "<leader>yy",
-            aerial_commands.toggle_aerial,
-            desc = "Toggle symbols",
         },
     })
 
@@ -189,7 +175,6 @@ return function()
     -- view mode
     wk.add({
         { "<leader>v", group = "View mode" },
-        { "<leader>vz", zen_mode.toggle_zen_mode, desc = "Toggle zen mode" },
         {
             "<leader>vm",
             render_markdown.toggle_render_markdown,
